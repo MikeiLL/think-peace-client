@@ -23,6 +23,7 @@ export const Wishes = () => {
     if (data)
       setMarkers(
         data.filter(
+          // @TODO: Don't omit wishes with zero coordinates.
           (dt: any) =>
             dt?.from?.position?.lat &&
             dt?.from?.position?.lng &&
@@ -100,13 +101,7 @@ export const Wishes = () => {
                           Today's Wishes
                         </h3>
                         <Map
-                          markers={markers.map((dt: any) => {
-                            return {
-                              _id: dt.from._id,
-                              name: dt.from.fullAdress,
-                              position: dt.from.position,
-                            };
-                          })}
+                          markers={markers}
                         />
                       </div>
 
