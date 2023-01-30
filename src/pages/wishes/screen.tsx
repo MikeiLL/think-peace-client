@@ -8,25 +8,26 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Screen = () => {
   const navigate = useNavigate();
+  // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
 
   const [wishNum, setWishNum] = useState(0);
-  const [toToast, setToToast]: any = useState([]);
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  // Data is the wishes array.
   const { data, error, isLoading } = useSWR(endpoints.wish.GET_ALL, fetcher);
 
   useEffect(() => {
-    if (data && data?.length >= 1) {
-      setToToast([...toToast, data[wishNum]]);
+    if (data?.length) {
 
       const interval = setInterval(() => {
-        setWishNum((wishNum) =>
-          Number(wishNum) < Number(data?.length - 1) ? wishNum + 1 : wishNum
-        );
+        /* Every four seconds, . */
+        setWishNum((wishNum) => {
 
-        if (Number(wishNum) === Number(data?.length)) clearInterval(interval);
+          return wishNum < data.length - 1 ? wishNum + 1 : 0
+        });
+
       }, 4000);
     }
 
@@ -58,9 +59,9 @@ const Screen = () => {
         <source src="/assets/sounds/firefly.mp3" type="audio/mpeg" />
       </audio>
       <div>
-        {toToast.length > 0 ? (
+        {data.length > 0 ? (
           <ul className="fireflies">
-            {toToast.map((_: any, idx: number) => (
+            {data.map((_: any, idx: number) => (
               <li key={idx}></li>
             ))}
           </ul>
@@ -102,7 +103,7 @@ const Screen = () => {
               </div>
             </div>
             <section className="px-6 py-12">
-              <h1 className="text-2xl">Where Wishes Are Coming From</h1>
+              <h1 className="text-2xl">Today's Wishes</h1>
               <div className="mt-8">
                 {!stack && (
                   <div className="flex justify-end mb-2">
@@ -131,23 +132,20 @@ const Screen = () => {
                   className={`${stack ? "stack" : ""}`}
                   onClick={() => setStack(!stack)}
                 >
-                  {toToast.length > 0 && (
+                  {data.length > 0 && (
                     <>
-                      {toToast
+                      {data
                         .filter((singleWish: any) => singleWish.from)
                         .map((wish: any, idx: number) => (
                           <div
                             key={idx}
                             className="bg-purple-700 py-4 px-6 rounded-md mb-3 text-lg notification-card"
                           >
-                            <h4>{`Wish: ${wish?.hashTag} at ${moment(
-                              wish?.createdAt
-                            ).format("LT")} on ${moment(
-                              wish?.createdAt
-                            ).format("L")} ${
-                              wish?.from?.fullAdress
-                                ? "from " + wish?.from?.fullAdress
-                                : "to " + wish?.to?.fullAdress
+                            <h4>{`${wish?.hashTag} at ${moment(
+                              wish.createdAt
+                            ).format("LT")} ${
+                              "from " + wish.from?.fullAdress +
+                              " to " + wish.to?.fullAdress
                             }`}</h4>
                           </div>
                         ))}
