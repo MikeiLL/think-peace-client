@@ -254,7 +254,7 @@ function Map({ markers }) {
         if (marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng){
           message = marker.hashTag + " from " + marker.from.fullAdress + " to " + marker.to.fullAdress + ".";
         } else {
-          message = marker.hashTag + " from " + marker.to.fullAdress + ".";
+          message = marker.hashTag + " to " + marker.to.fullAdress + ".";
         }
         return <Marker
           key={marker.from._id}
@@ -292,7 +292,7 @@ function Map({ markers }) {
         if (marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng){
           message = marker.hashTag + " to " + marker.to.fullAdress + " from " + marker.from.fullAdress + ".";
         } else {
-          message = marker.hashTag + " to " + marker.to.fullAdress + ".";
+          message = marker.hashTag + " from " + marker.to.fullAdress + ".";
         }
         return <Marker
           key={marker.to._id}
