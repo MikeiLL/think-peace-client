@@ -11,28 +11,11 @@ const Screen = () => {
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
 
-  const [wishNum, setWishNum] = useState(0);
-
   // @ts-ignore
-  const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  const fetcher = (...args) => fetch(...args).then((res) => res.json()).then((wishes) => wishes.reverse());
+
   // Data is the wishes array.
   const { data, error, isLoading } = useSWR(endpoints.wish.GET_ALL, fetcher);
-
-  useEffect(() => {
-    if (data?.length) {
-
-      const interval = setInterval(() => {
-        /* Every four seconds, . */
-        setWishNum((wishNum) => {
-
-          return wishNum < data.length - 1 ? wishNum + 1 : 0
-        });
-
-      }, 4000);
-    }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data, wishNum]);
 
   if (error)
     return (
@@ -154,15 +137,6 @@ const Screen = () => {
                 </div>
               </div>
             </section>
-          </div>
-          <div className="absolute bottom-24 w-full">
-            <div
-              className="flex gap-2 justify-center "
-              style={{ width: "100%" }}
-            >
-              <div className="h-2 w-2 bg-white rounded-full"></div>
-              <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
-            </div>
           </div>
         </div>
       </div>
