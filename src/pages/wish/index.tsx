@@ -2,57 +2,48 @@ import { Container } from "components/partials/Container";
 import { useEffect, useState } from "react";
 import { Player } from "@lottiefiles/react-lottie-player";
 // @ts-ignore
-import Tappable from "react-tappable";
 import { Location } from "components/modals/Location";
 import { Vibration } from "components/partials/Vibration";
 import useWindowDimensions from "hooks/windowDimensions";
 
 export const Wish = () => {
-  const [initVibration, setInitVibration]: any = useState(null);
+  const [wishing, setWishing]: any = useState(null);
   const isNotMobile = useWindowDimensions()?.width > 425;
 
-  const initVib = () => {
-    setInitVibration(initVibration ? false : true);
+  const startWishing = () => {
+    setWishing(true);
   };
 
-  const stopVib = () => {
-    setInitVibration(false);
+  const stopWishing = () => {
+    setWishing(false);
   };
 
   useEffect(() => {
-    if (initVibration) {
+    if (wishing) {
       if (window.navigator.vibrate) window.navigator.vibrate(3000);
     }
     return;
-  }, [initVibration]);
+  }, [wishing]);
 
   return (
     <Container>
-      <Location open={initVibration === false} />
+      <Location open={wishing === false} />
 
-      {initVibration && !window.navigator.vibrate && <Vibration />}
-      <Tappable
-        // onTap={initVib}
-        // onPress={initVib}
-        onTouchStart={initVib}
-        onMouseDown={initVib}
-        onMouseUp={stopVib}
-        onTouchEnd={stopVib}
+      {wishing && !window.navigator.vibrate && <Vibration />}
+      <div
+        onMouseDown={startWishing}
+        onTouchStart={startWishing}
+        onMouseUp={stopWishing}
+        onTouchEnd={stopWishing}
       >
-        {!initVibration ? (
+        {!wishing ? (
           <div
             className="h-full py-4 px-6 flex flex-col items-center justify-center"
             style={{ backgroundColor: "#10114C" }}
           >
-            {isNotMobile ? (
-              <h4 className="text-2xl text-white text-center">
-                Hi! Double tap the screen to send a wish for peace.
-              </h4>
-            ) : (
-              <h4 className="text-2xl text-white text-center">
-                Hi! Touch and hold the screen to send a wish for peace.
-              </h4>
-            )}
+            <h4 className="text-2xl text-white text-center">
+                Hi! Hold and a wish for peace.
+            </h4>
           </div>
         ) : (
           <div
@@ -71,7 +62,7 @@ export const Wish = () => {
             </h4>
           </div>
         )}
-      </Tappable>
+      </div>
     </Container>
   );
 };

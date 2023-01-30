@@ -4,13 +4,6 @@ import { useLoadScript } from "@react-google-maps/api";
 import { endpoints } from "constants/endpoints";
 import Map from "./map";
 import { useEffect, useState } from "react";
-import {
-  CarouselProvider,
-  Slider,
-  Slide,
-  ButtonBack,
-  ButtonNext,
-} from "pure-react-carousel";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -52,29 +45,24 @@ export const Wishes = () => {
 
   if (error)
     return (
-      <Container>
         <div
           className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>failed to load</div>
         </div>
-      </Container>
     );
   if (isLoading)
     return (
-      <Container>
         <div
           className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>loading...</div>
         </div>
-      </Container>
     );
 
   return (
-    <Container>
       <div
         className="h-screen"
         style={{
@@ -106,22 +94,10 @@ export const Wishes = () => {
         <div>
           {isLoaded && markers ? (
             <div className="h-screen text-white">
-              <CarouselProvider
-                naturalSlideWidth={100}
-                naturalSlideHeight={155}
-                totalSlides={2}
-              >
-                <Slider>
-                  <Slide index={0}>
-                    <div
-                      className="h-screen py-4 px-6"
-                      style={{
-                        backgroundColor: "#10114C",
-                      }}
-                    >
+
                       <div>
                         <h3 className="py-2 text-2xl mt-4 mb-6 ">
-                          Where are wishes from today?
+                          Today's Wishes
                         </h3>
                         <Map
                           markers={markers.map((dt: any) => {
@@ -134,50 +110,11 @@ export const Wishes = () => {
                         />
                       </div>
 
-                      <div className="flex gap-2 justify-center mt-8">
-                        <div className="h-2 w-2 bg-white rounded-full"></div>
-                        <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
-                      </div>
-                    </div>
-                  </Slide>
-                  <Slide index={1}>
-                    <div
-                      className="h-screen py-4 px-6"
-                      style={{
-                        backgroundColor: "#10114C",
-                      }}
-                    >
-                      <div>
-                        <h3 className="py-2 text-2xl mt-4 mb-6 ">
-                          Where are wishes going today?
-                        </h3>
-                        <Map
-                          markers={markers.map((dt: any) => {
-                            return {
-                              _id: dt.to._id,
-                              name: dt.to.fullAdress,
-                              position: dt.to.position,
-                            };
-                          })}
-                        />
-                      </div>
-                      <div className="flex gap-2 justify-center mt-8">
-                        <div className="h-2 w-2 bg-gray-500 rounded-full"></div>
-                        <div className="h-2 w-2 bg-white rounded-full"></div>
-                      </div>
-                    </div>
-                  </Slide>
-                </Slider>
-
-                {/* <ButtonBack>Back</ButtonBack>
-            <ButtonNext>Next</ButtonNext> */}
-              </CarouselProvider>
             </div>
           ) : (
             <div>Map loading...</div>
           )}
         </div>
       </div>
-    </Container>
   );
 };
