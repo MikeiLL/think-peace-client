@@ -245,7 +245,7 @@ function Map({ markers }) {
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{
         width: "100%",
-        height: "60vh",
+        height: "90vh",
         borderRadius: "10px",
       }}
     >
@@ -254,7 +254,7 @@ function Map({ markers }) {
         if (marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng){
           message = marker.hashTag + " from " + marker.from.fullAdress + " to " + marker.to.fullAdress + ".";
         } else {
-          message = marker.hashTag + " to " + marker.to.fullAdress + ".";
+          message = marker.hashTag + " from " + marker.to.fullAdress + ".";
         }
         return <Marker
           key={marker.from._id}
