@@ -93,7 +93,7 @@ export const Wishes = () => {
         </div>
         <div>
           {isLoaded && markers ? (
-            <div className="h-screen text-white">
+            <div className="h-screen text-white mx-2">
 
                       <div>
                         <h3 className="py-2 text-2xl mt-4 mb-6 ">
