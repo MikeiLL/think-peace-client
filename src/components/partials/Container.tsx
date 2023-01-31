@@ -7,7 +7,7 @@ export const Container = ({
 }) => {
   return (
     <main
-      className={`container mx-auto ${
+      className={`mx-auto ${
         overflow ? "min-h-screen overflow-y-auto" : " h-screen overflow-hidden"
       }`}
     >

@@ -29,17 +29,17 @@ export const Wish = () => {
     <Container>
       <Location open={wishing === false} />
 
-      {wishing && !window.navigator.vibrate && <Vibration />}
+      {wishing && <Vibration />}
       <div
         onMouseDown={startWishing}
         onTouchStart={startWishing}
         onMouseUp={stopWishing}
         onTouchEnd={stopWishing}
+        className="h-full"
       >
         {!wishing ? (
           <div
-            className="h-full py-4 px-6 flex flex-col items-center justify-center"
-            style={{ backgroundColor: "#10114C" }}
+            className="h-full cursor-pointer py-4 px-6 flex flex-col items-center justify-center"
           >
             <h4 className="text-2xl text-white text-center">
                 Hi! Hold and make a wish for peace.
