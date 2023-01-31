@@ -74,7 +74,7 @@ export const Wishes = () => {
             onClick={() => setAudio(!audio)}
             className="btn bg-blue-500 rounded-3xl text-xl text-gray-200 ml-2 mt-2"
           >
-            {audio ? "🔇" : "🔈"}
+            {audio ? "🔈" : "🔇"}
           </button>
           </div>
         </div>
