@@ -20,7 +20,7 @@ const Screen = () => {
   if (error)
     return (
         <div
-          className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
+          className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>failed to load</div>
@@ -29,7 +29,7 @@ const Screen = () => {
   if (isLoading)
     return (
         <div
-          className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
+          className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>loading...</div>
@@ -61,32 +61,7 @@ const Screen = () => {
             backgroundSize: "cover",
           }}
         >
-          <div className="relative">
-            <div className="flex items-center justify-between">
-              <Link to="/wish">
-                <p className="text-sm btn bg-blue-500 rounded-3xl text-gray-200 ml-2 mt-2">
-                  Send a new wish
-                </p>
-              </Link>
-              <div className="flex justify-end pr-5 py-3 absolute right-0 top-0">
-                <label
-                  htmlFor="default-toggle"
-                  className="inline-flex relative items-center cursor-pointer"
-                >
-                  <input
-                    type="checkbox"
-                    value=""
-                    id="default-toggle"
-                    className="sr-only peer"
-                    onChange={() => navigate("/wishes")}
-                    checked={true}
-                  />
-                  <div className="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-yellow-300 dark:peer-focus:ring-yellow-600 rounded-full peer dark:bg-yellow-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-yellow-600"></div>
-                </label>
-              </div>
-            </div>
             <section className="px-6 py-12">
-              <h1 className="text-2xl">Today's Wishes</h1>
               <div className="mt-8">
                 {!stack && (
                   <div className="flex justify-end mb-2">
@@ -137,7 +112,6 @@ const Screen = () => {
                 </div>
               </div>
             </section>
-          </div>
         </div>
       </div>
     </div>

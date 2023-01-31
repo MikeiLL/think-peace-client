@@ -3,6 +3,7 @@ import { Container } from "components/partials/Container";
 import { useLoadScript } from "@react-google-maps/api";
 import { endpoints } from "constants/endpoints";
 import Map from "./map";
+import Screen from "./screen";
 import { useEffect, useState } from "react";
 
 import { Link, useNavigate } from "react-router-dom";
@@ -36,7 +37,7 @@ export const Wishes = () => {
 
   const navigate = useNavigate();
   const navHandler = () => {
-    navigate("/wishes/screen");
+    navigate("/wishes/map");
   };
 
   //   useEffect(() => {
@@ -47,7 +48,7 @@ export const Wishes = () => {
   if (error)
     return (
         <div
-          className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
+          className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>failed to load</div>
@@ -56,7 +57,7 @@ export const Wishes = () => {
   if (isLoading)
     return (
         <div
-          className="h-screen py-4 px-6 flex flex-col items-center justify-center text-white"
+          className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>loading...</div>
@@ -80,13 +81,13 @@ export const Wishes = () => {
             <label
               htmlFor="default-toggle"
               className="inline-flex relative items-center cursor-pointer"
-            >
-              <input
-                type="checkbox"
-                value=""
-                id="default-toggle"
-                className="sr-only peer"
-                onClick={navHandler}
+            >View Map
+                <input
+                  type="checkbox"
+                  value=""
+                  id="default-toggle"
+                  className="sr-only peer"
+                  onClick={navHandler}
               />
               <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
             </label>
@@ -94,12 +95,13 @@ export const Wishes = () => {
         </div>
         <div>
           {isLoaded && markers ? (
-            <div className="h-screen text-white mx-2">
+            <div className="text-white mx-2">
 
                       <div>
                         <h3 className="py-2 text-2xl mt-4 mb-6 ">
                           Today's Wishes
                         </h3>
+                        <Screen/>
                         <Map
                           markers={markers}
                         />
