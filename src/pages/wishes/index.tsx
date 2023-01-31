@@ -11,7 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 export const Wishes = () => {
   const [showTo, setShowTo] = useState(false);
   const [markers, setMarkers]: any = useState(null);
-  const [audio, setAudio]: any = useState(true);
+  const [audio, setAudio]: any = useState(false);
 
   const { isLoaded } = useLoadScript({
     // @ts-ignore
