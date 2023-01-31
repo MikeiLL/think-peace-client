@@ -42,7 +42,7 @@ export const Wish = () => {
             style={{ backgroundColor: "#10114C" }}
           >
             <h4 className="text-2xl text-white text-center">
-                Hi! Hold and a wish for peace.
+                Hi! Hold and make a wish for peace.
             </h4>
           </div>
         ) : (
