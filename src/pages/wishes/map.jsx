@@ -250,13 +250,7 @@ function Map({ markers }) {
       }}
     >
       {markers.map((marker) => {
-        let message = "";
-        if (marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng){
-          message = marker.hashTag + " from " + marker.from.fullAdress + " to " + marker.to.fullAdress + ".";
-        } else {
-          message = marker.hashTag + " to " + marker.to.fullAdress + ".";
-        }
-        return <Marker
+        return [<Marker
           key={marker.from._id}
           position={marker.from.position}
           onClick={() => handleActiveMarker(marker.from._id)}
@@ -281,49 +275,47 @@ function Map({ markers }) {
                   fontWeight: "medium",
                 }}
               >
-                {message}
+                {`${(marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng)
+                  ? "Wish to " + marker.to.fullAdress + " from " + marker.from.fullAdress + "."
+                  : "Wish to " + marker.to.fullAdress + "."
+                  }`}
               </div>
             </InfoWindow>
           ) : null}
-        </Marker>
-      })}
-      {markers.map((marker) => {
-        let message = "";
-        if (marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng){
-          message = marker.hashTag + " to " + marker.to.fullAdress + " from " + marker.from.fullAdress + ".";
-        } else {
-          message = marker.hashTag + " from " + marker.to.fullAdress + ".";
-        }
-        return <Marker
-          key={marker.to._id}
-          position={marker.to.position}
-          onClick={() => handleActiveMarker(marker.from._id)}
-          icon='https://maps.google.com/mapfiles/kml/paddle/purple-blank.png'
-        //   label={{
-        //     text: name,
-        //     color: "#000000",
-        //     fontWeight: "bold",
-        //     fontSize: "12px",
-        //   }}
-        >
-          {activeMarker === marker.from._id ? (
-            <InfoWindow
-              onCloseClick={() => setActiveMarker(null)}
-            //   position={position}
+        </Marker>,
+        <Marker
+        key={marker.to._id}
+        position={marker.to.position}
+        onClick={() => handleActiveMarker(marker.from._id)}
+        icon='https://maps.google.com/mapfiles/kml/paddle/purple-blank.png'
+      //   label={{
+      //     text: name,
+      //     color: "#000000",
+      //     fontWeight: "bold",
+      //     fontSize: "12px",
+      //   }}
+      >
+        {activeMarker === marker.from._id ? (
+          <InfoWindow
+            onCloseClick={() => setActiveMarker(null)}
+          //   position={position}
+          >
+            <div
+              style={{
+                background: `white`,
+                padding: "2px 4px",
+                color: "blue",
+                fontWeight: "medium",
+              }}
             >
-              <div
-                style={{
-                  background: `white`,
-                  padding: "2px 4px",
-                  color: "blue",
-                  fontWeight: "medium",
-                }}
-              >
-                {message}
-              </div>
-            </InfoWindow>
-          ) : null}
-        </Marker>
+              {`${(marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng)
+                ? "Wish from " + marker.from.fullAdress + " to " + marker.to.fullAdress + "."
+                : "Wish from " + marker.from.fullAdress + "."
+                }`}
+            </div>
+          </InfoWindow>
+        ) : null}
+      </Marker>]
       })}
     </GoogleMap>
   );
