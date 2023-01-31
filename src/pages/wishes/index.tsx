@@ -65,7 +65,7 @@ export const Wishes = () => {
 
   return (
       <div
-        className="h-screen"
+        className="p-2"
         style={{
           backgroundColor: "#10114C",
         }}
