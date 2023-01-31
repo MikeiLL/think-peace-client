@@ -38,9 +38,6 @@ const Screen = () => {
 
   return (
     <div className="min-h-screen">
-      <audio autoPlay loop>
-        <source src="/assets/sounds/firefly.mp3" type="audio/mpeg" />
-      </audio>
       <div>
         {data.length > 0 ? (
           <ul className="fireflies">

@@ -11,6 +11,7 @@ import { Link, useNavigate } from "react-router-dom";
 export const Wishes = () => {
   const [showTo, setShowTo] = useState(false);
   const [markers, setMarkers]: any = useState(null);
+  const [audio, setAudio]: any = useState(true);
 
   const { isLoaded } = useLoadScript({
     // @ts-ignore
@@ -35,15 +36,6 @@ export const Wishes = () => {
     return;
   }, [data]);
 
-  const navigate = useNavigate();
-  const navHandler = () => {
-    navigate("/wishes/map");
-  };
-
-  //   useEffect(() => {
-  //     const timeOut = window.setTimeout(() => navHandler(), 10000 * 2);
-  //     return () => window.clearTimeout(timeOut);
-  //   }, []);
 
   if (error)
     return (
@@ -78,19 +70,12 @@ export const Wishes = () => {
             </p>
           </Link>
           <div className="flex justify-end pr-5 py-2">
-            <label
-              htmlFor="default-toggle"
-              className="inline-flex relative items-center cursor-pointer"
-            >View Map
-                <input
-                  type="checkbox"
-                  value=""
-                  id="default-toggle"
-                  className="sr-only peer"
-                  onClick={navHandler}
-              />
-              <div className="w-11 h-6 bg-gray-600 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600"></div>
-            </label>
+              <button
+            onClick={() => setAudio(!audio)}
+            className="btn bg-blue-500 rounded-3xl text-xl text-gray-200 ml-2 mt-2"
+          >
+            {audio ? "🔇" : "🔈"}
+          </button>
           </div>
         </div>
         <div>
@@ -100,7 +85,13 @@ export const Wishes = () => {
                       <div>
                         <h3 className="py-2 text-2xl mt-4 mb-6 ">
                           Today's Wishes
-                        </h3>
+              </h3>
+              {audio && (
+                <audio autoPlay loop>
+                  <source src="/assets/sounds/firefly.mp3" type="audio/mpeg" />
+                </audio>
+                )
+              }
                         <Screen/>
                         <Map
                           markers={markers}
