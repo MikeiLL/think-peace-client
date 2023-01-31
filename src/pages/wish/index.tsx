@@ -57,9 +57,6 @@ export const Wish = () => {
               style={{ height: "100vh", width: "600px" }}
             />
 
-            <h4 className="text-2xl text-white text-center z-20 absolute top-36">
-              Wishing...
-            </h4>
           </div>
         )}
       </div>
