@@ -59,6 +59,7 @@ export const LocationDetails = () => {
               value: comingFromAddress,
               onChange: setComingFromAddress,
               className: "mt-1 w-full max-w-xs text-gray-700",
+              noOptionsMessage: () => "No results found. Is that a place?",
             }}
           />
         </section>
@@ -74,6 +75,7 @@ export const LocationDetails = () => {
               value: sendingToAddress,
               onChange: setSendingToAddress,
               className: "mt-1 w-full max-w-xs bg-white text-gray-700",
+              noOptionsMessage: () => "No results found. Is that a place?",
             }}
           />
         </section>
