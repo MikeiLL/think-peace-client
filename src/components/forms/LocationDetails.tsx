@@ -14,8 +14,8 @@ export const LocationDetails = () => {
 
   const navigate = useNavigate();
 
-  const [comingFromAddress, setComingFromAddress] = useState("");
-  const [sendingToAddress, setSendingToAddress] = useState("");
+  const [comingFromAddress, setComingFromAddress] = useState();
+  const [sendingToAddress, setSendingToAddress] = useState();
   const submitHandler = async (e: React.ChangeEvent<any>) => {
     e.preventDefault();
 
@@ -36,7 +36,7 @@ export const LocationDetails = () => {
         console.log("Err", error);
       });
 
-    //navigate("/wishes");
+    navigate("/wishes");
   };
 
 
@@ -54,7 +54,7 @@ export const LocationDetails = () => {
           <GooglePlacesAutocomplete
             selectProps={{
               value: comingFromAddress,
-              onChange: (a:any) => setComingFromAddress(a.label),
+              onChange: setComingFromAddress,
               className: "mt-1 w-full max-w-xs text-gray-700",
             }}
           />
@@ -69,7 +69,7 @@ export const LocationDetails = () => {
           <GooglePlacesAutocomplete
             selectProps={{
               value: sendingToAddress,
-              onChange: (a:any) => setSendingToAddress(a.label),
+              onChange: setSendingToAddress,
               className: "mt-1 w-full max-w-xs bg-white text-gray-700",
             }}
           />
