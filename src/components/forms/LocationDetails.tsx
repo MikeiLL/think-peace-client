@@ -19,11 +19,13 @@ export const LocationDetails = () => {
   const submitHandler = async (e: React.ChangeEvent<any>) => {
     e.preventDefault();
 
-    const payload = await {
+    const payload = {
       from: comingFromAddress,
       to: sendingToAddress,
       hashTag,
     };
+
+    console.log("payload", payload);
 
     axios
       .post(endpoints.wish.CREATE, payload)
@@ -34,12 +36,13 @@ export const LocationDetails = () => {
         console.log("Err", error);
       });
 
-    navigate("/wishes");
+    //navigate("/wishes");
   };
-  const googleApiKey = process.env.REACT_APP_GOOGLE_API_KEY;
+
 
   return (
     <div>
+
       <form onSubmit={submitHandler}>
 
         <section className="my-2 flex flex-col items-center">
@@ -49,28 +52,27 @@ export const LocationDetails = () => {
             From
           </label>
           <GooglePlacesAutocomplete
-            apiKey={googleApiKey}
             selectProps={{
               value: comingFromAddress,
-              onChange: setComingFromAddress,
+              onChange: (a:any) => setComingFromAddress(a.label),
               className: "mt-1 w-full max-w-xs text-gray-700",
             }}
           />
         </section>
 
-        <section className="my-2  flex flex-col items-center">
+        <section className="my-2 flex flex-col items-center">
           <label
             className="text-white text-lg pl-2 sm:pl-4 md:pl-10 w-full"
           >
             Send your wish to
           </label>
-          {/* <GooglePlacesAutocomplete
+          <GooglePlacesAutocomplete
             selectProps={{
               value: sendingToAddress,
-              onChange: setSendingToAddress,
+              onChange: (a:any) => setSendingToAddress(a.label),
               className: "mt-1 w-full max-w-xs bg-white text-gray-700",
             }}
-          /> */}
+          />
         </section>
 
         <section className="my-2 flex flex-col items-center">
