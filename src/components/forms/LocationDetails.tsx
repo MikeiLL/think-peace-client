@@ -52,6 +52,9 @@ export const LocationDetails = () => {
             From
           </label>
           <GooglePlacesAutocomplete
+            autocompletionRequest={{
+              types: ["(regions)"],
+            }}
             selectProps={{
               value: comingFromAddress,
               onChange: setComingFromAddress,
