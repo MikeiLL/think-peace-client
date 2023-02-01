@@ -13,12 +13,11 @@ const Screen = () => {
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args)
-    .then((res) => res.json())
-    // Reverse sort the wishes array by createdAt.
-    .then((wishes) => wishes.sort((a:any, b:any) => a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0));
+    .then((res) => res.json());
 
   // Data is the wishes array.
-  const { data, error, isLoading } = useSWR(endpoints.wish.GET_ALL, fetcher);
+  const {data, error, isLoading} = useSWR(endpoints.wish.GET_ALL, fetcher);
+
   if (error)
     return (
         <div
@@ -90,8 +89,11 @@ const Screen = () => {
                   onClick={() => setStack(!stack)}
                 >
                   {data.length > 0 && (
-                    <>
-                      {data
+                  <>
+
+                    {[...data]
+                      /* Incredibly ineffecient, but it works. Sorting above in the fetcher wasn't working. */
+                      .sort((a: any, b: any) => a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0)
                         .filter((singleWish: any) => singleWish.from)
                         .map((wish: any, idx: number) => (
                           <div
