@@ -69,7 +69,12 @@ export const Wishes = () => {
               Send a new wish
             </p>
           </Link>
-          <div className="flex justify-end pr-5 py-2">
+        <div className="flex justify-end pr-5 py-2">
+          <Link to="/about">
+            <p className="text-sm btn bg-blue-500 rounded-3xl  text-gray-200 ml-2 mt-2">
+              About
+            </p>
+          </Link>
               <button
             onClick={() => setAudio(!audio)}
             className="btn bg-blue-500 rounded-3xl text-xl text-gray-200 ml-2 mt-2"
