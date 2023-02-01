@@ -12,11 +12,13 @@ const Screen = () => {
   const [stack, setStack] = useState(true);
 
   // @ts-ignore
-  const fetcher = (...args) => fetch(...args).then((res) => res.json()).then((wishes) => wishes.reverse());
+  const fetcher = (...args) => fetch(...args)
+    .then((res) => res.json())
+    // Reverse sort the wishes array by createdAt.
+    .then((wishes) => wishes.sort((a:any, b:any) => a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0));
 
   // Data is the wishes array.
   const { data, error, isLoading } = useSWR(endpoints.wish.GET_ALL, fetcher);
-
   if (error)
     return (
         <div
@@ -93,6 +95,8 @@ const Screen = () => {
                         .filter((singleWish: any) => singleWish.from)
                         .map((wish: any, idx: number) => (
                           <div
+                            data-createdat={wish?.createdAt}
+                            data-index={idx}
                             key={idx}
                             className="bg-purple-700 py-4 px-6 rounded-md mb-3 text-lg notification-card"
                           >
