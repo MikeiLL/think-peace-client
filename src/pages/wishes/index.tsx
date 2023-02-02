@@ -64,15 +64,12 @@ export const Wishes = () => {
           {isLoaded && markers ? (
             <div className="text-white mx-2">
 
-                      <div>
-                        <h3 className="py-2 text-2xl mt-4 mb-6 ">
-                          Today's Wishes
-              </h3>
-              <Screen/>
-              <Map
-                markers={markers}
-              />
-            </div>
+              <div>
+                <Screen/>
+                <Map
+                  markers={markers}
+                />
+              </div>
 
             </div>
           ) : (
