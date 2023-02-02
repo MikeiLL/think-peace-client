@@ -71,6 +71,9 @@ export const LocationDetails = () => {
             Send your wish to
           </label>
           <GooglePlacesAutocomplete
+            autocompletionRequest={{
+              types: ["(regions)"],
+            }}
             selectProps={{
               value: sendingToAddress,
               onChange: setSendingToAddress,
