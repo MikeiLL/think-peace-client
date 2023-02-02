@@ -9,9 +9,10 @@ export const Controls = () => {
   const [audio, setAudio]: any = useState(false);
   let location = useLocation();
 
+  if (location.pathname === "/") return null;
   return (
 
-  <div className="flex items-center justify-between border-b border-blue-50">
+    <div className="flex items-center justify-between border-b border-blue-50">
     <Link to="/wish">
       <p className="text-sm btn bg-blue-500 rounded-3xl text-gray-200 ml-2 mt-2">
         Send a new wish
