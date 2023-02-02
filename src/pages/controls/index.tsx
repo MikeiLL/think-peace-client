@@ -4,33 +4,39 @@ import { useEffect, useState } from "react";
 import ReactCurvedText from "react-curved-text";
 import {Link, useLocation} from "react-router-dom";
 
+const Titles: Record<string, string> = {
+  "/": "Think Peace",
+  "/wishes": "Today's Wishes",
+  "/about": "About Think Peace",
+}
 
 export const Controls = () => {
   const [audio, setAudio]: any = useState(false);
   let location = useLocation();
+  const buttonTextStyles = "text-sm btn bg-blue-500 rounded-3xl  text-gray-200 ml-2 mt-2";
 
   if (location.pathname === "/") return null;
   return (
 
     <div className="flex items-center justify-between border-b border-blue-50">
     <Link to="/wish">
-      <p className="text-sm btn bg-blue-500 rounded-3xl text-gray-200 ml-2 mt-2">
+      <p className={buttonTextStyles}>
         Send a new wish
       </p>
     </Link>
     <h3 className="py-2 text-2xl mt-4 mb-6 text-gray-200">
-    {location.pathname === "/wishes" ? "Today's Wishes" : "About Think Peace"}
+    {Titles[location.pathname]}
     </h3>
     <div className="flex justify-end pr-5 py-2">
       <Link to={location.pathname === "/wishes" ? "/about" : "/wishes"}>
-        <p className="text-sm btn bg-blue-500 rounded-3xl  text-gray-200 ml-2 mt-2">
+        <p className={buttonTextStyles}>
           {location.pathname === "/wishes" ? "About" : "Wishes"}
         </p>
       </Link>
           <button
             onClick={() => setAudio(!audio)}
-            className="btn bg-blue-500 rounded-3xl text-xl text-gray-200 ml-2 mt-2">
-          {audio ? "🔈" : "🔇"}
+            className={buttonTextStyles}>
+          {audio ? "Mute Music" : "Play Music"}
           </button>
       </div>
       {audio && (
