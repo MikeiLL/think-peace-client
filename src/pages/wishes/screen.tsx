@@ -43,7 +43,17 @@ const Screen = () => {
         {data.length > 0 ? (
           <ul className="fireflies">
             {data.map((_: any, idx: number) => (
-              <li key={idx}></li>
+              <li
+                key={idx}
+                style={
+                  {
+                    "--lr-duration": `${(Math.random() * 12) + 18}s`,
+                    "--ud-duration": `${(Math.random() * 8) + 10}s`,
+                    "--anim-positioning": `${(Math.random() * -data.length)}s`, // determines where in it's cycle it begins
+                    "--anim-delay": `${(Math.random() * idx) }s`,
+                  } as React.CSSProperties
+                }
+              ></li>
             ))}
           </ul>
         ) : (

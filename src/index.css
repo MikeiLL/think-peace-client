@@ -51,14 +51,17 @@ code {
     top: -50px;
     /* opacity: 0.6; */
   }
+
   25% {
     top: -10px;
     /* opacity: 0.8; */
   }
+
   50% {
     top: 10px;
     /* opacity: 0.9; */
   }
+
   25% {
     top: 2px;
     /* opacity: full; */
@@ -69,42 +72,52 @@ code {
   0% {
     top: -10vh;
   }
+
   10% {
     top: 10vh;
     opacity: 0.9;
   }
+
   20% {
     top: 20vh;
     opacity: 0.8;
   }
+
   30% {
     top: 30vh;
     opacity: 0.7;
   }
+
   40% {
     top: 40vh;
     opacity: 0.6;
   }
+
   50% {
     top: 50vh;
     opacity: 0.5;
   }
+
   60% {
     top: 60vh;
     opacity: 0.4;
   }
+
   70% {
     top: 70vh;
     opacity: 0.3;
   }
+
   80% {
     top: 80vh;
     opacity: 0.2;
   }
+
   90% {
     top: 90vh;
     opacity: 0.1;
   }
+
   100% {
     top: 100vh;
     opacity: 0;
@@ -117,7 +130,8 @@ ul.fireflies {
   list-style: none;
 }
 
-li {
+
+ul.fireflies li {
   z-index: 100;
   background-size: cover;
   background-image: url(http://i.imgur.com/aa7Rw.png);
@@ -126,70 +140,77 @@ li {
   height: 25px;
   position: absolute;
   animation: leftright 24s infinite cubic-bezier(0.39, 0, 0.63, 1),
-    updown 8s infinite 1.25s cubic-bezier(0.39, 0, 0.63, 1);
-}
-li:nth-of-type(2) {
-  animation-delay: 4s;
-  animation-duration: 17s, 8s;
-  animation-fill-mode: backwards, backwards;
-}
-li:nth-of-type(3) {
-  animation-delay: 1.5s;
-  animation-duration: 14s, 7s;
-  animation-fill-mode: backwards, backwards;
-}
-li:nth-of-type(4) {
-  animation-delay: 5.5s;
-  animation-duration: 10s, 13s;
-}
-li:nth-of-type(5) {
-  animation-fill-mode: backwards, backwards;
-  animation-duration: 12s, 15s;
+    updown 8s infinite 1.25s cubic-bezier(0.39, 0, 0.63, 1),
+    appear .1s 1;
+  animation-delay: var(--anim-delay);
+  animation-duration: var(--lr-duration), var(--ud-duration);
 }
 
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 @keyframes leftright {
+
   0%,
   100% {
     left: 20%;
   }
+
   16.666% {
-    left: 90%;
+    left: calc(100% - 32px);
   }
+
   33.333% {
-    left: 10%;
+    left: 1%;
   }
+
   50% {
     left: 50%;
   }
+
   66.666% {
     left: 70%;
   }
+
   83.333% {
     left: 40%;
   }
 }
 
 @keyframes updown {
+
   0%,
   100% {
     top: 0px;
     width: 20px;
     height: 20px;
   }
+
   25% {
     top: 70%;
   }
+
   50% {
     top: 50%;
     width: 30px;
     height: 30px;
   }
+
   75% {
-    top: 70%;
+    top: calc(100% - 20px);
     width: 10px;
     height: 10px;
   }
 }
+
 .single_slide {
   height: 100% !important;
   overflow-y: auto !important;
