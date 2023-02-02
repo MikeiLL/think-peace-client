@@ -276,8 +276,8 @@ function Map({ markers }) {
                 }}
               >
                 {`${(marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng)
-                  ? "Wish to " + marker.to.fullAdress + " from " + marker.from.fullAdress + "."
-                  : "Wish to " + marker.to.fullAdress + "."
+                  ? marker.hashTag + " to " + marker.to.fullAdress + " from " + marker.from.fullAdress + "."
+                  : marker.hashTag + " to " + marker.to.fullAdress + "."
                   }`}
               </div>
             </InfoWindow>
@@ -309,8 +309,8 @@ function Map({ markers }) {
               }}
             >
               {`${(marker.from.position.lat == marker.to.position.lat && marker.from.position.lng == marker.to.position.lng)
-                ? "Wish from " + marker.from.fullAdress + " to " + marker.to.fullAdress + "."
-                : "Wish from " + marker.from.fullAdress + "."
+                ? marker.hashTag + " from " + marker.from.fullAdress + " to " + marker.to.fullAdress + "."
+                : marker.hashTag + " from " + marker.from.fullAdress + "."
                 }`}
             </div>
           </InfoWindow>
