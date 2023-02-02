@@ -8,7 +8,7 @@ import {Link, useLocation} from "react-router-dom";
 export const Controls = () => {
   const [audio, setAudio]: any = useState(false);
   let location = useLocation();
-  console.log(location.pathname);
+
   return (
 
   <div className="flex items-center justify-between border-b border-blue-50">
