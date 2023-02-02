@@ -6,12 +6,9 @@ import Map from "./map";
 import Screen from "./screen";
 import { useEffect, useState } from "react";
 
-import { Link, useNavigate } from "react-router-dom";
-
 export const Wishes = () => {
   const [showTo, setShowTo] = useState(false);
   const [markers, setMarkers]: any = useState(null);
-  const [audio, setAudio]: any = useState(false);
 
   const { isLoaded } = useLoadScript({
     // @ts-ignore
@@ -71,17 +68,11 @@ export const Wishes = () => {
                         <h3 className="py-2 text-2xl mt-4 mb-6 ">
                           Today's Wishes
               </h3>
-              {audio && (
-                <audio autoPlay loop>
-                  <source src="/assets/sounds/firefly.mp3" type="audio/mpeg" />
-                </audio>
-                )
-              }
-                        <Screen/>
-                        <Map
-                          markers={markers}
-                        />
-                      </div>
+              <Screen/>
+              <Map
+                markers={markers}
+              />
+            </div>
 
             </div>
           ) : (
