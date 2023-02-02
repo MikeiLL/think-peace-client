@@ -138,11 +138,11 @@ ul.fireflies li {
   width: 25px;
   top: -20px;
   height: 25px;
-  position: absolute;
+  position: fixed;
   animation: leftright 24s infinite cubic-bezier(0.39, 0, 0.63, 1),
     updown 8s infinite 1.25s cubic-bezier(0.39, 0, 0.63, 1),
     appear .1s 1;
-  animation-delay: var(--anim-delay);
+  animation-delay: var(--anim-positioning), var(--anim-positioning), var(--anim-delay);
   animation-duration: var(--lr-duration), var(--ud-duration);
 }
 
