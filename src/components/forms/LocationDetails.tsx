@@ -94,13 +94,19 @@ export const LocationDetails = () => {
             value={hashTag}
             onChange={(e) => setHashTag(e.target.value)}
           >
-            {["#peace", "#love", "#support", "#prayers", "#hope", "#faith"].map(
+            {["peace", "love", "support", "prayers", "hope", "faith", "healing", "respect"].map(
               (tag) => (
                 <option value={tag} key={tag}>
-                  {tag}
+                  #{tag}
                 </option>
               )
-            )}
+            ).sort((a, b) => {
+              if (a.props.value === "peace" || b.props.value === "peace") {
+                return 1;
+              }
+
+              return a.props.value.localeCompare(b.props.value);
+            })}
           </select>
         </section>
 
