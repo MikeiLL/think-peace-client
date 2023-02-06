@@ -18,12 +18,12 @@ export const Welcome = () => {
   });
 
   return (
-    <Container overflow={true}>
+    <Container overflow={false}>
       <div
         className="h-full py-4 px-6 flex flex-col items-center justify-center"
         style={{ backgroundColor: "#10114C" }}
       >
-        <div className="flex-grow text-white font-black text-center -mt-20">
+        <div className="flex-grow text-white font-black text-center mt-40">
           <ReactCurvedText
             width={350}
             height={300}
