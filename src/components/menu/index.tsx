@@ -8,7 +8,7 @@ import {slide as BurgerMenu} from 'react-burger-menu';
 
 const Titles: Record<string, string> = {
   "/": "Think Peace",
-  "/wishes": "Today's Wishes",
+  "/wishes": "Today's wishes",
   "/about": "About Think Peace",
 }
 
@@ -18,9 +18,8 @@ export const Menu = () => {
 
   const [audio, setAudio]: any = useState(false);
   let location = useLocation();
-  const buttonTextStyles = "text-sm btn bg-blue-500 rounded-3xl  text-gray-200 ml-2 mt-2";
   return (
-    <BurgerMenu width={ 280 } right disableOverlayClick>
+    <BurgerMenu width={ 280 } right noOverlay>
       <Link to={location.pathname === "/wishes" ? "/about" : "/wishes"}>
           {location.pathname === "/wishes" ? "About" : "Wishes"}
       </Link>
@@ -29,7 +28,7 @@ export const Menu = () => {
       </Link>
       <button
         onClick={() => setAudio(!audio)}>
-      {audio ? "Mute Music" : "Play Music"}
+      {audio ? "Mute music" : "Play music"}
       </button>
       {audio && (
         <audio autoPlay loop>

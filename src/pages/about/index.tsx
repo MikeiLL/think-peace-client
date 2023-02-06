@@ -1,4 +1,5 @@
-import { Container } from "components/partials/Container";
+import {Container} from "components/partials/Container";
+import { Title } from "components/partials/Title";
 import { useEffect, useState } from "react";
 // @ts-ignore
 import ReactCurvedText from "react-curved-text";
@@ -7,6 +8,7 @@ export const About = () => {
 
   return (
     <Container>
+      <Title title="About Think Peace" />
       <div
         className="h-full py-4 px-6 flex flex-col items-center justify-center"
         style={{ backgroundColor: "#10114C" }}

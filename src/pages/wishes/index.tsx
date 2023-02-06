@@ -1,5 +1,6 @@
 import useSWR from "swr";
-import { Container } from "components/partials/Container";
+import {Title} from "components/partials/Title";
+import {Container} from "components/partials/Container";
 import { endpoints } from "constants/endpoints";
 import Map from "./map";
 import Screen from "./screen";
@@ -30,30 +31,37 @@ export const Wishes = () => {
 
   if (error)
     return (
+      <Container>
+        <Title title="Today's wishes" />
         <div
           className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>failed to load</div>
         </div>
+      </Container>
     );
   if (isLoading)
     return (
+      <Container>
+        <Title title="Today's wishes" />
         <div
           className="py-4 px-6 flex flex-col items-center justify-center text-white"
           style={{ backgroundColor: "#10114C" }}
         >
           <div>loading...</div>
         </div>
+      </Container>
     );
 
   return (
+    <Container>
       <div
-        className="p-2"
         style={{
           backgroundColor: "#10114C",
         }}
       >
+        <Title title="Today's wishes" />
         <div>
           {markers ? (
             <div className="text-white mx-2">
@@ -71,5 +79,6 @@ export const Wishes = () => {
           )}
         </div>
       </div>
+    </Container>
   );
 };
