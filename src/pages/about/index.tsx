@@ -7,10 +7,10 @@ import ReactCurvedText from "react-curved-text";
 export const About = () => {
 
   return (
-    <Container>
+    <Container overflow={true}>
       <Title title="About Think Peace" />
       <div
-        className="h-full py-4 px-6 mt-4"
+        className="h-full py-4 px-6 mt-4 flex flex-col text-white"
         style={{ backgroundColor: "#10114C" }}
       >
         <div className="text-white max-w-prose">
@@ -52,7 +52,7 @@ export const About = () => {
         </div>
 
         {/* © All rights reserved */}
-        <p className="text-white text-sm mt-48 text-center">{`Think Peace © Creative Commons ${new Date().getFullYear()}`}</p>
+        <p className="text-white text-sm static bottom-0 text-center">{`Think Peace © Creative Commons ${new Date().getFullYear()}`}</p>
       </div>
     </Container>
   );

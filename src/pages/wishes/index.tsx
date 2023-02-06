@@ -31,7 +31,7 @@ export const Wishes = () => {
 
   if (error)
     return (
-      <Container>
+      <Container overflow={true}>
         <Title title="Today's wishes" />
         <div
           className="py-4 px-6 flex flex-col items-center justify-center text-white"
@@ -43,7 +43,7 @@ export const Wishes = () => {
     );
   if (isLoading)
     return (
-      <Container>
+      <Container overflow={true}>
         <Title title="Today's wishes" />
         <div
           className="py-4 px-6 flex flex-col items-center justify-center text-white"
@@ -55,7 +55,7 @@ export const Wishes = () => {
     );
 
   return (
-    <Container>
+    <Container overflow={true}>
       <div
         style={{
           backgroundColor: "#10114C",

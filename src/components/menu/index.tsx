@@ -1,4 +1,3 @@
-import { Container } from "components/partials/Container";
 import { useEffect, useState, useRef } from "react";
 // @ts-ignore
 import ReactCurvedText from "react-curved-text";
