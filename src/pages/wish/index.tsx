@@ -48,14 +48,19 @@ export const Wish = () => {
         ) : (
           <div
             className="h-full py-4 px-6 flex flex-col items-center justify-center relative"
-            style={{ backgroundColor: "#10114c95" }}
+              style={{
+                backgroundColor: "#10114c95",
+                zIndex: 999,
+                MozUserSelect: "none",
+                WebkitUserSelect: "none",
+                msUserSelect: "none",
+              }}
           ><Player
               autoplay
               loop
               src="https://lottie.host/e71812c9-b580-4e25-9e35-d16cc5485aa5/2xuQtebzw4.json"
               style={{ height: "100vh", width: "600px" }}
-            />
-          </div>
+            /></div>
         )}
       </div>
     </Container>
