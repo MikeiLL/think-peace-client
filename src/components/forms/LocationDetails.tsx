@@ -31,6 +31,8 @@ export const LocationDetails = () => {
       .post(endpoints.wish.CREATE, payload)
       .then((response) => {
         console.log(response);
+        //@ts-ignore
+        window.refreshWishes();
       })
       .catch((error) => {
         console.log("Err", error);
