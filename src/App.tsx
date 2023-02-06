@@ -3,14 +3,14 @@ import { Welcome } from "./pages/welcome";
 import { Wish } from "pages/wish";
 import { Wishes } from "pages/wishes";
 import {About} from "pages/about";
-import { Controls } from "pages/controls";
+import { Menu } from "components/menu";
 import Screen from "pages/wishes/screen";
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:  <> <Controls /> <Outlet /> </>,
+    element:  <> <Menu /> <Outlet /> </>,
     children: [
       {
         path: "",
