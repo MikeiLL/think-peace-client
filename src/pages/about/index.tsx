@@ -15,19 +15,19 @@ export const About = () => {
       >
         <div className="text-white max-w-prose">
 
-          <p>In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
+          <p className="mb-2">In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
 
-          <p>We call them demonstrations for a reason.</p>
+          <p className="mb-2">We call them demonstrations for a reason.</p>
 
-          <p>Activate your own peace today, then give it away. Do it again tomorrow.</p>
+          <p className="mb-2">Activate your own peace today, then give it away. Do it again tomorrow.</p>
 
-          <p>A note: Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.</p>
+          <p className="mb-2">A note: Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.</p>
 
-          <hr/>
+          <hr className="mb-2"/>
 
-          <h2>Credits</h2>
+          <h2 className="mb-2 text-xl">Credits</h2>
 
-          <ul>
+          <ul className="mb-2">
             <li>Scott Anthony - Founder</li>
             <li>Abby Strugger - Art director</li>
             <li>Mike iLL - Technical design</li>
@@ -37,22 +37,22 @@ export const About = () => {
             <li>Rebecca Turner - Copywriter</li>
           </ul>
 
-          <hr/>
+          <hr className="mb-2"/>
 
-          <p>Help support our talented designers, by Venmoing here:
-            <a href="https://account.venmo.com/u/storybooksound">@storybooksound</a>
+          <p className="mb-2">{"Help support our talented developers via Venmo: " + " "}
+            <a className="text-yellow-300" href="https://account.venmo.com/u/storybooksound">@storybooksound</a>
           </p>
 
-          <hr/>
+          <hr className="mb-2"/>
 
-          Open source hosted on <a href="https://github.com/mikeill/think-peace-client">Github</a>.
+          <p className="mb-2">Open source hosted on <a className="text-yellow-300 underline" href="https://github.com/mikeill/think-peace-client">Github</a>.</p>
 
-          <p>Think Peace is a project of <a href="https://www.storybooksound.com" target="_blank" className="text-white underline">Storybook Sound</a>, a creative studio that makes music, art, and experiences that inspire and connect people.</p>
+          <p className="mb-2">Think Peace is a project of <a className="text-yellow-300 underline" href="https://www.storybooksound.com" target="_blank">Storybook Sound</a>, a creative studio that makes music, art, and experiences that inspire and connect people.</p>
 
         </div>
 
         {/* © All rights reserved */}
-        <p className="text-white text-sm mt-48 text-center">{`Think Peace © All rights reserved ${new Date().getFullYear()}`}</p>
+        <p className="text-white text-sm mt-48 text-center">{`Think Peace © Creative Commons ${new Date().getFullYear()}`}</p>
       </div>
     </Container>
   );
