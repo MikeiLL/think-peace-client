@@ -1,6 +1,5 @@
 import useSWR from "swr";
 import { Container } from "components/partials/Container";
-import { useLoadScript } from "@react-google-maps/api";
 import { endpoints } from "constants/endpoints";
 import Map from "./map";
 import Screen from "./screen";
@@ -9,11 +8,6 @@ import { useEffect, useState } from "react";
 export const Wishes = () => {
   const [showTo, setShowTo] = useState(false);
   const [markers, setMarkers]: any = useState(null);
-
-  const { isLoaded } = useLoadScript({
-    // @ts-ignore
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_API_KEY,
-  });
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args).then((res) => res.json());
@@ -61,7 +55,7 @@ export const Wishes = () => {
         }}
       >
         <div>
-          {isLoaded && markers ? (
+          {markers ? (
             <div className="text-white mx-2">
 
               <div>
