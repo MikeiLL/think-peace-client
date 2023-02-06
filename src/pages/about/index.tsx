@@ -10,7 +10,7 @@ export const About = () => {
     <Container>
       <Title title="About Think Peace" />
       <div
-        className="h-full py-4 px-6 flex flex-col items-center justify-center mt-4"
+        className="h-full py-4 px-6 mt-4"
         style={{ backgroundColor: "#10114C" }}
       >
         <div className="text-white max-w-prose">
@@ -52,7 +52,7 @@ export const About = () => {
         </div>
 
         {/* © All rights reserved */}
-        <p className="text-white text-sm mt-48">{`Think Peace © All rights reserved ${new Date().getFullYear()}`}</p>
+        <p className="text-white text-sm mt-48 text-center">{`Think Peace © All rights reserved ${new Date().getFullYear()}`}</p>
       </div>
     </Container>
   );

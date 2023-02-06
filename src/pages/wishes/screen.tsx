@@ -17,7 +17,7 @@ const Screen = () => {
 
   // Data is the wishes array.
   const {data, error, mutate, isLoading} = useSWR(endpoints.wish.GET_ALL, fetcher);
-  console.log(data);
+
   // Totally breakin' the rules here.
   // @ts-ignore
   window.refreshWishes = mutate;
