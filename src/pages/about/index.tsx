@@ -10,10 +10,10 @@ export const About = () => {
     <Container>
       <Title title="About Think Peace" />
       <div
-        className="h-full py-4 px-6 flex flex-col items-center justify-center"
+        className="h-full py-4 px-6 flex flex-col items-center justify-center mt-4"
         style={{ backgroundColor: "#10114C" }}
       >
-        <div className="text-white mt-20 max-w-prose">
+        <div className="text-white max-w-prose">
 
           <p>In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
 
@@ -46,6 +46,9 @@ export const About = () => {
           <hr/>
 
           Open source hosted on <a href="https://github.com/mikeill/think-peace-client">Github</a>.
+
+          <p>Think Peace is a project of <a href="https://www.storybooksound.com" target="_blank" className="text-white underline">Storybook Sound</a>, a creative studio that makes music, art, and experiences that inspire and connect people.</p>
+
         </div>
 
         {/* © All rights reserved */}
