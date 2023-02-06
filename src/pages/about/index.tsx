@@ -13,8 +13,39 @@ export const About = () => {
         className="h-full py-4 px-6 flex flex-col items-center justify-center"
         style={{ backgroundColor: "#10114C" }}
       >
-        <div className="text-white font-black text-center -mt-20">
-          Coming Soon...
+        <div className="text-white mt-20 max-w-prose">
+
+          <p>In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
+
+          <p>We call them demonstrations for a reason.</p>
+
+          <p>Activate your own peace today, then give it away. Do it again tomorrow.</p>
+
+          <p>A note: Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.</p>
+
+          <hr/>
+
+          <h2>Credits</h2>
+
+          <ul>
+            <li>Scott Anthony - Founder</li>
+            <li>Abby Strugger - Art director</li>
+            <li>Mike iLL - Technical design</li>
+            <li>Chris Angelico - Technical design</li>
+            <li>Faith Ekanem - Technical design</li>
+            <li>Oreoluwa Muzzamil - Technical design</li>
+            <li>Rebecca Turner - Copywriter</li>
+          </ul>
+
+          <hr/>
+
+          <p>Help support our talented designers, by Venmoing here:
+            <a href="https://account.venmo.com/u/storybooksound">@storybooksound</a>
+          </p>
+
+          <hr/>
+
+          Open source hosted on <a href="https://github.com/mikeill/think-peace-client">Github</a>.
         </div>
 
         {/* © All rights reserved */}
