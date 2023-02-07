@@ -23,12 +23,11 @@ export const Menu = () => {
   let location = useLocation();
   return (
     <BurgerMenu width={ 280 } right noOverlay isOpen={isMenuOpen} onStateChange={state => handleMenu(state.isOpen)}>
-      <Link to={location.pathname === "/wishes" ? "/about" : "/wishes"}
+      <Link to="/wishes"
         onClick={() => {
           handleCloseMenu();
         }
-      }>
-        {location.pathname === "/wishes" ? "About" : "Wishes"}
+      }>Today's wishes
       </Link>
       <Link to="/wish"
         onClick={() => {
@@ -36,6 +35,12 @@ export const Menu = () => {
         }
       }>
         Send a new wish
+      </Link>
+      <Link to="/about"
+        onClick={() => {
+          handleCloseMenu();
+        }
+      }>About
       </Link>
       <button
         onClick={() => setAudio(!audio)}>
