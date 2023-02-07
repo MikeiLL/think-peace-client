@@ -1,4 +1,5 @@
 const baseUrl = process.env.REACT_APP_ENDPOINT;
+console.log('process.env', process.env);
 
 export const endpoints = {
   wish: {
