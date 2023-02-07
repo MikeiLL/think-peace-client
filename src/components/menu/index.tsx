@@ -27,23 +27,28 @@ export const Menu = () => {
         onClick={() => {
           handleCloseMenu();
         }
-      }>Today's wishes
+      }
+      className= {location.pathname === "/wishes" ? "bg-bgBlue p-2" : "p-2"}
+      >Today's wishes
       </Link>
       <Link to="/wish"
         onClick={() => {
           handleCloseMenu();
         }
-      }>
+      }
+      className= {location.pathname === "/wish" ? "bg-bgBlue p-2" : "p-2"}>
         Send a new wish
       </Link>
       <Link to="/about"
         onClick={() => {
           handleCloseMenu();
         }
-      }>About
+      }
+      className= {location.pathname === "/about" ? "bg-bgBlue p-2" : "p-2"}>About
       </Link>
       <button
-        onClick={() => setAudio(!audio)}>
+        onClick={() => setAudio(!audio)}
+        className="p-2">
       {audio ? "Mute music" : "Play music"}
       </button>
       {audio && (
