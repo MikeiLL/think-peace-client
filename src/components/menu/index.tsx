@@ -11,18 +11,30 @@ const Titles: Record<string, string> = {
   "/about": "About Think Peace",
 }
 
-
 export const Menu = () => {
   // NOTE: You also need to provide styles, see https://github.com/negomi/react-burger-menu#styling
 
   const [audio, setAudio]: any = useState(false);
+  const [isMenuOpen, handleMenu] = useState(false);
+
+  const handleCloseMenu = () => {
+    handleMenu(false);
+  };
   let location = useLocation();
   return (
-    <BurgerMenu width={ 280 } right noOverlay>
-      <Link to={location.pathname === "/wishes" ? "/about" : "/wishes"}>
-          {location.pathname === "/wishes" ? "About" : "Wishes"}
+    <BurgerMenu width={ 280 } right noOverlay isOpen={isMenuOpen} onStateChange={state => handleMenu(state.isOpen)}>
+      <Link to={location.pathname === "/wishes" ? "/about" : "/wishes"}
+        onClick={() => {
+          handleCloseMenu();
+        }
+      }>
+        {location.pathname === "/wishes" ? "About" : "Wishes"}
       </Link>
-      <Link to="/wish">
+      <Link to="/wish"
+        onClick={() => {
+          handleCloseMenu();
+        }
+      }>
         Send a new wish
       </Link>
       <button
