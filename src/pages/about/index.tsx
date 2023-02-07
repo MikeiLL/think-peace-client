@@ -15,9 +15,9 @@ export const About = () => {
       >
         <div className="text-white max-w-prose">
 
-          <p className="mb-2">Think Peace is a MMOGTA (Massively Multiuser Online Group Therapy Application) that uses meditation, music, and art for peace education and monitoring.
+          <p className="mb-2">Think Peace is a MMOPN (Massively Multiuser Online Peace Network) that uses meditation, music and art for capturing and communicating peace.</p>
 
-The name is based on the beautiful work and life of Yoko Ono, and the concepts are inspired by George Harrison’s song “Within You Without You”, about the human experience of oneness.</p>
+          <p className="mb-2">The name is based on the art of Yoko Ono, and the concepts are inspired by George Harrison’s song “Within You Without You,” about the experience of human oneness.</p>
 
           <p className="mb-2">In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
 
