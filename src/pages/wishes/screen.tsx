@@ -113,7 +113,7 @@ const Screen = () => {
                             data-createdat={wish?.createdAt}
                             data-index={idx}
                             key={idx}
-                            className="bg-purple-700 py-4 px-6 rounded-md mb-3 text-lg notification-card"
+                            className="bg-amber-800 px-6 rounded-md mb-3 text-lg notification-card text-white"
                           >
                             <h4>{`${wish?.hashTag} at ${moment(
                               wish.createdAt

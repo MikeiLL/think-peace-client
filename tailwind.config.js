@@ -10,7 +10,7 @@ module.exports = {
       colors: {
         white: '#fff',
         bgBlue: 'rgb(16, 17, 76)',
-        offWhite: '#f9f3f3',
+        offWhite: 'antiquewhite',
       },
       typography: (theme) => ({
         DEFAULT: {
