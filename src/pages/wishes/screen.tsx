@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { endpoints } from "constants/endpoints";
+import {endpoints} from "constants/endpoints";
+import {Toggle} from "components/partials/Toggle";
 import Map from "./map";
 import moment from "moment";
 import useSWR from "swr";
@@ -41,23 +42,9 @@ const Screen = (props:any) => {
 
   return (
     <div>
-        <button
-        className={"p-2 " + (wishList ? "text-blue-500" : "text-red-500")}
-        onClick={() => showWishList(!wishList)}>{wishList ? (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-          </svg>
-        ) : (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
-          </svg>
-        )} wish list</button>
-        <button
-            className="p-2"
-            onClick={() => showMap(!map)}>{map ? "Hide" : "Show"} map</button>
-          <button
-            className="p-2"
-            onClick={() => showFireflies(!fireflies)}>{fireflies ? "Hide" : "Show"} fireflies</button>
+      <Toggle label="wishes" set={showWishList} current={ wishList } />
+      <Toggle label="map" set={showMap} current={ map } />
+      <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
       <div>
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
