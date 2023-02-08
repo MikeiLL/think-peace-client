@@ -53,6 +53,8 @@ export const About = () => {
 
           <p className="mb-2">Think Peace is a project of <a className="text-yellow-300 underline" href="https://www.storybooksound.com" target="_blank">Storybook Sound</a>, a creative studio that makes music, art, and experiences that inspire and connect people.</p>
 
+          <p>Thanks to <a href="https://www.svgrepo.com" target="_blank">SVG Repo</a> for use of vectors and icons.</p>
+
         </div>
 
         {/* © All rights reserved */}
