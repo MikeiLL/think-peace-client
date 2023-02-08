@@ -1,8 +1,5 @@
 import {Container} from "components/partials/Container";
 import { Title } from "components/partials/Title";
-import { useEffect, useState } from "react";
-// @ts-ignore
-import ReactCurvedText from "react-curved-text";
 
 export const About = () => {
 
@@ -19,6 +16,26 @@ export const About = () => {
 
           <p className="mb-2">The name is based on the art of Yoko Ono, and the concepts are inspired by George Harrison’s song “Within You Without You,” about the experience of human oneness.</p>
 
+          <h3 className="mt-6 mb-2 text-xl">Send a wish:</h3>
+
+          <ol className="pl-4 mb-2">
+            <li>In the menu, click "Send a new wish".</li>
+            <li>Click and hold the screen, while making the wish.</li>
+            <li>Release the screen to send the wish.</li>
+            <li>Select the locations for the source and destination of the wish.</li>
+            <li>Select the type of wish.</li>
+            <li>Click "Send".</li>
+          </ol>
+
+          <h3 className="mt-6 mb-2 text-xl">View today's wishes:</h3>
+
+          <ol className="pl-4 mb-2">
+            <li>In the menu, click "View today's wishes".</li>
+            <li>Use top controls to toggle listing, map, and visualization.</li>
+          </ol>
+
+          <h2 className="mt-6 mb-2 text-xl">Why a peace app?</h2>
+
           <p className="mb-2">In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day...like Ringo, who has been sending reminders for so long, his peace sign shoots into the air the second he sees a camera.</p>
 
           <p className="mb-2">We call them demonstrations for a reason.</p>
@@ -27,9 +44,9 @@ export const About = () => {
 
           <p className="mb-2">A note: Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.</p>
 
-          <hr className="mb-2"/>
+          <hr className="my-6"/>
 
-          <h2 className="mb-2 text-xl">Credits</h2>
+          <h2 className="mt-6 mb-2 text-xl">Credits</h2>
 
           <ul className="mb-2">
             <li>Scott Anthony - Founder</li>
@@ -41,13 +58,13 @@ export const About = () => {
             <li>Rebecca Turner - Copywriter</li>
           </ul>
 
-          <hr className="mb-2"/>
+          <hr className="my-6"/>
 
           <p className="mb-2">{"Help support our talented developers via Venmo: " + " "}
             <a className="text-yellow-300" href="https://account.venmo.com/u/storybooksound">@storybooksound</a>
           </p>
 
-          <hr className="mb-2"/>
+          <hr className="my-6"/>
 
           <p className="mb-2">Open source hosted on <a className="text-yellow-300 underline" href="https://github.com/mikeill/think-peace-client">Github</a>.</p>
 
