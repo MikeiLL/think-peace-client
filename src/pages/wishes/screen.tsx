@@ -8,8 +8,6 @@ import { Link, useNavigate } from "react-router-dom";
 
 const Screen = () => {
   const navigate = useNavigate();
-  // Whether the wishes are stacked or not.
-  const [stack, setStack] = useState(true);
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args)
@@ -74,33 +72,7 @@ const Screen = () => {
         >
             <section className="px-6 py-12">
               <div className="mt-8">
-                {!stack && (
-                  <div className="flex justify-end mb-2">
-                    <button
-                      className="btn btn-circle border-white hover:bg-blue-600 btn-outline btn-sm"
-                      onClick={() => setStack(!stack)}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-4 w-4"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="#fff"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M6 18L18 6M6 6l12 12"
-                        />
-                      </svg>
-                    </button>
-                  </div>
-                )}
-                <div
-                  className={`${stack ? "stack" : ""}`}
-                  onClick={() => setStack(!stack)}
-                >
+                <div>
                   {data.length > 0 && (
                   <>
 
