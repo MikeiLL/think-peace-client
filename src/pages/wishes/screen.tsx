@@ -1,13 +1,14 @@
-import { Container } from "components/partials/Container";
+import { useState } from "react";
 import { endpoints } from "constants/endpoints";
+import Map from "./map";
 import moment from "moment";
-
-import { useEffect, useState } from "react";
 import useSWR from "swr";
-import { Link, useNavigate } from "react-router-dom";
 
-const Screen = () => {
-  const navigate = useNavigate();
+const Screen = (props:any) => {
+
+  const [wishList, showWishList] = useState(true);
+  const [map, showMap] = useState(true);
+  const [fireflies, showFireflies] = useState(true);
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args)
@@ -39,9 +40,21 @@ const Screen = () => {
     );
 
   return (
-    <div className="min-h-screen">
+    <div>
+        <details>
+        <summary>Controls</summary>
+        <button
+            className="p-2"
+            onClick={() => showWishList(!wishList)}>{wishList ? "Hide" : "Show"} wish list</button>
+        <button
+            className="p-2"
+            onClick={() => showMap(!map)}>{map ? "Hide" : "Show"} map</button>
+          <button
+            className="p-2"
+            onClick={() => showFireflies(!fireflies)}>{fireflies ? "Hide" : "Show"} fireflies</button>
+        </details>
       <div>
-        {data.length > 0 ? (
+        {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: any, idx: number) => (
               <li
@@ -57,11 +70,10 @@ const Screen = () => {
               ></li>
             ))}
           </ul>
-        ) : (
-          <div></div>
         )}
-        <div
-          className="min-h-screen text-white relative"
+
+        {wishList && (<div
+          className="text-white relative"
           style={{
             backgroundColor: "#10114C",
             // backgroundImage: "url('/assets/background.svg')",
@@ -69,8 +81,7 @@ const Screen = () => {
             backgroundPosition: "top center",
             backgroundSize: "cover",
           }}
-        >
-            <section className="px-6 py-12">
+        ><section className="px-6 py-12">
               <div className="mt-8">
                 <div>
                   {data.length > 0 && (
@@ -100,7 +111,9 @@ const Screen = () => {
                 </div>
               </div>
             </section>
-        </div>
+        </div>)}
+
+        {map && <Map markers={props.markers} />}
       </div>
     </div>
   );

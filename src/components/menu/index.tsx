@@ -20,6 +20,7 @@ export const Menu = () => {
   const handleCloseMenu = () => {
     handleMenu(false);
   };
+
   let location = useLocation();
   return (
     <BurgerMenu width={ 280 } right noOverlay isOpen={isMenuOpen} onStateChange={state => handleMenu(state.isOpen)}>

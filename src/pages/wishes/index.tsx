@@ -2,7 +2,6 @@ import useSWR from "swr";
 import {Title} from "components/partials/Title";
 import {Container} from "components/partials/Container";
 import { endpoints } from "constants/endpoints";
-import Map from "./map";
 import Screen from "./screen";
 import { useEffect, useState } from "react";
 
@@ -67,10 +66,7 @@ export const Wishes = () => {
             <div className="text-white mx-2">
 
               <div>
-                <Screen/>
-                <Map
-                  markers={markers}
-                />
+                <Screen markers={markers}/>
               </div>
 
             </div>
