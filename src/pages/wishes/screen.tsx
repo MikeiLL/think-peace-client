@@ -24,16 +24,16 @@ const Screen = (props:any) => {
     "bg-transition-time": 0.5,
     "hashtags":
     {
-      "#peace": {"color": "#cc8800", "sounds": ["Organ_bip.1.mp3", "Organ_bip.12.mp3"], "image": "#ff00f0"},
-      "#love": {"color": "#3f980b", "sounds": ["Organ_bip.2.mp3", "Organ_bip.13.mp3"], "image": "#ff00f0"},
-      "#hope": {"color": "#b8f57f", "sounds": ["Organ_bip.3.mp3"], "image": "#ff00f090"},
-      "#faith": {"color": "#f37ff5", "sounds": ["Organ_bip.4.mp3"], "image": "#ff00f090"},
-      "#friendship": {"color": "#f46796", "sounds": ["Organ_bip.5.mp3"], "image": "#ff00f090"},
-      "#healing": {"color": "#0b6e98", "sounds": ["Organ_bip.6.mp3"], "image": "#ff00f090"},
-      "#prayers": {"color": "#dabc10", "sounds": ["Organ_bip.7.mp3"], "image": "#ff00f090"},
-      "#support": {"color": "#a90ebe", "sounds": ["Organ_bip.8.mp3"], "image": "#ff00f090"},
-      "#respect": {"color": "#af4bf1", "sounds": ["Organ_bip.9.mp3"], "image": "#ff00f090"},
-      "default": {"color": "#ff00f0", "sounds": ["Organ_bip.10.mp3", "Organ_bip.11.mp3"], "image": "#ff00f090"},
+      "#peace": {"color": "#cc8800", "sounds": ["Organ_bip.1.mp3", "Organ_bip.12.mp3"], "pattern": [12, 64], "image": "#ff00f0"},
+      "#love": {"color": "#3f980b", "sounds": ["Organ_bip.2.mp3", "Organ_bip.13.mp3"], "pattern": [5, 32], "image": "#ff00f0"},
+      "#hope": {"color": "#b8f57f", "sounds": ["Organ_bip.3.mp3"], "pattern": [3, 32], "image": "#ff00f090"},
+      "#faith": {"color": "#f37ff5", "sounds": ["Organ_bip.4.mp3"], "pattern": [12, 32], "image": "#ff00f090"},
+      "#friendship": {"color": "#f46796", "sounds": ["Organ_bip.5.mp3"], "pattern": [3, 64], "image": "#ff00f090"},
+      "#healing": {"color": "#0b6e98", "sounds": ["Organ_bip.6.mp3"], "pattern": [44, 128], "image": "#ff00f090"},
+      "#prayers": {"color": "#dabc10", "sounds": ["Organ_bip.7.mp3"], "pattern": [5, 64], "image": "#ff00f090"},
+      "#support": {"color": "#a90ebe", "sounds": ["Organ_bip.8.mp3"], "pattern": [7, 64], "image": "#ff00f090"},
+      "#respect": {"color": "#af4bf1", "sounds": ["Organ_bip.9.mp3"], "pattern": [9, 64], "image": "#ff00f090"},
+      "default": {"color": "#ff00f0", "sounds": ["Organ_bip.10.mp3", "Organ_bip.11.mp3"], "pattern": [3, 42], "image": "#ff00f090"},
     }
   };
 

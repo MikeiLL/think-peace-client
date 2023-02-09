@@ -7,3 +7,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode
 
 https://webaudioapi.com/samples/
+
+## Euclidean Beats Resource
+
+https://blog.landr.com/euclidean-rhythms/

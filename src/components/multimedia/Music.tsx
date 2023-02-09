@@ -1,4 +1,6 @@
-export const Music = (props:any) => {
+import {getPattern} from 'euclidean-rhythms';
+
+export const Music = (props: any) => {
   const audioCtx = new AudioContext();
   // Receive theme from props
   const {theme} = props;
@@ -23,7 +25,7 @@ export const Music = (props:any) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
     });
-    console.log(trackSource, audioBuffer);
+
     trackSource.connect(audioCtx.destination);
     trackSource.start();
 
@@ -32,13 +34,20 @@ export const Music = (props:any) => {
 
   const generateSequence = (sources: any) => {
     const hashtags = Object.keys(sources);
+    const step_length = 500;
+    let counter = 0;
     hashtags.forEach((hashtag: any) => {
       const sourcesArray = sources[hashtag];
+      // @ts-ignore maybe eventually make an interface for this
+      const pattern = getPattern(...theme.hashtags[hashtag].pattern);
       setInterval(() => {
         if (sourcesArray.length === 0) return;
         const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
-        playTrack(source.buffer);
-      }, Math.random() * 10000);
+        if (pattern[counter++ % 8] === 1) {
+            console.log("playing", hashtag, counter, pattern[counter % 8], source.buffer);
+            playTrack(source.buffer);
+          }
+      }, step_length);
     });
   };
 
