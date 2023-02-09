@@ -40,6 +40,12 @@ const Screen = (props:any) => {
   // Data is the wishes array.
   const {data, error, mutate, isLoading} = useSWR(endpoints.wish.GET_ALL, fetcher);
 
+  const darkenByHalf = (color:string) => {
+    const newColor = ("000000" + ((parseInt(color.slice(1), 16) / 2) & 0x7f7f7f).toString(16)).slice(-6);
+    return "#" + newColor;
+  }
+
+
   // Totally breakin' the rules here.
   // @ts-ignore
   window.refreshWishes = mutate;
@@ -142,14 +148,14 @@ const Screen = (props:any) => {
                       .map((wish: WishSchema, idx: number) => {
                         // @ts-ignore
                         let color = theme[wish.hashTag].color;
-                        console.log({"wish": wish.hashTag});
-                        console.log({"wish": theme});
+                        // lower the hex amount by x percent
+                        const darker = darkenByHalf(color);
                         return <div
                           data-createdat={wish?.createdAt}
                           data-index={idx}
                           key={idx}
                           className="px-6 rounded-md mb-3 text-lg notification-card text-white"
-                          style={{background: color }}
+                          style={{background: darker }}
                         >
                           <h4>{`${wish?.hashTag} at ${moment(
                             wish.createdAt
