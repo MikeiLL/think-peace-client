@@ -1,7 +1,10 @@
 export const Music = (props:any) => {
   const audioCtx = new AudioContext();
   // Receive theme from props
+  const {theme} = props;
+
   console.clear();
+
   const getFile = async (filepath:string) => {
     const response = await fetch(filepath);
     const arrayBuffer = await response.arrayBuffer();
@@ -20,23 +23,40 @@ export const Music = (props:any) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
     });
+    console.log(trackSource, audioBuffer);
     trackSource.connect(audioCtx.destination);
     trackSource.start();
 
     return trackSource;
   }
 
-  const generateSequence = (sounds: any) => { };
+  const generateSequence = (sources: any) => {
+    const hashtags = Object.keys(sources);
+    hashtags.forEach((hashtag: any) => {
+      const sourcesArray = sources[hashtag];
+      setInterval(() => {
+        if (sourcesArray.length === 0) return;
+        const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
+        playTrack(source.buffer);
+      }, Math.random() * 10000);
+    });
+  };
 
-  Object.keys(props.theme.hashtags).forEach((hashtag: any) => {
-    props.theme.hashtags[hashtag].sounds.forEach((sound: any) => {
-      loadFile(sound).then((track) => {
+  const sources: any = {};
+
+  Object.keys(theme.hashtags).forEach((hashtag: any) => {
+    sources[hashtag] = [];
+    props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
+      loadFile(track).then((track) => {
         const source = audioCtx.createBufferSource();
         source.buffer = track;
-        playTrack(track);
+        sources[hashtag].push(source);
       });
     });
-  });
+  })
+
+  generateSequence(sources);
+
 
 
 
