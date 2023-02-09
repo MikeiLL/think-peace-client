@@ -4,6 +4,7 @@ import {Toggle} from "components/partials/Toggle";
 import Map from "./map";
 import moment from "moment";
 import useSWR from "swr";
+import {WishSchema} from "interfaces/wish";
 
 const Screen = (props:any) => {
 
@@ -12,6 +13,17 @@ const Screen = (props:any) => {
   const [fireflies, showFireflies] = useState(true);
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
+  const hashStyles = {
+    "#peace": "#ffff0090",
+    "#love": "#ff00f090",
+    "#hope": "#3333ff90",
+    "#faith": "#ff333390",
+    "#friendship": "#00005590",
+    "#healing": "#00ff77",
+    "#prayers": "#00ffff90",
+    "#support": "#00ffff90",
+    "#respect": "#00ffff90",
+  };
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args)
@@ -50,19 +62,25 @@ const Screen = (props:any) => {
       <div>
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
-            {data.map((_: any, idx: number) => (
-              <li
+            {data.map((_: WishSchema, idx: number) => {
+              //@ts-ignore
+              let color = hashStyles[_.hashTag];
+              return (<li
                 key={idx}
                 style={
                   {
                     "--lr-duration": `${(Math.random() * 12) + 18}s`,
                     "--ud-duration": `${(Math.random() * 8) + 10}s`,
                     "--anim-positioning": `${(Math.random() * -data.length)}s`, // determines where in it's cycle it begins
-                    "--anim-delay": `${(Math.random() * idx) }s`,
+                    "--anim-delay": `${(Math.random() * idx)}s`,
+                    "--anim-color": color,
                   } as React.CSSProperties
                 }
-              ></li>
-            ))}
+              ><svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="15" cy="15" r="15" fill={color} />
+                </svg><span style={{color:color}}>{_.hashTag}</span></li>
+              )
+            })}
           </ul>
         )}
 

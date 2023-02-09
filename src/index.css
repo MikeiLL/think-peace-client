@@ -133,11 +133,13 @@ ul.fireflies {
 
 ul.fireflies li {
   z-index: 100;
-  background-size: cover;
-  background-image: url(http://i.imgur.com/aa7Rw.png);
+  /*   background-size: cover;
+  background-image: url(http://i.imgur.com/aa7Rw.png); */
+  box-shadow: 0 0 50px 15px var(--anim-color);
   width: 25px;
   top: -20px;
   height: 25px;
+  border-radius: 50%;
   position: fixed;
   animation: leftright 24s infinite cubic-bezier(0.39, 0, 0.63, 1),
     updown 8s infinite 1.25s cubic-bezier(0.39, 0, 0.63, 1),
