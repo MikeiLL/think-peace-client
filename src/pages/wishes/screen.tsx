@@ -22,7 +22,7 @@ const Screen = (props:any) => {
     "background-sound-a": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
     "background-sound-b": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
     "bg-transition-time": 0.5,
-    "#peace": {"color": "#c80", "sound": "#ffff0090", "image": "#ff00f0"},
+    "#peace": {"color": "#cc8800", "sound": "#ffff0090", "image": "#ff00f0"},
     "#love": {"color": "#3f980b", "sound": "#ffff0090", "image": "#ff00f0"},
     "#hope": {"color": "#b8f57f", "sound": "#ffff0090", "image": "#ff00f090"},
     "#faith": {"color": "#f37ff5", "sound": "#ffff0090", "image": "#ff00f090"},
