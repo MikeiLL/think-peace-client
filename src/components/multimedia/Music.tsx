@@ -7,7 +7,7 @@ export const Music = (props: any) => {
 
   console.clear();
 
-  const getFile = async (filepath:string) => {
+  const getFile = async (filepath: string) => {
     const response = await fetch(filepath);
     const arrayBuffer = await response.arrayBuffer();
     const audioBuffer = await audioCtx.decodeAudioData(arrayBuffer);
@@ -34,17 +34,17 @@ export const Music = (props: any) => {
 
   const generateSequence = (sources: any) => {
     const hashtags = Object.keys(sources);
-    const step_length = 500;
+    const step_length = 250;
     let counter = 0;
     hashtags.forEach((hashtag: any) => {
       const sourcesArray = sources[hashtag];
       // @ts-ignore maybe eventually make an interface for this
       const pattern = getPattern(...theme.hashtags[hashtag].pattern);
-      setInterval(() => {
+      const musicInterval = setInterval(() => {
         if (sourcesArray.length === 0) return;
         const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
-        if (pattern[counter++ % 8] === 1) {
-            console.log("playing", hashtag, counter, pattern[counter % 8], source.buffer);
+        let cycleLen = pattern.length;
+        if (pattern[counter++ % cycleLen] === 1) {
             playTrack(source.buffer);
           }
       }, step_length);
