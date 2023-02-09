@@ -1,7 +1,8 @@
 interface BaseSchema {
   name: string;
   country: string;
-  position: { lat: number; lng: number };
+  position: {lat: number; lng: number};
+  fullAdress: string;
 }
 
 export interface WishSchema {
@@ -10,4 +11,5 @@ export interface WishSchema {
   message: string;
   date: Date;
   hashTag: string;
+  createdAt: Date;
 }

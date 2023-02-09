@@ -13,16 +13,24 @@ const Screen = (props:any) => {
   const [fireflies, showFireflies] = useState(true);
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
-  const hashStyles = {
-    "#peace": "#ffff0090",
-    "#love": "#ff00f090",
-    "#hope": "#3333ff90",
-    "#faith": "#ff333390",
-    "#friendship": "#00005590",
-    "#healing": "#00ff77",
-    "#prayers": "#00ffff90",
-    "#support": "#00ffff90",
-    "#respect": "#00ffff90",
+  const theme = {
+    "name": "Prototype",
+    "description": "First prototype theme.",
+    "author": "Rosuav and Mike iLL",
+    "background-color-a": "#0f0066",
+    "background-color-b": "#75b6ff",
+    "background-sound-a": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
+    "background-sound-b": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
+    "bg-transition-time": 0.5,
+    "#peace": {"color": "#c80", "sound": "#ffff0090", "image": "#ff00f0"},
+    "#love": {"color": "#3f980b", "sound": "#ffff0090", "image": "#ff00f0"},
+    "#hope": {"color": "#b8f57f", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#faith": {"color": "#f37ff5", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#friendship": {"color": "#f46796", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#healing": {"color": "#0b6e98", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#prayers": {"color": "#dabc10", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#support": {"color": "#a90ebe", "sound": "#ffff0090", "image": "#ff00f090"},
+    "#respect": {"color": "#af4bf1", "sound": "#ffff0090", "image": "#ff00f090"},
   };
 
   // @ts-ignore
@@ -63,8 +71,10 @@ const Screen = (props:any) => {
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
-              //@ts-ignore
-              let color = hashStyles[_.hashTag];
+              //@ts-ignore @TODO: fix this
+              let color = theme[_.hashTag].color + "94";
+              console.log({"_":_.hashTag});
+              console.log({"_": theme});
               return (<li
                 key={idx}
                 style={
@@ -127,23 +137,27 @@ const Screen = (props:any) => {
 
                     {[...data]
                       /* Incredibly ineffecient, but it works. Sorting above in the fetcher wasn't working. */
-                      .sort((a: any, b: any) => a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0)
-                        .filter((singleWish: any) => singleWish.from)
-                        .map((wish: any, idx: number) => (
-                          <div
-                            data-createdat={wish?.createdAt}
-                            data-index={idx}
-                            key={idx}
-                            className="bg-amber-800 px-6 rounded-md mb-3 text-lg notification-card text-white"
-                          >
-                            <h4>{`${wish?.hashTag} at ${moment(
-                              wish.createdAt
-                            ).format("LT")} ${
-                              "from " + wish.from?.fullAdress +
-                              " to " + wish.to?.fullAdress
+                      .sort((a: WishSchema, b: WishSchema) => a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0)
+                        .filter((singleWish: WishSchema) => singleWish.from)
+                      .map((wish: WishSchema, idx: number) => {
+                        // @ts-ignore
+                        let color = theme[wish.hashTag].color;
+                        console.log({"wish": wish.hashTag});
+                        console.log({"wish": theme});
+                        return <div
+                          data-createdat={wish?.createdAt}
+                          data-index={idx}
+                          key={idx}
+                          className="px-6 rounded-md mb-3 text-lg notification-card text-white"
+                          style={{background: color }}
+                        >
+                          <h4>{`${wish?.hashTag} at ${moment(
+                            wish.createdAt
+                          ).format("LT")} ${"from " + wish.from?.fullAdress +
+                            " to " + wish.to?.fullAdress
                             }`}</h4>
-                          </div>
-                        ))}
+                        </div>
+                      })}
                     </>
                   )}
                 </div>
