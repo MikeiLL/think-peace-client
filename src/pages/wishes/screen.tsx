@@ -5,32 +5,36 @@ import Map from "./map";
 import moment from "moment";
 import useSWR from "swr";
 import {WishSchema} from "interfaces/wish";
+import { Music } from "components/multimedia/Music";
 
 const Screen = (props:any) => {
 
   const [wishList, showWishList] = useState(true);
   const [map, showMap] = useState(true);
   const [fireflies, showFireflies] = useState(true);
+  const [music, playMusic] = useState(true);
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
   const theme = {
     "name": "Prototype",
+    "slug": "prototype",
     "description": "First prototype theme.",
     "author": "Rosuav and Mike iLL",
-    "background-color-a": "#0f0066",
-    "background-color-b": "#75b6ff",
-    "background-sound-a": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
-    "background-sound-b": "https://thinkpeace.s3.amazonaws.com/sounds/peace.mp3",
+    "background-sounds": ["drone.mp3"],
     "bg-transition-time": 0.5,
-    "#peace": {"color": "#cc8800", "sound": "#ffff0090", "image": "#ff00f0"},
-    "#love": {"color": "#3f980b", "sound": "#ffff0090", "image": "#ff00f0"},
-    "#hope": {"color": "#b8f57f", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#faith": {"color": "#f37ff5", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#friendship": {"color": "#f46796", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#healing": {"color": "#0b6e98", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#prayers": {"color": "#dabc10", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#support": {"color": "#a90ebe", "sound": "#ffff0090", "image": "#ff00f090"},
-    "#respect": {"color": "#af4bf1", "sound": "#ffff0090", "image": "#ff00f090"},
+    "hashtags":
+    {
+      "#peace": {"color": "#cc8800", "sounds": ["Organ_bip.1.mp3", "Organ_bip.12.mp3"], "image": "#ff00f0"},
+      "#love": {"color": "#3f980b", "sounds": ["Organ_bip.2.mp3", "Organ_bip.13.mp3"], "image": "#ff00f0"},
+      "#hope": {"color": "#b8f57f", "sounds": ["Organ_bip.3.mp3"], "image": "#ff00f090"},
+      "#faith": {"color": "#f37ff5", "sounds": ["Organ_bip.4.mp3"], "image": "#ff00f090"},
+      "#friendship": {"color": "#f46796", "sounds": ["Organ_bip.5.mp3"], "image": "#ff00f090"},
+      "#healing": {"color": "#0b6e98", "sounds": ["Organ_bip.6.mp3"], "image": "#ff00f090"},
+      "#prayers": {"color": "#dabc10", "sounds": ["Organ_bip.7.mp3"], "image": "#ff00f090"},
+      "#support": {"color": "#a90ebe", "sounds": ["Organ_bip.8.mp3"], "image": "#ff00f090"},
+      "#respect": {"color": "#af4bf1", "sounds": ["Organ_bip.9.mp3"], "image": "#ff00f090"},
+      "default": {"color": "#ff00f0", "sounds": ["Organ_bip.10.mp3", "Organ_bip.11.mp3"], "image": "#ff00f090"},
+    }
   };
 
   // @ts-ignore
@@ -73,14 +77,14 @@ const Screen = (props:any) => {
       <Toggle label="wishes" set={showWishList} current={ wishList } />
       <Toggle label="map" set={showMap} current={ map } />
       <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
+      <Toggle label="music" set={playMusic} current={ music } />
       <div>
+        {music && (<Music theme={theme} />)}
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
-              //@ts-ignore @TODO: fix this
-              let color = theme[_.hashTag].color + "94";
-              console.log({"_":_.hashTag});
-              console.log({"_": theme});
+              //@ts-ignore
+              let color = theme.hashtags[_.hashTag].color + "94";
               return (<li
                 key={idx}
                 style={
@@ -147,7 +151,7 @@ const Screen = (props:any) => {
                         .filter((singleWish: WishSchema) => singleWish.from)
                       .map((wish: WishSchema, idx: number) => {
                         // @ts-ignore
-                        let color = theme[wish.hashTag].color;
+                        let color = theme.hashtags[wish.hashTag].color;
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
                         return <div

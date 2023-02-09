@@ -1,9 +1,6 @@
 import { useEffect, useState, useRef } from "react";
-// @ts-ignore
-import ReactCurvedText from "react-curved-text";
 import {Link, useLocation} from "react-router-dom";
 import {slide as BurgerMenu} from 'react-burger-menu';
-//  import Beet from "beet.js";
 
 const Titles: Record<string, string> = {
   "/": "Think Peace",
@@ -20,6 +17,8 @@ export const Menu = () => {
   const handleCloseMenu = () => {
     handleMenu(false);
   };
+
+
 
   let location = useLocation();
   return (
@@ -47,17 +46,6 @@ export const Menu = () => {
       }
       className= {location.pathname === "/about" ? "bg-bgBlue p-2" : "p-2"}>About
       </Link>
-      <button
-        onClick={() => setAudio(!audio)}
-        className="p-2">
-      {audio ? "Mute music" : "Play music"}
-      </button>
-      {audio && (
-        <audio autoPlay loop>
-          <source src="/assets/sounds/firefly.mp3" type="audio/mpeg" />
-        </audio>
-        )
-      }
     </BurgerMenu>
   );
 }
