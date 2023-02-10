@@ -79,7 +79,7 @@ const Screen = (props:any) => {
       <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
       <Toggle label="music" set={playMusic} current={ music } />
       <div>
-        {music && (<Music theme={theme} />)}
+        {music && (<Music theme={theme} playing={ music } />)}
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
