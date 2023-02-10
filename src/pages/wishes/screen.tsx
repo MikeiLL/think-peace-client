@@ -12,7 +12,7 @@ const audioCtx = new AudioContext();
 const Screen = (props:any) => {
 
   const [wishList, showWishList] = useState(true);
-  const [map, showMap] = useState(true);
+  const [map, showMap] = useState(false);
   const [fireflies, showFireflies] = useState(true);
   const [music, playMusic] = useState(false);
 
@@ -23,6 +23,7 @@ const Screen = (props:any) => {
     "slug": "prototype",
     "description": "First prototype theme.",
     "author": "Rosuav and Mike iLL",
+    "sponsors": ["Center of Wow", "Storybook Sound"],
     "background-sounds": ["drone.mp3"],
     "bg-transition-time": 0.5,
     "hashtags":
