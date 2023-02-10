@@ -36,6 +36,8 @@ const Screen = (props:any) => {
       "#healing": {"color": "#0b6e98", "sounds": ["Organ_bip.6.mp3"], "pattern": [34, 144], "image": "#ff00f090"},
       "#prayers": {"color": "#dabc10", "sounds": ["Organ_bip.7.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
       "#support": {"color": "#a90ebe", "sounds": ["Organ_bip.8.mp3"], "pattern": [89, 377], "image": "#ff00f090"},
+      "#propserity": {"color": "#dabc10", "sounds": ["Organ_bip.7.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
+      "#gratitude": {"color": "#a90ebe", "sounds": ["Organ_bip.8.mp3"], "pattern": [89, 377], "image": "#ff00f090"},
       "#respect": {"color": "#af4bf1", "sounds": ["Organ_bip.9.mp3", "Organ_bip.12.mp3", "Organ_bip.13.mp3"], "pattern": [23, 610], "image": "#ff00f090"},
       "default": {"color": "#ff00f0", "sounds": ["Organ_bip.10.mp3", "Organ_bip.11.mp3", "Organ_bip.14.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
     }
