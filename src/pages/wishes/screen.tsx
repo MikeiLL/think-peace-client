@@ -5,14 +5,17 @@ import Map from "./map";
 import moment from "moment";
 import useSWR from "swr";
 import {WishSchema} from "interfaces/wish";
-import { Music } from "components/multimedia/Music";
+import {Music} from "components/multimedia/Music";
+
+const audioCtx = new AudioContext();
 
 const Screen = (props:any) => {
 
   const [wishList, showWishList] = useState(true);
   const [map, showMap] = useState(true);
   const [fireflies, showFireflies] = useState(true);
-  const [music, playMusic] = useState(true);
+  const [music, playMusic] = useState(false);
+
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
   const theme = {
@@ -79,7 +82,7 @@ const Screen = (props:any) => {
       <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
       <Toggle label="music" set={playMusic} current={ music } />
       <div>
-        {music && (<Music theme={theme} playing={ music } />)}
+        <Music theme={theme} paused={music} audioCtx={audioCtx} />
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {

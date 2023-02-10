@@ -3,23 +3,15 @@ import {getPattern} from 'euclidean-rhythms';
 
 export const Music = (props: any) => {
 
-  // Receive theme from props
-  const {theme, playing} = props;
+  // Receive theme, playing from props
+  const {theme, paused, audioCtx} = props;
 
-  const [currentlyPlaying, setPlaying]: any = useState(playing);
-
-  const startWishing = () => {
-    setPlaying(true);
-  };
-
-  const stopPlaying = () => {
-    setPlaying(false);
-  };
+  console.log("paused", paused);
 
   useEffect(() => {
-    console.log("playing", playing);
-    if (!playing) {
-      Object.keys(theme.hashtags).forEach((hashtag: any) => {
+    Object.keys(theme.hashtags).forEach((hashtag: any) => {
+      // Create audio sources if they don't exist, per hashtag.
+      if (!sources[hashtag].length) {
         sources[hashtag] = [];
         props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
           loadFile(track).then((track) => {
@@ -28,19 +20,21 @@ export const Music = (props: any) => {
             sources[hashtag].push(source);
           });
         });
-      })
-      generateSequence(sources);
+      }
+    })
+    // Generate the sequence
+    generateSequence(sources);
+
+    if (paused) {
+      audioCtx.resume();
+    } else {
+      audioCtx.suspend();
     }
-    else {
-      // stop playing
-      console.log("stop playing");
-    }
+    console.log(audioCtx);
+    console.log({"cxt state": audioCtx.state});
     return;
-  }, [currentlyPlaying]);
+  }, [paused]);
 
-  const audioCtx = new AudioContext();
-
-  console.clear();
 
   const getFile = async (filepath: string) => {
 
@@ -57,7 +51,7 @@ export const Music = (props: any) => {
     return track;
   }
 
-  const playTrack = (audioBuffer: any) => {
+  const trackControl = (audioBuffer: any) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
     });
@@ -81,7 +75,7 @@ export const Music = (props: any) => {
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
           let cycleLen = pattern.length;
           if (pattern[counter++ % cycleLen] === 1) {
-            playTrack(source.buffer);
+            trackControl(source.buffer);
           }
         }, step_length);
       });
