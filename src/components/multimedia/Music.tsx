@@ -6,8 +6,6 @@ export const Music = (props: any) => {
   // Receive theme, playing from props
   const {theme, paused, audioCtx} = props;
 
-  console.log("paused", paused);
-
   useEffect(() => {
 
     if (paused) {
@@ -15,28 +13,21 @@ export const Music = (props: any) => {
     } else {
       audioCtx.suspend();
     }
-    console.log(audioCtx);
-    console.log({"cxt state": audioCtx.state});
     return;
   }, [paused]);
 
   useEffect(() => {
     Object.keys(theme.hashtags).forEach((hashtag: any) => {
       // Create audio sources if they don't exist, per hashtag.
-      console.log("sources[hashtag].length", !sources[hashtag].length);
       if (!sources[hashtag].length) {
-        console.log(sources[hashtag]);
         sources[hashtag] = [];
         props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
-          console.log("track", track);
           loadFile(track).then((track) => {
             const source = audioCtx.createBufferSource();
             source.buffer = track;
             sources[hashtag].push(source);
           });
         });
-      } else {
-        console.log("sources exist", sources[hashtag]);
       }
     });
     generateSequence(sources);
@@ -59,12 +50,15 @@ export const Music = (props: any) => {
     return track;
   }
 
-  const trackControl = (audioBuffer: any) => {
+  const trackControl = (audioBuffer: any, offset:any) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
+      detune: 7,
     });
+    console.log(trackSource);
 
     trackSource.connect(audioCtx.destination);
+    // When I send the offset, it's not playing the sound at all.
     trackSource.start();
 
     return trackSource;
@@ -73,19 +67,26 @@ export const Music = (props: any) => {
   const generateSequence = (sources: any) => {
     const hashtags = Object.keys(sources);
     const step_length = 250;
+    // Two counters 'cause I'm still struggling with closures.
     let counter = 0;
+    let countTwo = 0;
       hashtags.forEach((hashtag: any) => {
         const sourcesArray = sources[hashtag];
         // @ts-ignore maybe eventually make an interface for this
         const pattern = getPattern(...theme.hashtags[hashtag].pattern);
-        let musicInterval = setInterval(() => {
-          if (sourcesArray.length === 0) return;
-          const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
-          let cycleLen = pattern.length;
-          if (pattern[counter++ % cycleLen] === 1) {
-            trackControl(source.buffer);
-          }
-        }, step_length);
+        setTimeout(() => {
+          let musicInterval = setInterval(() => {
+            if (sourcesArray.length === 0) return;
+            const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
+            let cycleLen = pattern.length;
+            counter++;
+            if (pattern[counter % cycleLen] === 1) {
+              trackControl(source.buffer, step_length * counter / 1000);
+            }
+          }, step_length);
+          countTwo++;
+          console.log("timeOut", hashtag, counter, step_length * countTwo / 1000);
+        }, step_length * countTwo);
       });
   };
 

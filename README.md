@@ -8,6 +8,13 @@ https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode
 
 https://webaudioapi.com/samples/
 
+## Web Audio Context
+
+https://developer.mozilla.org/en-US/docs/Web/API/AudioContext
+https://developer.mozilla.org/en-US/docs/Web/API/DelayNode
+https://developer.mozilla.org/en-US/docs/Web/API/GainNode
+https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode
+
 ## Euclidean Beats Resource
 
 https://blog.landr.com/euclidean-rhythms/
