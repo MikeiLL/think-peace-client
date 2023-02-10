@@ -9,21 +9,6 @@ export const Music = (props: any) => {
   console.log("paused", paused);
 
   useEffect(() => {
-    Object.keys(theme.hashtags).forEach((hashtag: any) => {
-      // Create audio sources if they don't exist, per hashtag.
-      if (!sources[hashtag].length) {
-        sources[hashtag] = [];
-        props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
-          loadFile(track).then((track) => {
-            const source = audioCtx.createBufferSource();
-            source.buffer = track;
-            sources[hashtag].push(source);
-          });
-        });
-      }
-    })
-    // Generate the sequence
-    generateSequence(sources);
 
     if (paused) {
       audioCtx.resume();
@@ -34,6 +19,29 @@ export const Music = (props: any) => {
     console.log({"cxt state": audioCtx.state});
     return;
   }, [paused]);
+
+  useEffect(() => {
+    Object.keys(theme.hashtags).forEach((hashtag: any) => {
+      // Create audio sources if they don't exist, per hashtag.
+      console.log("sources[hashtag].length", !sources[hashtag].length);
+      if (!sources[hashtag].length) {
+        console.log(sources[hashtag]);
+        sources[hashtag] = [];
+        props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
+          console.log("track", track);
+          loadFile(track).then((track) => {
+            const source = audioCtx.createBufferSource();
+            source.buffer = track;
+            sources[hashtag].push(source);
+          });
+        });
+      } else {
+        console.log("sources exist", sources[hashtag]);
+      }
+    });
+    generateSequence(sources);
+    return;
+  }, []);
 
 
   const getFile = async (filepath: string) => {
@@ -94,7 +102,5 @@ export const Music = (props: any) => {
     });
   })
 
-  return (
-    <h1 className="text-white p-2 text-xl">Music</h1>
-  );
+  return (<> </>);
 };
