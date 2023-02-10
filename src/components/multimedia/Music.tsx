@@ -55,7 +55,6 @@ export const Music = (props: any) => {
       buffer: audioBuffer,
       detune: 7,
     });
-    console.log(trackSource);
 
     trackSource.connect(audioCtx.destination);
     // When I send the offset, it's not playing the sound at all.
@@ -67,9 +66,7 @@ export const Music = (props: any) => {
   const generateSequence = (sources: any) => {
     const hashtags = Object.keys(sources);
     const step_length = 250;
-    // Two counters 'cause I'm still struggling with closures.
-    let counter = 0;
-    let countTwo = 0;
+    var counter = 0;
       hashtags.forEach((hashtag: any) => {
         const sourcesArray = sources[hashtag];
         // @ts-ignore maybe eventually make an interface for this
@@ -84,9 +81,8 @@ export const Music = (props: any) => {
               trackControl(source.buffer, step_length * counter / 1000);
             }
           }, step_length);
-          countTwo++;
-          console.log("timeOut", hashtag, counter, step_length * countTwo / 1000);
-        }, step_length * countTwo);
+          counter++;
+        }, step_length * counter);
       });
   };
 

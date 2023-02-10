@@ -96,7 +96,7 @@ export const LocationDetails = () => {
             value={hashTag}
             onChange={(e) => setHashTag(e.target.value)}
           >
-            {["#peace", "#healing", "#hope", "#faith", "#friendship", "#love", "#prayers", "#support", "#respect"].map(
+            {["#peace", "#healing", "#hope", "#faith", "#friendship", "#gratitude", "#love", "#prayers", "#propserity", "#support", "#respect"].map(
               (tag) => (
                 <option value={tag} key={tag}>
                   {tag}
