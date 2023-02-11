@@ -91,7 +91,9 @@ const Screen = (props:any) => {
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
               //@ts-ignore
-              let color = theme.hashtags[_.hashTag].color + "94";
+              let hashForColor = (theme.hashtags[_.hashTag]) ? _.hashTag : "default";
+              //@ts-ignore
+              let color = theme.hashtags[hashForColor].color + "94";
               return (<li
                 key={idx}
                 style={
@@ -158,7 +160,9 @@ const Screen = (props:any) => {
                         .filter((singleWish: WishSchema) => singleWish.from)
                       .map((wish: WishSchema, idx: number) => {
                         // @ts-ignore
-                        let color = theme.hashtags[wish.hashTag].color;
+                        let hashForColor = (theme.hashtags[wish.hashTag]) ? wish.hashTag : "default";
+                        // @ts-ignore
+                        let color = theme.hashtags[hashForColor].color;
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
                         return <div
