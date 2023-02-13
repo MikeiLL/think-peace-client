@@ -21,7 +21,7 @@ const Screen = (props:any) => {
   const theme = {
     "name": "Prototype",
     "slug": "prototype",
-    "description": "First prototype theme.",
+    "description": "First prototype theme utilizing Indian shruti scale tuning.",
     "author": "Rebecca, Scott, Rosuav, Mike iLL",
     "sponsors": ["Center of Wow", "Storybook Sound"],
     "background-sounds": ["drone.mp3"],
