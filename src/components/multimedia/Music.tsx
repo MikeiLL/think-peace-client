@@ -64,11 +64,12 @@ export const Music = (props: any) => {
   }
 
   const generateSequence = (sources: any) => {
+    let counter = 0;
     const hashtags = Object.keys(sources);
     const step_length = 250;
-    var counter = 0;
       hashtags.forEach((hashtag: any) => {
         const sourcesArray = sources[hashtag];
+        let countTwo = 0;
         // @ts-ignore maybe eventually make an interface for this
         const pattern = getPattern(...theme.hashtags[hashtag].pattern);
         setTimeout(() => {
@@ -76,13 +77,12 @@ export const Music = (props: any) => {
             if (sourcesArray.length === 0) return;
             const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
             let cycleLen = pattern.length;
-            counter++;
-            if (pattern[counter % cycleLen] === 1) {
-              trackControl(source.buffer, step_length * counter / 1000);
+            countTwo++;
+            if (pattern[countTwo % cycleLen] === 1) {
+              trackControl(source.buffer, step_length * countTwo / 1000);
             }
           }, step_length);
-          counter++;
-        }, step_length * counter);
+        }, step_length * counter++);
       });
   };
 
