@@ -12,13 +12,11 @@ export const Music = (props: any) => {
 
     if (paused) {
       generateSequence(sources);
-      audioCtx.resume();
     } else {
       Object.keys(musicIntervals).forEach(h => {
         clearInterval(musicIntervals[h]);
         delete musicIntervals[h];
       });
-      audioCtx.suspend();
     }
     return;
   }, [paused]);
