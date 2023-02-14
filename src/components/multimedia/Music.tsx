@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import {getPattern} from 'euclidean-rhythms';
 
+const musicIntervals:any = {};
+
 export const Music = (props: any) => {
 
   // Receive theme, playing from props
@@ -9,8 +11,13 @@ export const Music = (props: any) => {
   useEffect(() => {
 
     if (paused) {
+      generateSequence(sources);
       audioCtx.resume();
     } else {
+      Object.keys(musicIntervals).forEach(h => {
+        clearInterval(musicIntervals[h]);
+        delete musicIntervals[h];
+      });
       audioCtx.suspend();
     }
     return;
@@ -30,7 +37,6 @@ export const Music = (props: any) => {
         });
       }
     });
-    generateSequence(sources);
     return;
   }, []);
 
@@ -72,8 +78,9 @@ export const Music = (props: any) => {
         let countTwo = 0;
         // @ts-ignore maybe eventually make an interface for this
         const pattern = getPattern(...theme.hashtags[hashtag].pattern);
+        clearInterval(musicIntervals[hashtag]);
         setTimeout(() => {
-          let musicInterval = setInterval(() => {
+          musicIntervals[hashtag] = setInterval(() => {
             if (sourcesArray.length === 0) return;
             const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
             let cycleLen = pattern.length;
