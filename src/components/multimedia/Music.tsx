@@ -70,7 +70,7 @@ export const Music = (props: any) => {
   const generateSequence = (sources: any) => {
     let counter = 0;
     const hashtags = Object.keys(sources);
-    const step_length = 250;
+    const step_length = 60000 / theme.bpm / (theme.steps_per_beat || 2); // Sets the tempo, default to 1/8 notes.
       hashtags.forEach((hashtag: any) => {
         const sourcesArray = sources[hashtag];
         let countTwo = 0;

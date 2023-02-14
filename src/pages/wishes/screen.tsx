@@ -26,6 +26,7 @@ const Screen = (props:any) => {
     "sponsors": ["Center of Wow", "Storybook Sound"],
     "background-sounds": ["drone.mp3"],
     "bg-transition-time": 0.5,
+    "bpm": 120,
     "hashtags":
     {
       "#peace": {"color": "#cc8800", "sounds": ["Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [3, 55], "image": "#ff00f0"},
