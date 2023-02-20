@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import {getPattern} from 'euclidean-rhythms';
+import {WishSchema} from "interfaces/wish";
 
 const musicIntervals:any = {};
 
@@ -41,6 +42,12 @@ export const Music = (props: any) => {
     return;
   }, []);
 
+  const wishCount:any = {};
+
+  wishes.forEach((wish: WishSchema) => {
+    wishCount[wish.hashTag] = (wishCount[wish.hashTag] || 0) + 1;
+  });
+
 
   const getFile = async (filepath: string) => {
 
@@ -64,7 +71,12 @@ export const Music = (props: any) => {
     });
     console.log("audioCtx State before", audioCtx.state);
     if (audioCtx.state === "suspended") {
-      audioCtx.resume();
+      audioCtx.resume().then(() => {
+        console.log("audioCtx State after", audioCtx.state);
+      }).catch((err:any) => {
+        console.log("audioCtx State after", audioCtx.state);
+        console.log("audioCtx State after", err);
+      });
     }
     console.log("audioCtx State", audioCtx.state);
     trackSource.connect(audioCtx.destination);
