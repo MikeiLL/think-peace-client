@@ -85,8 +85,12 @@ const Screen = (props:any) => {
     <div>
       <Toggle label="wishes" set={showWishList} current={ wishList } />
       <Toggle label="map" set={showMap} current={ map } />
-      <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
-      <Toggle label="music" set={playMusic} current={ music } />
+      <Toggle label="fireflies" set={showFireflies} current={fireflies} />
+      {
+      /* Safari will only resume audio if it's triggered by a user action.
+      So we attach a function to Toggle's onClick event. */
+      }
+      <Toggle label="music" set={(on:any) => {playMusic(on); if (on) audioCtx.resume();}} current={ music } />
       <div>
         <Music theme={theme} paused={music} audioCtx={audioCtx} wishes={data}/>
         {fireflies && data.length > 0 && (
