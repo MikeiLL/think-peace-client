@@ -71,14 +71,14 @@ export const Music = (props: any) => {
     });
     console.log("audioCtx State before", audioCtx.state);
     if (audioCtx.state === "suspended") {
+      console.log("audioCtx State in if", audioCtx.state);
       audioCtx.resume().then(() => {
-        console.log("audioCtx State after", audioCtx.state);
+        console.log("audioCtx State in then", audioCtx.state);
       }).catch((err:any) => {
         console.log("audioCtx State after", audioCtx.state);
-        console.log("audioCtx State after", err);
+        console.log("audioCtx State after err", err);
       });
     }
-    console.log("audioCtx State", audioCtx.state);
     trackSource.connect(audioCtx.destination);
     // When I send the offset, it's not playing the sound at all.
     trackSource.start();
@@ -104,7 +104,7 @@ export const Music = (props: any) => {
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
           let cycleLen = pattern.length;
           countTwo++;
-          if (pattern[countTwo % cycleLen] === 1) {
+          if (pattern[countTwo % cycleLen] === 1 && wishCount[hashtag] > 0) {
             trackControl(source.buffer, step_length * countTwo / 1000);
           }
         }, step_length);
