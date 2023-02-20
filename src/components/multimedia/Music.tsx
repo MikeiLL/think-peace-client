@@ -81,7 +81,8 @@ export const Music = (props: any) => {
       // @ts-ignore maybe eventually make an interface for this
       const pattern = getPattern(...theme.hashtags[hashtag].pattern);
       clearInterval(musicIntervals[hashtag]);
-      setTimeout(() => {
+      // Also track the setTimeout so we can clear it.
+      musicIntervals[hashtag] = setTimeout(() => {
         musicIntervals[hashtag] = setInterval(() => {
           if (sourcesArray.length === 0) return;
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
