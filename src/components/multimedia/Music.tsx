@@ -62,7 +62,10 @@ export const Music = (props: any) => {
       buffer: audioBuffer,
       detune: 7,
     });
-    console.log("offset", offset);
+    console.log("audioCtx State before", audioCtx.state);
+    if (audioCtx.state === "suspended") {
+      audioCtx.resume();
+    }
     console.log("audioCtx State", audioCtx.state);
     trackSource.connect(audioCtx.destination);
     // When I send the offset, it's not playing the sound at all.
