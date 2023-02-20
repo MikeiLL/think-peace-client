@@ -90,10 +90,9 @@ export const Music = (props: any) => {
     let counter = 0;
     const hashtags = Object.keys(sources);
     const step_length = 60000 / theme.bpm / (theme.steps_per_beat || 2); // Sets the tempo, default to 1/8 notes.
-    console.log(wishCount);
     hashtags.forEach((hashtag: any) => {
       const sourcesArray = sources[hashtag];
-      let countTwo = (counter === 0) ? -1 : 0;
+      let countTwo = 0;
       // @ts-ignore maybe eventually make an interface for this
       const pattern = getPattern(...theme.hashtags[hashtag].pattern);
       clearInterval(musicIntervals[hashtag]);
@@ -103,10 +102,10 @@ export const Music = (props: any) => {
           if (sourcesArray.length === 0) return;
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
           let cycleLen = pattern.length;
-          countTwo++;
           if (pattern[countTwo % cycleLen] === 1 && wishCount[hashtag] > 0) {
             trackControl(source.buffer, step_length * countTwo / 1000);
           }
+          countTwo++;
         }, step_length);
       }, step_length * counter++);
     });
