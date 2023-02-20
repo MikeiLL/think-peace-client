@@ -6,7 +6,7 @@ const musicIntervals:any = {};
 export const Music = (props: any) => {
 
   // Receive theme, playing from props
-  const {theme, paused, audioCtx} = props;
+  const {theme, paused, audioCtx, wishes} = props;
 
   useEffect(() => {
 

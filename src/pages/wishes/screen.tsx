@@ -27,6 +27,7 @@ const Screen = (props:any) => {
     "background-sounds": ["drone.mp3"],
     "bg-transition-time": 0.5,
     "bpm": 120,
+    "steps_per_beat": 2,
     "hashtags":
     {
       "#peace": {"color": "#cc8800", "sounds": ["Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [3, 55], "image": "#ff00f0"},
@@ -87,7 +88,7 @@ const Screen = (props:any) => {
       <Toggle label="fireflies" set={showFireflies} current={ fireflies } />
       <Toggle label="music" set={playMusic} current={ music } />
       <div>
-        <Music theme={theme} paused={music} audioCtx={audioCtx} />
+        <Music theme={theme} paused={music} audioCtx={audioCtx} wishes={data}/>
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
