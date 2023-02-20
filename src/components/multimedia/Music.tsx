@@ -9,11 +9,14 @@ export const Music = (props: any) => {
   const {theme, paused, audioCtx, wishes} = props;
 
   useEffect(() => {
+    console.log(wishes);
 
     if (paused) {
       generateSequence(sources);
+      console.log("paused");
     } else {
       Object.keys(musicIntervals).forEach(h => {
+        console.log("Clear Interval: ", h);
         clearInterval(musicIntervals[h]);
         delete musicIntervals[h];
       });
