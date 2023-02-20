@@ -59,7 +59,8 @@ export const Music = (props: any) => {
       buffer: audioBuffer,
       detune: 7,
     });
-
+    console.log("offset", offset);
+    console.log("audioCtx State", audioCtx.state);
     trackSource.connect(audioCtx.destination);
     // When I send the offset, it's not playing the sound at all.
     trackSource.start();
@@ -71,24 +72,24 @@ export const Music = (props: any) => {
     let counter = 0;
     const hashtags = Object.keys(sources);
     const step_length = 60000 / theme.bpm / (theme.steps_per_beat || 2); // Sets the tempo, default to 1/8 notes.
-      hashtags.forEach((hashtag: any) => {
-        const sourcesArray = sources[hashtag];
-        let countTwo = 0;
-        // @ts-ignore maybe eventually make an interface for this
-        const pattern = getPattern(...theme.hashtags[hashtag].pattern);
-        clearInterval(musicIntervals[hashtag]);
-        setTimeout(() => {
-          musicIntervals[hashtag] = setInterval(() => {
-            if (sourcesArray.length === 0) return;
-            const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
-            let cycleLen = pattern.length;
-            countTwo++;
-            if (pattern[countTwo % cycleLen] === 1) {
-              trackControl(source.buffer, step_length * countTwo / 1000);
-            }
-          }, step_length);
-        }, step_length * counter++);
-      });
+    hashtags.forEach((hashtag: any) => {
+      const sourcesArray = sources[hashtag];
+      let countTwo = (counter === 0) ? -1 : 0;
+      // @ts-ignore maybe eventually make an interface for this
+      const pattern = getPattern(...theme.hashtags[hashtag].pattern);
+      clearInterval(musicIntervals[hashtag]);
+      setTimeout(() => {
+        musicIntervals[hashtag] = setInterval(() => {
+          if (sourcesArray.length === 0) return;
+          const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
+          let cycleLen = pattern.length;
+          countTwo++;
+          if (pattern[countTwo % cycleLen] === 1) {
+            trackControl(source.buffer, step_length * countTwo / 1000);
+          }
+        }, step_length);
+      }, step_length * counter++);
+    });
   };
 
   const sources: any = {};
