@@ -90,6 +90,7 @@ export const Music = (props: any) => {
     let counter = 0;
     const hashtags = Object.keys(sources);
     const step_length = 60000 / theme.bpm / (theme.steps_per_beat || 2); // Sets the tempo, default to 1/8 notes.
+    console.log(wishCount);
     hashtags.forEach((hashtag: any) => {
       const sourcesArray = sources[hashtag];
       let countTwo = (counter === 0) ? -1 : 0;

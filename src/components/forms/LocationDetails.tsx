@@ -16,6 +16,8 @@ export const LocationDetails = () => {
 
   const [comingFromAddress, setComingFromAddress] = useState();
   const [sendingToAddress, setSendingToAddress] = useState();
+  const [errorMessage, setErrorMessage] = useState();
+
   const submitHandler = async (e: React.ChangeEvent<any>) => {
     e.preventDefault();
 
@@ -33,12 +35,16 @@ export const LocationDetails = () => {
         console.log(response);
         //@ts-ignore
         window.refreshWishes();
+        navigate("/wishes");
       })
       .catch((error) => {
         console.log("Err", error);
+        if (error.response.status === 400) {
+          // navigate("/login");
+          setErrorMessage(error.response.data.error);
+        }
       });
 
-    navigate("/wishes");
   };
 
 
@@ -84,6 +90,8 @@ export const LocationDetails = () => {
             }}
           />
         </section>
+
+        {errorMessage && <p className="m-auto text-red-500 text-lg text-center mt-1 w-full max-w-xs bg-white border-red-500 rounded">{errorMessage}</p>}
 
         <section className="my-2 flex flex-col items-center">
           <label
