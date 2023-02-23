@@ -58,7 +58,12 @@ const Screen = (props:any) => {
     return "#" + newColor;
   }
 
-
+  // Parse the url hash for any parameters.
+  const urlparams:any = {};
+  window.location.hash.slice(1).split(",").forEach(tok => {
+    const [kw, val] = tok.split(":");
+    if (val) urlparams[kw] = val;
+  });
   // Totally breakin' the rules here.
   // @ts-ignore
   window.refreshWishes = mutate;
@@ -171,11 +176,15 @@ const Screen = (props:any) => {
                         let color = theme.hashtags[hashForColor].color;
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
+                        let class_name = "px-6 rounded-md mb-3 text-lg notification-card text-white";
+                        if (urlparams.pin === wish._id) {
+                          class_name += " pinned_wish";
+                        }
                         return <div
                           data-createdat={wish?.createdAt}
                           data-index={idx}
                           key={idx}
-                          className="px-6 rounded-md mb-3 text-lg notification-card text-white"
+                          className={class_name}
                           style={{background: darker }}
                         >
                           <h4>{`${wish?.hashTag} at ${moment(

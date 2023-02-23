@@ -35,7 +35,7 @@ export const LocationDetails = () => {
         console.log(response);
         //@ts-ignore
         window.refreshWishes();
-        navigate("/wishes");
+        navigate("/wishes#pin:" + response.data._id);
       })
       .catch((error) => {
         console.log("Err", error);

@@ -283,3 +283,7 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pinned_wish {
+  box-shadow: 0 0 30px 9px rgb(233, 187, 233, 0.7), inset 0 0 10px 5px rgb(233, 220, 233, 0.3);
+}

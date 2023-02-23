@@ -12,4 +12,5 @@ export interface WishSchema {
   date: Date;
   hashTag: string;
   createdAt: Date;
+  _id: string;
 }
