@@ -162,11 +162,7 @@ const Screen = (props:any) => {
                   className={`${stack ? "stack" : ""}`}
                 onClick={(e) => {
                   // @ts-ignore
-                  console.log(e.target.dataset);
-                  // @ts-ignore
-                  window.MikeTemp = e;
-                  // @ts-ignore
-                  if (e.target.dataset.sharelink) {
+                  if (e.target.closest("[data-shareLink]")) {
                     return;
                   }
                   setStack(!stack)
