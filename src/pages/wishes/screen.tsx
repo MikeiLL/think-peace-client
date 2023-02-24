@@ -169,6 +169,9 @@ const Screen = (props:any) => {
                       /* Incredibly ineffecient, but it works. Sorting above in the fetcher wasn't working. */
                       .sort((a: WishSchema, b: WishSchema) => {
                         // if one of these is the pinned wish, move it to the top. If a is pinned return -1, if b is pinned return 1, else coninue.
+                        if (urlparams.pin === a._id) return -1;
+                        if (urlparams.pin === b._id) return 1;
+                        // if neither are pinned, sort by date.
                         return a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
                       })
                         .filter((singleWish: WishSchema) => singleWish.from)
