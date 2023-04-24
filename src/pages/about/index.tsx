@@ -64,6 +64,9 @@ export const About = () => {
             <a className="text-yellow-300" href="https://account.venmo.com/u/storybooksound">@storybooksound</a>
           </p>
 
+          <hr className="my-6" />
+          <img src="/thinkpeace_website.png" alt="QR Code link to website." />
+
           <hr className="my-6"/>
 
           <p className="mb-2">Open source hosted on <a className="text-yellow-300 underline" href="https://github.com/mikeill/think-peace-client">Github</a>.</p>
