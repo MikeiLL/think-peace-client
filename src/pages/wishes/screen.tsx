@@ -215,9 +215,9 @@ const Screen = (props:any) => {
                             }`}</h4>
 
                           <div className="flex justify-end">
-                            <div className="flex items-center gap-x-2">
+                            <div className="social-share flex items-center gap-x-2 pr-1">
 
-                              <a href={urlBuilder("https://www.facebook.com/dialog/share", {
+                              <a className="opacity-50" href={urlBuilder("https://www.facebook.com/dialog/share", {
                                 'text': `Sent a wish for ${wish.hashTag} on Think Peace.`,
                                 'app_id': '191916623657356',
                                 'href': `https://thinkpeace.app/wishes%23pin%3a${wish._id}`
@@ -227,7 +227,7 @@ const Screen = (props:any) => {
                                 </svg>
                               </a>
 
-                              <a href={urlBuilder("https://twitter.com/intent/tweet", {
+                              <a className="opacity-50" href={urlBuilder("https://twitter.com/intent/tweet", {
                                 'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
                               })} target="_blank" title="Share with Twitter">
                                 <svg width="25px" height="25px" viewBox="0 -2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -244,7 +244,7 @@ const Screen = (props:any) => {
                                 </svg>
                               </a>
 
-                              <a href={urlBuilder("https://api.whatsapp.com/send", {
+                              <a className="opacity-50" href={urlBuilder("https://api.whatsapp.com/send", {
                                 'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
                                 'type': 'custom_url',
                                 'app_absent': '0',
@@ -261,7 +261,7 @@ const Screen = (props:any) => {
                                   </svg>
                               </a>
 
-                              <a href={urlBuilder("https://www.reddit.com/submit", {
+                              <a className="opacity-50" href={urlBuilder("https://www.reddit.com/submit", {
                                 'url': `https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
                                 'title': `Sent a wish for ${wish.hashTag} on Think Peace.`,
                               })} target="_blank" title="Share on ReddIt">
@@ -278,7 +278,7 @@ const Screen = (props:any) => {
                                 </svg>
                               </a>
 
-                              <a href={urlBuilder("https://www.linkedin.com/shareArticle", {
+                              <a className="opacity-50" href={urlBuilder("https://www.linkedin.com/shareArticle", {
                                 'url': `https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
                                 'title': `Sent a wish for ${wish.hashTag} on Think Peace `,
                               })} target="_blank" title="Share on Linked In">
@@ -296,7 +296,7 @@ const Screen = (props:any) => {
                                 </svg>
                               </a>
 
-                              <a href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%23pin%3a${wish._id}`} target="_blank" title="Share with email">
+                              <a className="opacity-50" href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%23pin%3a${wish._id}`} target="_blank" title="Share with email">
                                 <svg fill="#ffffff" width="22px" height="22px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z" fillRule="evenodd"/>
                               </svg>
