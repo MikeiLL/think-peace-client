@@ -42,7 +42,7 @@ export const Wish = () => {
             className="h-full cursor-pointer py-4 px-6 flex flex-col items-center justify-center"
           >
             <h4 className="text-2xl text-white text-center">
-                Hi! Touch and hold to make a wish.
+                Hi! Touch and hold to make a wish. Hold until wish is done.
             </h4>
           </div>
         ) : (
