@@ -9,6 +9,15 @@ import {Music} from "components/multimedia/Music";
 
 const audioCtx = new AudioContext();
 
+
+function urlBuilder(baseurl:string, params:object) {
+  const url = new URL(baseurl);
+  Object.entries(params).forEach(([key, value]) => {
+    url.searchParams.append(key, value);
+  });
+  return url.toString();
+}
+
 const Screen = (props:any) => {
 
   const [wishList, showWishList] = useState(true);
@@ -123,7 +132,6 @@ const Screen = (props:any) => {
             })}
           </ul>
         )}
-
         {wishList && (<div
           className="text-white relative"
           style={{
@@ -192,6 +200,7 @@ const Screen = (props:any) => {
                         if (urlparams.pin === wish._id) {
                           class_name += " pinned_wish";
                         }
+
                         return <div
                           data-createdat={wish?.createdAt}
                           data-index={idx}
@@ -208,7 +217,27 @@ const Screen = (props:any) => {
 
                           <div className="flex justify-between">
                             <div className="flex items-center">
-                              <a href={`https://twitter.com/intent/tweet?text=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace%20https://thinkpeace.app/wishes%23pin%3a${wish._id}`} target="_blank">Twitter</a>
+                              <a href={urlBuilder("https://twitter.com/intent/tweet", {
+                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
+                              })} target="_blank">Twitter</a>
+
+                              <a href={urlBuilder("https://www.facebook.com/dialog/share", {
+                                'text': `Sent a wish for ${wish.hashTag} on Think Peace.`,
+                                'app_id': '1322470161950225',
+                              })} target="_blank">Facebook</a>
+
+                              <a href={urlBuilder("https://api.whatsapp.com/send", {
+                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
+                                'type': 'custom_url',
+                                'app_absent': '0',
+                              })} target="_blank">WhatsApp</a>
+
+                              <a href={urlBuilder("https://www.reddit.com/submit", {
+                                'url': `https://thinkpeace.app/wishes%23pin%3a${wish._id}`,
+                                'title': `Sent a wish for ${wish.hashTag} on Think Peace `,
+                              })} target="_blank">Reddit</a>
+
+                              <a href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%23pin%3a${wish._id}`} target="_blank">Email</a>
                             </div>
                           </div>
 
