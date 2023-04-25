@@ -1,0 +1,18 @@
+{
+  "name": "Ultra Minimal",
+  "slug": "ultraminimal",
+  "description": "Super minimal theme utilizing Indian shruti scale tuning.",
+  "author": "Rosuav, Mike iLL",
+  "sponsors": ["Center of Wow", "Storybook Sound"],
+  "background-sounds": ["drone.mp3"],
+  "bg-transition-time": 0.5,
+  "bpm": 120,
+  "steps_per_beat": 5,
+  "hashtags":
+  {
+    "#peace": {"color": "#0033ff", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [2, 10], "image": "#ff00f090"},
+    "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [4, 20], "image": "#ff00f0"},
+    "#gratitude": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_3.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 15], "image": "#ff00f0"},
+    "default": {"color": "#ff00f0", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive_5.aif.mp3", "Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_7.aif.mp3"], "pattern": [2, 40], "image": "#ff00f090"}
+  }
+}
