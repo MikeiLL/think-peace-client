@@ -113,7 +113,6 @@ export const Music = (props: any) => {
   };
 
   const sources: any = {};
-
   Object.keys(theme.hashtags).forEach((hashtag: any) => {
     sources[hashtag] = [];
     props.theme.hashtags[hashtag].sounds.forEach((track: any) => {

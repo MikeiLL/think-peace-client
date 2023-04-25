@@ -3,16 +3,23 @@ import {useState} from "react";
 import {Toggle} from "components/partials/Toggle";
 import {Music} from "components/multimedia/Music";
 const audioCtx = new AudioContext();
+console.log("Nothing...");
 
 export const Theme = (props: any) => {
   const [theme, setTheme] = useState(false);
   const [music, playMusic] = useState(false);
 
-  fetch(`themes/${props.theme}/theme.json`).then(res => res.json()).then(t =>{
-    setTheme(t);
-  });
+  if (!theme) {
+    console.log("No theme...");
+    fetch(`themes/${props.theme}/theme.json`).then(res => res.json()).then(t =>{
+      setTheme(t);
+    });
+    console.log("Loading theme...");
+    return (<></>);
+  }
+  console.log("Theme loaded!");
 
-  if (theme) return (
+  return (
     <>
     {
     /* Safari will only resume audio if it's triggered by a user action.
@@ -23,5 +30,4 @@ export const Theme = (props: any) => {
     </>
   );
 
-  return (<></>);
 };
