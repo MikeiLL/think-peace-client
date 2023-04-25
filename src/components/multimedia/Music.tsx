@@ -59,7 +59,8 @@ export const Music = (props: any) => {
 
   // Function to call each file and return an array of decoded files
   const loadFile = async (fileName: string) => {
-    const filePath = `/assets/sounds/themes/${props.theme.slug}/${fileName}`;
+    const filePath = `/themes/${props.theme.slug}/${fileName}`;
+    console.log({'PATH': filePath});
     const track = await getFile(filePath);
     return track;
   }

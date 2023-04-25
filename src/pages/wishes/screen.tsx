@@ -5,9 +5,7 @@ import Map from "./map";
 import moment from "moment";
 import useSWR from "swr";
 import {WishSchema} from "interfaces/wish";
-import {Music} from "components/multimedia/Music";
-
-const audioCtx = new AudioContext();
+import {Theme} from "components/multimedia/Theme";
 
 
 function urlBuilder(baseurl:string, params:object) {
@@ -18,7 +16,35 @@ function urlBuilder(baseurl:string, params:object) {
   return url.toString();
 }
 
-const Screen = (props:any) => {
+let theme = {
+  "name": "null",
+  "slug": "prototype",
+  "description": "",
+  "author": "",
+  "sponsors": [],
+  "background-sounds": [],
+  "bg-transition-time": 0,
+  "bpm": 0,
+  "steps_per_beat": 2,
+  "hashtags":
+  {
+    "#peace": {"color": "#cc8800", "sounds": ["Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [3, 55], "image": "#ff00f0"},
+    "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [21, 610], "image": "#ff00f0"},
+    "#hope": {"color": "#b8f57f", "sounds": ["Reedy_1_Percussive_7.aif.mp3", "Reedy_1_Percussive_3.aif.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
+    "#faith": {"color": "#f37ff5", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
+    "#friendship": {"color": "#f46796", "sounds": ["Reedy_1_Percussive_5.aif.mp3"], "pattern": [5, 987], "image": "#ff00f090"},
+    "#healing": {"color": "#0b6e98", "sounds": ["Reedy_2_Long_5.aif.mp3"], "pattern": [34, 144], "image": "#ff00f090"},
+    "#prayers": {"color": "#dabc10", "sounds": ["Reedy_2_Long_6.aif.mp3"], "pattern": [21, 233], "image": "#ff00f090"},
+    "#support": {"color": "#a90ebe", "sounds": ["Reedy_2_Long.aif.mp3", "Reedy_Phrases_3.aif.mp3"], "pattern": [89, 987], "image": "#ff00f090"},
+    "#happiness": {"color": "#901aff", "sounds": ["Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
+    "#justice": {"color": "#ebeeff", "sounds": ["Reedy_2_Long_4.aif.mp3", "Reedy_Phrases.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
+    "#gratitude": {"color": "#ff7429", "sounds": ["Firefly 1.mp3", "Reedy_Phrases_2.aif.mp3"], "pattern": [55, 1597], "image": "#ff00f090"},
+    "#respect": {"color": "#af4bf1", "sounds": ["Firefly 2.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [23, 610], "image": "#ff00f090"},
+    "default": {"color": "#ff00f0", "sounds": ["Firefly 1.mp3", "Reedy_2_Long_3.aif.mp3", "Reedy_Phrases_1.aif.mp3", "Reedy_2_Long.aif.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_5.aif.mp3"], "pattern": [2, 987], "image": "#ff00f090"}
+  }
+};
+
+const Screen = (props: any) => {
 
   const [wishList, showWishList] = useState(true);
   const [map, showMap] = useState(false);
@@ -27,33 +53,6 @@ const Screen = (props:any) => {
 
   // Whether the wishes are stacked or not.
   const [stack, setStack] = useState(true);
-  const theme = {
-    "name": "Prototype",
-    "slug": "prototype",
-    "description": "First prototype theme utilizing Indian shruti scale tuning.",
-    "author": "Rebecca, Scott, Rosuav, Mike iLL",
-    "sponsors": ["Center of Wow", "Storybook Sound"],
-    "background-sounds": ["drone.mp3"],
-    "bg-transition-time": 0.5,
-    "bpm": 120,
-    "steps_per_beat": 2,
-    "hashtags":
-    {
-      "#peace": {"color": "#cc8800", "sounds": ["Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [3, 55], "image": "#ff00f0"},
-      "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [21, 610], "image": "#ff00f0"},
-      "#hope": {"color": "#b8f57f", "sounds": ["Reedy_1_Percussive_7.aif.mp3", "Reedy_1_Percussive_3.aif.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
-      "#faith": {"color": "#f37ff5", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
-      "#friendship": {"color": "#f46796", "sounds": ["Reedy_1_Percussive_5.aif.mp3"], "pattern": [5, 987], "image": "#ff00f090"},
-      "#healing": {"color": "#0b6e98", "sounds": ["Reedy_2_Long_5.aif.mp3"], "pattern": [34, 144], "image": "#ff00f090"},
-      "#prayers": {"color": "#dabc10", "sounds": ["Reedy_2_Long_6.aif.mp3"], "pattern": [21, 233], "image": "#ff00f090"},
-      "#support": {"color": "#a90ebe", "sounds": ["Reedy_2_Long.aif.mp3", "Reedy_Phrases_3.aif.mp3"], "pattern": [89, 987], "image": "#ff00f090"},
-      "#happiness": {"color": "#901aff", "sounds": ["Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
-      "#justice": {"color": "#ebeeff", "sounds": ["Reedy_2_Long_4.aif.mp3", "Reedy_Phrases.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
-      "#gratitude": {"color": "#ff7429", "sounds": ["Firefly 1.mp3", "Reedy_Phrases_2.aif.mp3"], "pattern": [55, 1597], "image": "#ff00f090"},
-      "#respect": {"color": "#af4bf1", "sounds": ["Firefly 2.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [23, 610], "image": "#ff00f090"},
-      "default": {"color": "#ff00f0", "sounds": ["Firefly 1.mp3", "Reedy_2_Long_3.aif.mp3", "Reedy_Phrases_1.aif.mp3", "Reedy_2_Long.aif.mp3", "Reedy_2_Long_1.aif.mp3", , "Reedy_2_Long_5.aif.mp3"], "pattern": [2, 987], "image": "#ff00f090"},
-    }
-  };
 
   // @ts-ignore
   const fetcher = (...args) => fetch(...args)
@@ -73,6 +72,8 @@ const Screen = (props:any) => {
     const [kw, val] = tok.split(":");
     if (val) urlparams[kw] = val;
   });
+
+
   // Totally breakin' the rules here.
   // @ts-ignore
   window.refreshWishes = mutate;
@@ -101,12 +102,11 @@ const Screen = (props:any) => {
       <Toggle label="map" set={showMap} current={ map } />
       <Toggle label="fireflies" set={showFireflies} current={fireflies} />
       {
-      /* Safari will only resume audio if it's triggered by a user action.
-      So we attach a function to Toggle's onClick event. */
+      /* Music included in Theme file which needs to fetch files. */
       }
-      <Toggle label="music" set={(on:any) => {playMusic(on); if (on) audioCtx.resume();}} current={ music } />
+      <Theme data={data} theme="prototype"/>
+
       <div>
-        <Music theme={theme} paused={music} audioCtx={audioCtx} wishes={data}/>
         {fireflies && data.length > 0 && (
           <ul className="fireflies">
             {data.map((_: WishSchema, idx: number) => {
