@@ -10,14 +10,11 @@ export const Theme = (props: any) => {
   const [music, playMusic] = useState(false);
 
   if (!theme) {
-    console.log("No theme...");
-    fetch(`themes/${props.theme}/theme.json`).then(res => res.json()).then(t =>{
+    fetch(`/themes/${props.theme}/theme.json`).then(res => res.json()).then(t =>{
       setTheme(t);
     });
-    console.log("Loading theme...");
     return (<></>);
   }
-  console.log("Theme loaded!");
 
   return (
     <>

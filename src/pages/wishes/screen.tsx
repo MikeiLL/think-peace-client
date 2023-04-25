@@ -72,6 +72,7 @@ const Screen = (props: any) => {
     const [kw, val] = tok.split(":");
     if (val) urlparams[kw] = val;
   });
+  console.log(urlparams);
 
 
   // Totally breakin' the rules here.
@@ -104,7 +105,7 @@ const Screen = (props: any) => {
       {
       /* Music included in Theme file which needs to fetch files. */
       }
-      <Theme data={data} theme="prototype"/>
+      <Theme data={data} theme={ urlparams.theme ? urlparams.theme : 'prototype'} />
 
       <div>
         {fireflies && data.length > 0 && (

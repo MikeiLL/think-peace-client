@@ -14,7 +14,7 @@ export const Music = (props: any) => {
 
     if (paused) {
       generateSequence(sources);
-      console.log("paused");
+      console.log("playing");
     } else {
       Object.keys(musicIntervals).forEach(h => {
         console.log("Clear Interval: ", h);
@@ -32,6 +32,7 @@ export const Music = (props: any) => {
         sources[hashtag] = [];
         props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
           loadFile(track).then((track) => {
+            console.log("track from LoadTrack", track);
             const source = audioCtx.createBufferSource();
             source.buffer = track;
             sources[hashtag].push(source);
@@ -60,7 +61,6 @@ export const Music = (props: any) => {
   // Function to call each file and return an array of decoded files
   const loadFile = async (fileName: string) => {
     const filePath = `/themes/${props.theme.slug}/${fileName}`;
-    console.log({'PATH': filePath});
     const track = await getFile(filePath);
     return track;
   }
@@ -82,6 +82,7 @@ export const Music = (props: any) => {
     }
     trackSource.connect(audioCtx.destination);
     // When I send the offset, it's not playing the sound at all.
+    console.log({'Start track': trackSource});
     trackSource.start();
 
     return trackSource;
@@ -101,9 +102,11 @@ export const Music = (props: any) => {
       musicIntervals[hashtag] = setTimeout(() => {
         musicIntervals[hashtag] = setInterval(() => {
           if (sourcesArray.length === 0) return;
+
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
           let cycleLen = pattern.length;
-          if (pattern[countTwo % cycleLen] === 1 && wishCount[hashtag] > 0) {
+          if (pattern[countTwo % cycleLen] === 1 && (wishCount[hashtag] > 0 || hashtag === 'default')) {
+            // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
             trackControl(source.buffer, step_length * countTwo / 1000);
           }
           countTwo++;
