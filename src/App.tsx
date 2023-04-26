@@ -3,13 +3,16 @@ import { Welcome } from "./pages/welcome";
 import { Wish } from "pages/wish";
 import { Wishes } from "pages/wishes";
 import { About } from "pages/about";
+import { Artists } from "pages/artists";
+import { Contribute } from "pages/contribute";
 import { Menu } from "components/menu";
 import { NotFound } from "pages/404";
 import Screen from "pages/wishes/screen";
 
 /**
- * Global URL parameters
+ * Globals
  */
+// URL parameters
 const urlparams:any = {};
 window.location.hash.slice(1).split(",").forEach(tok => {
   const [kw, val] = tok.split(":");
