@@ -11,13 +11,13 @@ export const Contribute = () => {
       >
         <div className="text-white max-w-screen-2xl">
 
-          <h2 className="mb-2 text-xl">Here's how to create and contribute your own theme:</h2>
+          <h2 className="font-bold mb-2 text-xl">Here's how to create and contribute your own theme:</h2>
 
-          <p className="max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
+          <p className="my-4 max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
 
-          <p className="max-w-prose">Here's an example of a theme:</p>
+          <p className="my-4 max-w-prose">Here's an example of a theme:</p>
 
-          <pre className="bg-gray-800 p-4 rounded-lg font-mono max-w-screen-2xl">
+          <pre className="my-4 bg-gray-800 p-4 rounded-lg font-mono max-w-screen-2xl">
             <code>
 {`{
   "name": "My Theme",
@@ -31,25 +31,25 @@ export const Contribute = () => {
   "hashtags": {
     "#peace": {
       "sounds": [
-        "https://thinkpeace.s3.amazonaws.com/sounds/peace/peace1.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/peace/peace2.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/peace/peace3.mp3",
+        "peace1.mp3",
+        "peace2.mp3",
+        "peace3.mp3",
       ],
       "color": "#FF0000"
     },
     "#love": {
       "sounds": [
-        "https://thinkpeace.s3.amazonaws.com/sounds/love/love1.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/love/love2.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/love/love3.mp3",
+        "love1.mp3",
+        "love2.mp3",
+        "love3.mp3",
       ],
       "color": "#00FF00"
     },
     "default": {
       "sounds": [
-        "https://thinkpeace.s3.amazonaws.com/sounds/default/default1.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/default/default2.mp3",
-        "https://thinkpeace.s3.amazonaws.com/sounds/default/default3.mp3",
+        "default1.mp3",
+        "default2.mp3",
+        "default3.mp3",
       ],
       "color": "#000000"
     }
@@ -58,18 +58,18 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2 className="max-w-prose text-xl">JSON File</h2>
+          <h2 className="font-bold max-w-prose text-xl">JSON File</h2>
 
-          <p className="max-w-prose">Here's a breakdown of the JSON file:</p>
+          <p className="my-4 max-w-prose">Here's a breakdown of the JSON file:</p>
 
           <p><strong>name</strong> - The name of your theme. (required)</p>
           <p><strong>slug</strong> - The slug of your theme. (required)</p>
           <p><strong>description</strong> - A description of your theme. (required)</p>
           <p><strong>author</strong> - The author of your theme. (required)</p>
 
-          <p className="max-w-prose">Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for `#peace`, your JSON file will look like this:</p>
+          <p className="my-4 max-w-prose">Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for `#peace`, your JSON file will look like this:</p>
 
-          <pre className="bg-gray-800 p-4 rounded-lg font-mono">
+          <pre className="my-4 bg-gray-800 p-4 rounded-lg font-mono">
             <code>
 {`{
   "name": "Peace Alert",
@@ -85,14 +85,31 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2 className="text-xl">Guidelines</h2>
+          <h2 className="font-bold text-xl">Guidelines</h2>
+          <p className="my-4 max-w-prose"></p>
 
-          <h3 className="text-l">Sound Files</h3>
+          <h3 className="font-bold text-l">Sounds</h3>
+          <p className="my-4 max-w-prose">Your theme may include sound files. </p>
 
-          <h3 className="text-l">Colors</h3>
+          <p className="my-4 max-w-prose">Each wish type (peace, hope, faith, etc...) gets its own sound or set of sounds, with a default set in case new wish types are added, or in case a theme only defines a subset of wish types.</p>
 
-          <a href="https://hslpicker.com/" target="_blank" rel="noreferrer">Here's a color picker we like.</a>
+          <p className="my-4 max-w-prose">Sounds should be in the <a href="https://en.wikipedia.org/wiki/MP3" className="text-yellow-300" target="_blank" rel="noreferrer">MP3 format</a>.</p>
 
+          <p className="my-4 max-w-prose">Sounds should be 44.1kHz, 16-bit, stereo.</p>
+
+          <p className="my-4 max-w-prose">Sounds should be 15 seconds or less.</p>
+
+          <p className="my-4 max-w-prose">Names in the theme file must match the names of the files. It might be useful to name sounds in the following format: <code>peace1.mp3</code>, <code>peace2.mp3</code>, <code>peace3.mp3</code>, etc...</p>
+
+          <p className="my-4 max-w-prose">The sounds will be produced based on the default <code>pattern</code> or the one you specify for either your <code>default</code> wish type or the built-in default pattern for that wish type, utilizing <a href="https://en.wikipedia.org/wiki/Euclidean_rhythm">Euclidean rhythms</a>. Some approaches to Euclidean rhythms include a step parameter, however at this time, steps are just automatically incremented by one "step" (as defined in your or default theme) so that the browser isn't trying to do too much at once.</p>
+
+          <h3 className="font-bold text-l">Colors</h3>
+          <p className="my-4 max-w-prose"></p>
+          <p className="my-4 max-w-prose">Here's a <a href="https://hslpicker.com/" className="text-yellow-300" target="_blank" rel="noreferrer">color picker</a> we like.</p>
+
+          <h3 className="font-bold text-l">Getting us your theme</h3>
+          <p className="my-4 max-w-prose">Use a text editor or <a href="
+          https://jsoneditoronline.org/#left=cloud.1ccd1dd8e02d452ea458ccd9d1264437" className="text-yellow-300" target="_blank" rel="noreferrer">this handy tool</a> to make your theme file.</p>
 
         </div>
 
