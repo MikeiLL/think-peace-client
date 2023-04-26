@@ -1,0 +1,12 @@
+{
+  "name": "Peace Alert",
+  "slug": "peace_alert",
+  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
+  "author": "My Name",
+  "background-color": "#000000",
+  "hashtags": {
+    "#peace": {
+      "color": "#ffe033"
+    }
+  }
+}
