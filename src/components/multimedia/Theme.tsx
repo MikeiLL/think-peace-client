@@ -126,7 +126,6 @@ export const Theme = (props: any) => {
   return (
     <>
     <Toggle label="wishes" set={showWishList} current={ wishList } />
-    <Toggle label="map" set={showMap} current={ map } />
     <Toggle label="fireflies" set={showFireflies} current={fireflies} />
     {
     /* Safari will only resume audio if it's triggered by a user action.
