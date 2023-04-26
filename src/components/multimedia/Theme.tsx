@@ -40,8 +40,6 @@ export const Theme = (props: any) => {
     return "#" + newColor;
   }
 
-
-
   // Totally breakin' the rules here.
   // @ts-ignore
   window.refreshWishes = mutate;
@@ -65,15 +63,64 @@ export const Theme = (props: any) => {
   // @ts-ignore
   const hashparams = window.hash_params;
   const themeName = hashparams.theme ? hashparams.theme : 'prototype';
+  const builtInTheme:any = {
+    "name": "Prototype",
+    "slug": "prototype",
+    "description": "First prototype theme utilizing Indian shruti scale tuning.",
+    "author": "Rebecca, Scott, Rosuav, Mike iLL",
+    "sponsors": [],
+    "background-sounds": ["drone.mp3"],
+    "background-color": "#10114C",
+    // TODO add background color and use it.
+    "bg-transition-time": 0.5,
+    "bpm": 120,
+    "steps_per_beat": 2,
+    "hashtags":
+    {
+      "#peace": {"color": "#cc8800", "sounds": ["Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [3, 55], "image": "#ff00f0"},
+      "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [21, 610], "image": "#ff00f0"},
+      "#hope": {"color": "#b8f57f", "sounds": ["Reedy_1_Percussive_7.aif.mp3", "Reedy_1_Percussive_3.aif.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
+      "#faith": {"color": "#f37ff5", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
+      "#friendship": {"color": "#f46796", "sounds": ["Reedy_1_Percussive_5.aif.mp3"], "pattern": [5, 987], "image": "#ff00f090"},
+      "#healing": {"color": "#0b6e98", "sounds": ["Reedy_2_Long_5.aif.mp3"], "pattern": [34, 144], "image": "#ff00f090"},
+      "#prayers": {"color": "#dabc10", "sounds": ["Reedy_2_Long_6.aif.mp3"], "pattern": [21, 233], "image": "#ff00f090"},
+      "#support": {"color": "#a90ebe", "sounds": ["Reedy_2_Long.aif.mp3", "Reedy_Phrases_3.aif.mp3"], "pattern": [89, 987], "image": "#ff00f090"},
+      "#happiness": {"color": "#901aff", "sounds": ["Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
+      "#justice": {"color": "#ebeeff", "sounds": ["Reedy_2_Long_4.aif.mp3", "Reedy_Phrases.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
+      "#gratitude": {"color": "#ff7429", "sounds": ["Firefly 1.mp3", "Reedy_Phrases_2.aif.mp3"], "pattern": [55, 1597], "image": "#ff00f090"},
+      "#respect": {"color": "#0033ff", "sounds": ["Firefly 2.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [23, 610], "image": "#ff00f090"},
+      "default": {"color": "#ff00f0", "sounds": ["Firefly 1.mp3", "Reedy_2_Long_3.aif.mp3", "Reedy_Phrases_1.aif.mp3", "Reedy_2_Long.aif.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_5.aif.mp3"], "pattern": [2, 987], "image": "#ff00f090"}
+    }
+  }
 
   if (!theme) {
-    fetch(`/themes/${themeName}/theme.json`).then(res => res.json()).then(t =>{
-      setTheme(t);
-      if (document.body.style.background){
-        document.body.style.background = t['background-color'];
-      }
+    fetch(`/themes/${themeName}/theme.json`).then(res => res.json()).then(customTheme => {
+      let hashtags:any = {};
+      // @ts-ignore
+      window.wishHashtags.forEach((hashtag: string) => {
+        // Build with fallback to builtin theme hashtag defaults
+        const placesToLook = [
+          customTheme.hashtags?.[hashtag],
+          customTheme.hashtags?.default,
+          builtInTheme.hashtags[hashtag],
+          builtInTheme.hashtags.default
+        ];
+        let hashtagContents:any = {};
+        Object.keys(builtInTheme.hashtags.default).forEach((key: string) => {
+          for (let place of placesToLook) {
+            if (place && key in place) {
+              hashtagContents[key] = place[key];
+              break;
+            }
+          }
+        });
+        hashtags[hashtag] = hashtagContents;
+      });
+      const mergedTheme = {...builtInTheme, ...customTheme, hashtags};
+      setTheme(mergedTheme);
+      document.body.style.background = mergedTheme['background-color'];
     });
-    return (<>Got nothing</>);
+    return (<>Hmmm. Error loading wishes. Please try again.</>);
   }
 
   return (
@@ -170,13 +217,14 @@ export const Theme = (props: any) => {
                       })
                         .filter((singleWish: WishSchema) => singleWish.from)
                       .map((wish: WishSchema, idx: number) => {
+
                         // @ts-ignore
                         let hashForColor = (theme.hashtags[wish.hashTag]) ? wish.hashTag : "default";
                         // @ts-ignore
                         let color = theme.hashtags[hashForColor].color;
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
-                        console.log({"color": color, "darker": darker});
+                        console.log({"color": color, "darker": darker, "theme": theme});
                         let class_name = "px-1 rounded-md mb-3 text-lg notification-card text-white items-between";
                         if (hashparams.pin === wish._id) {
                           class_name += " pinned_wish";

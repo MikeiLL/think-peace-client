@@ -21,6 +21,23 @@ window.location.hash.slice(1).split(",").forEach(tok => {
 // @ts-ignore
 window.hash_params = urlparams;
 
+// @ts-ignore
+window.wishHashtags = [
+  "#peace",
+  "#faith",
+  "#freedom",
+  "#friendship",
+  "#gratitude",
+  "#happiness",
+  "#healing",
+  "#hope",
+  "#justice",
+  "#love",
+  "#prayers",
+  "#support",
+  "#respect"
+]
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,6 +66,14 @@ const router = createBrowserRouter([
       {
         path: "about",
         element: <About />,
+      },
+      {
+        path: "artists",
+        element: <Artists />,
+      },
+      {
+        path: "contribute",
+        element: <Contribute />,
       }
     ]
   },

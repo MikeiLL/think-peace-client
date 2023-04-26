@@ -12,8 +12,8 @@ code {
     monospace;
 }
 
-* {
-  font-family: "Times New Roman" !important;
+body {
+  font-family: "Times New Roman";
 }
 
 .textBox {

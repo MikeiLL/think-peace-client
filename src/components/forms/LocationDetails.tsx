@@ -104,20 +104,10 @@ export const LocationDetails = () => {
             value={hashTag}
             onChange={(e) => setHashTag(e.target.value)}
           >
-            {["#peace",
-              "#faith",
-              "#freedom",
-              "#friendship",
-              "#gratitude",
-              "#happiness",
-              "#healing",
-              "#hope",
-              "#justice",
-              "#love",
-              "#prayers",
-              "#support",
-              "#respect"].map(
-              (tag) => (
+            {
+            // @ts-ignore
+            window.wishHashtags.map(
+              (tag:any) => (
                 <option value={tag} key={tag}>
                   {tag}
                 </option>
