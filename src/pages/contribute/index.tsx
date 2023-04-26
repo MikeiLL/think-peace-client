@@ -7,17 +7,17 @@ export const Contribute = () => {
     <Container overflow={true}>
       <Title title="Contributing Themes" />
       <div
-        className="h-full py-4 mt-4 flex flex-col text-white"
+        className="h-full py-4 px-6 mt-4 flex flex-col text-white"
       >
-        <div className="text-white max-w-prose">
+        <div className="text-white max-w-screen-2xl">
 
-          <h2 className="mb-2">Here's how to create and contribute your own theme:</h2>
+          <h2 className="mb-2 text-xl">Here's how to create and contribute your own theme:</h2>
 
-          <p>Think Peace loads sounds and colors from a JSON file.</p>
+          <p className="max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
 
-          <p>Here's an example of a theme:</p>
+          <p className="max-w-prose">Here's an example of a theme:</p>
 
-          <pre className="bg-gray-800 p-4 rounded-lg font-mono">
+          <pre className="bg-gray-800 p-4 rounded-lg font-mono max-w-screen-2xl">
             <code>
 {`{
   "name": "My Theme",
@@ -58,16 +58,16 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2>JSON File</h2>
+          <h2 className="max-w-prose text-xl">JSON File</h2>
 
-          <p>Here's a breakdown of the JSON file:</p>
+          <p className="max-w-prose">Here's a breakdown of the JSON file:</p>
 
           <p><strong>name</strong> - The name of your theme. (required)</p>
           <p><strong>slug</strong> - The slug of your theme. (required)</p>
           <p><strong>description</strong> - A description of your theme. (required)</p>
           <p><strong>author</strong> - The author of your theme. (required)</p>
 
-          Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for `#peace`, your JSON file will look like this:
+          <p className="max-w-prose">Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for `#peace`, your JSON file will look like this:</p>
 
           <pre className="bg-gray-800 p-4 rounded-lg font-mono">
             <code>
@@ -85,11 +85,11 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2>Guidelines</h2>
+          <h2 className="text-xl">Guidelines</h2>
 
-          <h3>Sound Files</h3>
+          <h3 className="text-l">Sound Files</h3>
 
-          <h3>Colors</h3>
+          <h3 className="text-l">Colors</h3>
 
           <a href="https://hslpicker.com/" target="_blank" rel="noreferrer">Here's a color picker we like.</a>
 

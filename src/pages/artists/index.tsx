@@ -7,10 +7,10 @@ export const Artists = () => {
     <Container overflow={true}>
       <Title title="Artists" />
       <div
-        className="h-full py-4 mt-4 flex flex-col text-white"
+        className="h-full py-4 px-6 mt-4 flex flex-col text-white"
       >
         <div className="text-white max-w-prose">
-          <h2>Artists and Themes</h2>
+          <h2 className="text-xl">Artists and Themes</h2>
           <ul>
             <li>
               <a href="https://thinkpeace.app/wishes">Prototype</a> by Rebecca, Scott, Rosuav and Mike iLL
