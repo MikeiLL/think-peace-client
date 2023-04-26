@@ -6,7 +6,8 @@
   "sponsors": ["Center of Wow", "Storybook Sound"],
   "background-sounds": ["drone.mp3"],
   "bg-transition-time": 0.5,
-  "bpm": 120,
+  "bpm": 80,
+  "background-color": "#993300",
   "steps_per_beat": 5,
   "hashtags":
   {

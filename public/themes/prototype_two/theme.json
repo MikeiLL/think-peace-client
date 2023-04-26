@@ -6,6 +6,7 @@
   "sponsors": ["Center of Wow", "Storybook Sound"],
   "background-sounds": ["drone.mp3"],
   "bg-transition-time": 0.5,
+  "background-color": "#226239",
   "bpm": 120,
   "steps_per_beat": 1,
   "hashtags":
@@ -13,7 +14,7 @@
     "#peace": {"color": "#0033ff", "sounds": ["Reedy_1_Percussive_6.aif.mp3"], "pattern": [8, 13], "image": "#ff00f090"},
     "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [21, 610], "image": "#ff00f0"},
     "#hope": {"color": "#b8f57f", "sounds": ["Reedy_1_Percussive_7.aif.mp3", "Reedy_1_Percussive_3.aif.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
-    "#faith": {"color": "#f37ff5", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
+    "#faith": {"color": "#ff00bb", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
     "#friendship": {"color": "#f46796", "sounds": ["Reedy_1_Percussive_5.aif.mp3"], "pattern": [5, 233], "image": "#ff00f090"},
     "#healing": {"color": "#0b6e98", "sounds": ["Reedy_1_Percussive_3.aif.mp3"], "pattern": [34, 144], "image": "#ff00f090"},
     "#prayers": {"color": "#dabc10", "sounds": ["Reedy_1_Percussive_3.aif.mp3"], "pattern": [21, 34], "image": "#ff00f090"},
