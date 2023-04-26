@@ -7,7 +7,6 @@ export const NotFound = () => {
     <Container overflow={false}>
       <div
         className="h-full py-4 px-6 flex flex-col items-center justify-center"
-        style={{ backgroundColor: "#10114C" }}
       >
         <div className="flex-grow text-white font-black text-center mt-40">
           <ReactCurvedText

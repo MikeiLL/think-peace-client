@@ -8,7 +8,6 @@ export const About = () => {
       <Title title="About Think Peace" />
       <div
         className="h-full py-4 px-6 mt-4 flex flex-col text-white"
-        style={{ backgroundColor: "#10114C" }}
       >
         <div className="text-white max-w-prose">
 

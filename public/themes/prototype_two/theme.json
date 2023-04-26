@@ -10,7 +10,7 @@
   "steps_per_beat": 1,
   "hashtags":
   {
-    "#peace": {"color": "#af4bf1", "sounds": ["Reedy_1_Percussive_6.aif.mp3"], "pattern": [8, 13], "image": "#ff00f090"},
+    "#peace": {"color": "#0033ff", "sounds": ["Reedy_1_Percussive_6.aif.mp3"], "pattern": [8, 13], "image": "#ff00f090"},
     "#love": {"color": "#3f980b", "sounds": ["Reedy_1_Percussive_4.aif.mp3", "Reedy_1_Percussive_5.aif.mp3"], "pattern": [21, 610], "image": "#ff00f0"},
     "#hope": {"color": "#b8f57f", "sounds": ["Reedy_1_Percussive_7.aif.mp3", "Reedy_1_Percussive_3.aif.mp3"], "pattern": [13, 987], "image": "#ff00f090"},
     "#faith": {"color": "#f37ff5", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive.aif.mp3"], "pattern": [3, 610], "image": "#ff00f090"},
@@ -19,7 +19,7 @@
     "#prayers": {"color": "#dabc10", "sounds": ["Reedy_1_Percussive_3.aif.mp3"], "pattern": [21, 34], "image": "#ff00f090"},
     "#support": {"color": "#a90ebe", "sounds": ["Reedy_1_Percussive.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [89, 987], "image": "#ff00f090"},
     "#happiness": {"color": "#901aff", "sounds": ["Reedy_1_Percussive.aif.mp3"], "pattern": [55, 233], "image": "#ff00f090"},
-    "#justice": {"color": "#ebeeff", "sounds": ["Reedy_2_Long_4.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
+    "#justice": {"color": "#000000", "sounds": ["Reedy_2_Long_4.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
     "#respect": {"color": "#af4bf1", "sounds": ["Reedy_1_Percussive_6.aif.mp3"], "pattern": [23, 233], "image": "#ff00f090"},
     "#gratitude": {"color": "#af4bf1", "sounds": ["Reedy_1_Percussive_5.aif.mp3"], "pattern": [13, 21], "image": "#ff00f090"},
     "default": {"color": "#ff00f0", "sounds": ["Reedy_1_Percussive_6.aif.mp3", "Reedy_1_Percussive_5.aif.mp3", "Reedy_1_Percussive_1.aif.mp3", "Reedy_1_Percussive_2.aif.mp3"], "pattern": [2, 5], "image": "#ff00f090"}
