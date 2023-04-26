@@ -1,0 +1,30 @@
+{
+  "name": "Rock 101",
+  "slug": "rock101",
+  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
+  "author": "My Name",
+  "background-color": "#000000",
+  "bpm": 120,
+  "steps_per_beat": 1,
+  "hashtags": {
+    "#peace": {
+      "sounds": [
+        "Reedy_1_Percussive_7.aif.mp3"
+      ],
+      "pattern": [2, 8]
+    },
+    "#faith": {
+      "sounds": [
+        "Reedy_1_Percussive_2.aif.mp3"
+      ],
+      "pattern": [2, 8]
+    },
+    "default": {
+      "color": "#000000",
+      "sounds": [
+        "Reedy_1_Percussive.aif.mp3"
+      ],
+      "pattern": [2, 4]
+    }
+  }
+}
