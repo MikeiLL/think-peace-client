@@ -115,19 +115,19 @@ export const Contribute = () => {
           <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono">
             <code>
             {`{
-"name": "Rock 101",
+  "name": "Rock 101",
   "slug": "rock101",
-  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
-  "author": "My Name",
+  "description": "Simple rock beat example theme.",
+  "author": "Mike iLL",
   "background-color": "#000000",
   "bpm": 120,
-  "steps_per_beat": 1,
+  "steps_per_beat": 2,
   "hashtags": {
     "#peace": {
       "sounds": [
         "high.mp3"
       ],
-      "pattern": [1, 8]
+      "pattern": [1,8]
     },
     "#respect": {
       "sounds": [
@@ -138,7 +138,7 @@ export const Contribute = () => {
     },
     "#faith": {
       "sounds": [
-        "medium.mp3"
+        "cowbell.mp3"
       ],
       "pattern": [6, 8]
     },
