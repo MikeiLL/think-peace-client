@@ -108,7 +108,7 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">Our <em>pattern</em> has two parts, each being a number. The <em>second</em> number is the total number of steps in the pattern, the <em>first</em> number indicates how many time to play the sound within the total number of steps. What is ultimately produced might look something like this: <code className="bg-gray-200 text-blue-800">[ x . . x . . ]</code>, which would be the result of <em>pattern</em> <code className="bg-gray-200 text-blue-800">[2, 6]</code>.</p>
 
-          <p className="my-4 max-w-prose">Here's a <a href="https://www.youtube.com/watch?v=6Oj8E5r52fA" className="text-yellow-300" target="_blank" rel="noreferrer">YouTube video</a> explaining Euclidean rhythms.</p>
+          <p className="my-4 max-w-prose">Here's a <a href="https://www.youtube.com/watch?v=bKazVnHh2w4" className="text-yellow-300" target="_blank" rel="noreferrer">YouTube video</a> explaining Euclidean rhythms.</p>
 
           <p className="my-4 max-w-prose">Here's a <a href="https://thinkpeace.app/wishes#theme:rock101" className="text-yellow-300" target="_blank" rel="noreferrer">live example</a> of a theme with a couple of simple custom patterns:</p>
 
@@ -156,7 +156,7 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">By default it just plays the <code className="bg-gray-200 text-blue-800">low.mp3</code> sound every other beat, but if <code className="bg-gray-200 text-blue-800">#peace</code> is present, it plays the <code className="bg-gray-200 text-blue-800">high.mp3</code> sound every eight beats. For <code className="bg-gray-200 text-blue-800">#respect</code> it selects arbitrarily from the set of <code className="bg-gray-200 text-blue-800">long.mp3, long2.mp3</code> sounds at a more infrequent (and uneven) rate. Finally, for <code className="bg-gray-200 text-blue-800">#faith</code> it generates a more complex short pattern for the <code className="bg-gray-200 text-blue-800">medium.mp3</code> sound.</p>
 
-          <p className="my-4 max-w-prose">If you look at the <a href="https://thinkpeace.app/wishes#theme:rock101" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
+          <p className="my-4 max-w-prose">If you look at the <a href="https://thinkpeace.app/themes/prototype/theme.json" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
 
           <h3 className="font-bold text-l">Colors</h3>
           <p className="my-4 max-w-prose"></p>
