@@ -9,22 +9,29 @@
   "hashtags": {
     "#peace": {
       "sounds": [
-        "Reedy_1_Percussive_7.aif.mp3"
+        "high.mp3"
       ],
-      "pattern": [2, 8]
+      "pattern": [1,8]
+    },
+    "#respect": {
+      "sounds": [
+        "long.mp3",
+        "long2.mp3"
+      ],
+      "pattern": [3, 256]
     },
     "#faith": {
       "sounds": [
-        "Reedy_1_Percussive_2.aif.mp3"
+        "medium.mp3"
       ],
-      "pattern": [2, 8]
+      "pattern": [6, 8]
     },
     "default": {
       "color": "#000000",
       "sounds": [
-        "Reedy_1_Percussive.aif.mp3"
+        "low.mp3"
       ],
-      "pattern": [2, 4]
+      "pattern": [1, 2]
     }
   }
 }
