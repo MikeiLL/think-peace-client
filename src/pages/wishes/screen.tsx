@@ -6,7 +6,7 @@ const Screen = (props: any) => {
   return (
     <div>
 
-      <Theme />
+      <Theme markers={props.markers} />
 
     </div>
   );
