@@ -45,8 +45,10 @@ export const Music = (props: any) => {
 
   const wishCount:any = {};
 
+  let wishTotal = 0;
   wishes.forEach((wish: WishSchema) => {
     wishCount[wish.hashTag] = (wishCount[wish.hashTag] || 0) + 1;
+    wishTotal++;
   });
 
 
@@ -68,8 +70,9 @@ export const Music = (props: any) => {
   const trackControl = (audioBuffer: any, offset:any) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
-      detune: 7,
+      // remove, but could go here. detune: 7,
     });
+    const gainNode = audioCtx.createGain();
     console.log("audioCtx State before", audioCtx.state);
     if (audioCtx.state === "suspended") {
       console.log("audioCtx State in if", audioCtx.state);
@@ -106,8 +109,12 @@ export const Music = (props: any) => {
           const source = sourcesArray[Math.floor(Math.random() * sourcesArray.length)];
           let cycleLen = pattern.length;
           if (pattern[countTwo % cycleLen] === 1 && (wishCount[hashtag] > 0 || hashtag === 'default')) {
-            // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
-            trackControl(source.buffer, step_length * countTwo / 1000);
+            const proportion = wishCount[hashtag] / wishTotal;
+            console.log(`${hashtag} proportion`, proportion);
+            if (Math.random() < Math.sqrt(proportion)) {
+              // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
+              trackControl(source.buffer, step_length * countTwo / 1000);
+            }
           }
           countTwo++;
         }, step_length);

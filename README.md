@@ -18,3 +18,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/AudioBufferSourceNode
 ## Euclidean Beats Resource
 
 https://blog.landr.com/euclidean-rhythms/
+
+## Globals are set in App.tsx
+
+window.wishHashtags = [
+  "#peace",
+  "#faith",
+  etc...
+]
