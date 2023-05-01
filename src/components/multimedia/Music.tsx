@@ -107,11 +107,10 @@ export const Music = (props: any) => {
           let cycleLen = pattern.length;
           if (pattern[countTwo % cycleLen] === 1 && (wishCount[hashtag] > 0 || hashtag === 'default')) {
             const proportion = wishCount[hashtag] / wishTotal;
-            //if (Math.random() < Math.sqrt(proportion)) {
-              console.log({'hashtag': hashtag, 'proportion': Math.sqrt(proportion), 'countTwo': countTwo});
+              // We could enstate proportional triggering here with Math.random() < Math.sqrt(proportion).
+              // But it wasn't seeming very musical.
               // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
               trackControl(source.buffer, proportion);
-            //}
           }
           countTwo++;
         }, step_length);
