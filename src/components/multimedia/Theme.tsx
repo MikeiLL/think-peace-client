@@ -89,7 +89,18 @@ export const Theme = (props: any) => {
       "#justice": {"color": "#ebeeff", "sounds": ["Reedy_2_Long_4.aif.mp3", "Reedy_Phrases.aif.mp3"], "pattern": [34, 1597], "image": "#ff00f090"},
       "#gratitude": {"color": "#ff7429", "sounds": ["Firefly 1.mp3", "Reedy_Phrases_2.aif.mp3"], "pattern": [55, 1597], "image": "#ff00f090"},
       "#respect": {"color": "#0033ff", "sounds": ["Firefly 2.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_2.aif.mp3", "Reedy_Phrases_1.aif.mp3"], "pattern": [23, 610], "image": "#ff00f090"},
-      "default": {"color": "#ff00f0", "sounds": ["Firefly 1.mp3", "Reedy_2_Long_3.aif.mp3", "Reedy_Phrases_1.aif.mp3", "Reedy_2_Long.aif.mp3", "Reedy_2_Long_1.aif.mp3", "Reedy_2_Long_5.aif.mp3"], "pattern": [2, 987], "image": "#ff00f090"}
+      "default": {
+        "color": "#ff00f0", "sounds": [
+          "Firefly 1.mp3",
+          "Reedy_2_Long_3.aif.mp3",
+          "Reedy_Phrases_1.aif.mp3",
+          "Reedy_2_Long.aif.mp3",
+          "Reedy_2_Long_1.aif.mp3",
+          "Reedy_2_Long_5.aif.mp3"],
+        "pattern": [2, 987],
+        "offset": 0,
+        "image": "#ff00f090"
+      }
     }
   }
 
@@ -224,7 +235,6 @@ export const Theme = (props: any) => {
                         let color = theme.hashtags[hashForColor].color;
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
-                        console.log({"color": color, "darker": darker, "theme": theme});
                         let class_name = "px-1 rounded-md mb-3 text-lg notification-card text-white items-between";
                         if (hashparams.pin === wish._id) {
                           class_name += " pinned_wish";

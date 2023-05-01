@@ -63,7 +63,7 @@ export const Music = (props: any) => {
     return track;
   }
 
-  const trackControl = (audioBuffer: any, offset:any, proportion:number) => {
+  const trackControl = (audioBuffer: any, proportion:number) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
       // removed, but could go here. detune: 7,
@@ -83,7 +83,7 @@ export const Music = (props: any) => {
     const gain = Math.sqrt(proportion);
     gainNode.gain.setValueAtTime(proportion, audioCtx.currentTime);
     // When I send the offset, it's not playing the sound at all.
-    trackSource.start( offset=offset );
+    trackSource.start( );
 
     return trackSource;
   }
@@ -110,12 +110,12 @@ export const Music = (props: any) => {
             //if (Math.random() < Math.sqrt(proportion)) {
               console.log({'hashtag': hashtag, 'proportion': Math.sqrt(proportion), 'countTwo': countTwo});
               // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
-              trackControl(source.buffer, step_length * countTwo / 1000, proportion);
+              trackControl(source.buffer, proportion);
             //}
           }
           countTwo++;
         }, step_length);
-      }, step_length * counter++);
+      }, step_length * theme.hashtags[hashtag].offset);
     });
   };
 
