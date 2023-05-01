@@ -8,12 +8,14 @@
   "steps_per_beat": 4,
   "hashtags":
   {
-    "#peace": {"sounds": ["hihat-foot.mp3"], "pattern": [1, 4], "offset": 2, "image": "#ff00f090"},
-    "#faith": {"sounds": ["cowbell.mp3"], "pattern": [1, 4], "offset": 0, "image": "#ff00f0"},
-    "#hope": {"sounds": ["floor-tom.mp3"], "pattern": [2, 5], "image": "#ff00f0"},
-    "#happiness": {"sounds": ["tom1.mp3"], "pattern": [1, 3], "image": "#ff00f0"},
-    "#healing": {"sounds": ["tom2.mp3"], "pattern": [3, 7], "image": "#ff00f0"},
-    "#justice": {"sounds": ["ride.mp3"], "pattern": [1, 1], "image": "#ff00f0"},
-    "default": {"sounds": ["bass.mp3"], "pattern": [1, 2], "offset": 0, "image": "#ff00f090"}
+    "#peace": {"sounds": ["hihat-foot.mp3", "hihat.mp3"], "pattern": [1, 4], "offset": 0, "image": "#ff00f090"},
+    "#faith": {"sounds": ["hihat-open.mp3"], "pattern": [1, 4], "offset": 2, "image": "#ff00f0"},
+    "#hope": {"sounds": ["floor-tom.mp3"], "pattern": [5, 11], "image": "#ff00f0"},
+    "#happiness": {"sounds": ["tom1.mp3"], "pattern": [7, 11], "offset": 2, "image": "#ff00f0"},
+    "#healing": {"sounds": ["tom2.mp3"], "pattern": [3, 11], "image": "#ff00f0"},
+    "#justice": {"sounds": ["ride.mp3"], "pattern": [1, 2], "image": "#ff00f0"},
+    "#gratitude": {"sounds": ["cowbell.mp3"], "pattern": [12, 64], "image": "#ff00f0"},
+    "#freedom": {"sounds": ["cowbell.mp3"], "pattern": [6, 16], "image": "#ff00f0"},
+    "default": {"sounds": ["bass.mp3"], "pattern": [1, 4], "offset": 0, "image": "#ff00f090"}
   }
 }
