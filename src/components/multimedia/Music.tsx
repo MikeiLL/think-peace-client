@@ -10,14 +10,11 @@ export const Music = (props: any) => {
   const {theme, paused, audioCtx, wishes} = props;
 
   useEffect(() => {
-    console.log(wishes);
 
     if (paused) {
       generateSequence(sources);
-      console.log("playing");
     } else {
       Object.keys(musicIntervals).forEach(h => {
-        console.log("Clear Interval: ", h);
         clearInterval(musicIntervals[h]);
         delete musicIntervals[h];
       });
@@ -32,7 +29,6 @@ export const Music = (props: any) => {
         sources[hashtag] = [];
         props.theme.hashtags[hashtag].sounds.forEach((track: any) => {
           loadFile(track).then((track) => {
-            console.log("track from LoadTrack", track);
             const source = audioCtx.createBufferSource();
             source.buffer = track;
             sources[hashtag].push(source);
@@ -67,26 +63,27 @@ export const Music = (props: any) => {
     return track;
   }
 
-  const trackControl = (audioBuffer: any, offset:any) => {
+  const trackControl = (audioBuffer: any, offset:any, proportion:number) => {
     const trackSource = new AudioBufferSourceNode(audioCtx, {
       buffer: audioBuffer,
-      // remove, but could go here. detune: 7,
+      // removed, but could go here. detune: 7,
     });
+    // TODO offset not being utilized.
     const gainNode = audioCtx.createGain();
-    console.log("audioCtx State before", audioCtx.state);
     if (audioCtx.state === "suspended") {
-      console.log("audioCtx State in if", audioCtx.state);
       audioCtx.resume().then(() => {
-        console.log("audioCtx State in then", audioCtx.state);
       }).catch((err:any) => {
         console.log("audioCtx State after", audioCtx.state);
         console.log("audioCtx State after err", err);
       });
     }
-    trackSource.connect(audioCtx.destination);
+    gainNode.connect(audioCtx.destination);
+    trackSource.connect(gainNode);
+    // We will never INCREASE volume, only decrease.
+    const gain = Math.sqrt(proportion);
+    gainNode.gain.setValueAtTime(proportion, audioCtx.currentTime);
     // When I send the offset, it's not playing the sound at all.
-    console.log({'Start track': trackSource});
-    trackSource.start();
+    trackSource.start( offset=offset );
 
     return trackSource;
   }
@@ -110,11 +107,11 @@ export const Music = (props: any) => {
           let cycleLen = pattern.length;
           if (pattern[countTwo % cycleLen] === 1 && (wishCount[hashtag] > 0 || hashtag === 'default')) {
             const proportion = wishCount[hashtag] / wishTotal;
-            console.log(`${hashtag} proportion`, proportion);
-            if (Math.random() < Math.sqrt(proportion)) {
+            //if (Math.random() < Math.sqrt(proportion)) {
+              console.log({'hashtag': hashtag, 'proportion': Math.sqrt(proportion), 'countTwo': countTwo});
               // Another approach to `hashtag === 'default` would be !theme.hashtags[hashtag].wishes
-              trackControl(source.buffer, step_length * countTwo / 1000);
-            }
+              trackControl(source.buffer, step_length * countTwo / 1000, proportion);
+            //}
           }
           countTwo++;
         }, step_length);
