@@ -2,7 +2,7 @@
   "name": "Rock 101",
   "slug": "rock101",
   "description": "Simple rock beat example theme.",
-  "author": "Mike iLL",
+  "author": "Rosuav, Mike iLL",
   "background-color": "#222222",
   "bpm": 120,
   "steps_per_beat": 4,
@@ -17,6 +17,7 @@
     "#gratitude": {"sounds": ["cowbell.mp3"], "pattern": [12, 64], "color": "#424242"},
     "#freedom": {"sounds": ["cowbell.mp3"], "pattern": [6, 16], "color": "#414141"},
     "#respect": {"sounds": ["crash.mp3"], "pattern": [4, 256], "color": "#353535"},
+    "#love": {"sounds": ["low.mp3", "medium.mp3"], "pattern": [5, 11], "color": "#353535"},
     "default": {"sounds": ["bass.mp3"], "pattern": [1, 4], "offset": 0, "color": "#334455"}
   }
 }
