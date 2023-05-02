@@ -156,6 +156,8 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">By default it just plays the <code className="bg-gray-200 text-blue-800">low.mp3</code> sound every other beat, but if <code className="bg-gray-200 text-blue-800">#peace</code> is present, it plays the <code className="bg-gray-200 text-blue-800">high.mp3</code> sound every eight beats. For <code className="bg-gray-200 text-blue-800">#respect</code> it selects arbitrarily from the set of <code className="bg-gray-200 text-blue-800">long.mp3, long2.mp3</code> sounds at a more infrequent (and uneven) rate. Finally, for <code className="bg-gray-200 text-blue-800">#faith</code> it generates a more complex short pattern for the <code className="bg-gray-200 text-blue-800">medium.mp3</code> sound.</p>
 
+          <p className="my-4 max-w-prose">You can use <a href="https://dbkaplun.github.io/euclidean-rhythm/">this handy tool</a> to visualize some Euclidean rhythms.</p>
+
           <p className="my-4 max-w-prose">If you look at the <a href="https://thinkpeace.app/themes/prototype/theme.json" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
 
           <h3 className="font-bold text-l">Colors</h3>
