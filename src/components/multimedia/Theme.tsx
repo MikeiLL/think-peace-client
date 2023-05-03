@@ -8,7 +8,6 @@ import moment from "moment";
 import {WishSchema} from "interfaces/wish";
 import useSWR from "swr";
 const audioCtx = new AudioContext();
-console.log("Nothing...");
 
 function urlBuilder(baseurl:string, params:object) {
   const url = new URL(baseurl);
@@ -63,6 +62,7 @@ export const Theme = (props: any) => {
   // @ts-ignore
   const hashparams = window.hash_params;
   const themeName = hashparams.theme ? hashparams.theme : 'prototype';
+  const themeVersion = hashparams.version ? 'v' + hashparams.version : 'theme';
   const builtInTheme:any = {
     "name": "Prototype",
     "slug": "prototype",
@@ -105,7 +105,7 @@ export const Theme = (props: any) => {
   }
 
   if (!theme) {
-    fetch(`/themes/${themeName}/theme.json`).then(res => res.json()).then(customTheme => {
+    fetch(`/themes/${themeName}/${themeVersion}.json`).then(res => res.json()).then(customTheme => {
       let hashtags:any = {};
       // @ts-ignore
       window.wishHashtags.forEach((hashtag: string) => {
