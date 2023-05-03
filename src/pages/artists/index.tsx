@@ -3,6 +3,13 @@ import { Title } from "components/partials/Title";
 
 export const Artists = () => {
 
+  const themeListing = [
+    'prototype',
+    'prototype_two',
+    'peace_alert',
+    'rock101',
+    'ultraminimal'
+  ];
   return (
     <Container overflow={true}>
       <Title title="Artists" />
@@ -12,15 +19,13 @@ export const Artists = () => {
         <div className="text-white max-w-prose">
           <h2 className="text-xl">Artists and Themes</h2>
           <ul>
-            <li>
-              <a href="https://thinkpeace.app/wishes">Prototype</a> by Rebecca, Scott, Rosuav and Mike iLL
-            </li>
-            <li>
-              <a href="https://thinkpeace.app/wishes#theme:prototype_two">Prototype Two</a> by Rosuav and Mike iLL
-            </li>
-            <li>
-              <a href="https://thinkpeace.app/wishes#theme:ultraminimal">Ultraminimal</a> by Rosuav and Mike iLL
-            </li>
+            {themeListing.map((theme, index) => {
+              return (
+                <li key={index}>
+                  <a href={`/wishes#theme:${theme}`}>{theme}</a>
+                </li>
+              );
+            })}
           </ul>
         </div>
 

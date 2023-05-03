@@ -11,6 +11,10 @@ export const Contribute = () => {
       >
         <div className="text-white max-w-screen-2xl">
 
+          <h2 className="font-bold mb-2 text-xl">Think Peace is a community project.</h2>
+
+          <p className="my-4 max-w-prose">We have <a className="text-yellow-300" href="/artists">themes created by guest artists</a>.</p>
+
           <h2 className="font-bold mb-2 text-xl">Here's how to create and contribute your own theme:</h2>
 
           <p className="my-4 max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
@@ -110,7 +114,7 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">Here's a <a href="https://www.youtube.com/watch?v=bKazVnHh2w4" className="text-yellow-300" target="_blank" rel="noreferrer">YouTube video</a> explaining Euclidean rhythms.</p>
 
-          <p className="my-4 max-w-prose">Here's a <a href="https://thinkpeace.app/wishes#theme:rock101" className="text-yellow-300" target="_blank" rel="noreferrer">live example</a> of a theme with a couple of simple custom patterns:</p>
+          <p className="my-4 max-w-prose">Here's a <a href="/wishes#theme:rock101" className="text-yellow-300" target="_blank" rel="noreferrer">live example</a> of a theme with a couple of simple custom patterns:</p>
 
           <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono">
             <code>
@@ -159,15 +163,15 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">You can use <a  className="text-yellow-300" href="https://dbkaplun.github.io/euclidean-rhythm/">this handy tool</a> to visualize some Euclidean rhythms.</p>
 
-          <p className="my-4 max-w-prose">If you look at the <a href="https://thinkpeace.app/themes/prototype/theme.json" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
+          <p className="my-4 max-w-prose">If you look at the <a href="/themes/prototype/theme.json" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
 
           <p className="my-4 max-w-prose">These are the wish types that are currently supported:</p>
 
           <ul className="my-4 max-w-prose mx-4">
             {
               // @ts-ignore
-              window.wishHashtags.map((tag: any) => (
-                <li>{tag}</li>
+              window.wishHashtags.map((tag: string, idx: number) => (
+                <li key={idx}>{tag}</li>
               ))
           }
           </ul>
