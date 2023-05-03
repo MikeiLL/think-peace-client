@@ -1,0 +1,23 @@
+{
+  "name": "Rock 101 v2",
+  "slug": "rock101",
+  "description": "More animalistic percussive example theme.",
+  "author": "Rosuav, Mike iLL",
+  "background-color": "#222222",
+  "bpm": 120,
+  "steps_per_beat": 4,
+  "hashtags":
+  {
+    "#peace": {"sounds": ["hihat-foot.mp3", "hihat.mp3"], "pattern": [1, 4], "offset": 0, "color": "#554433"},
+    "#faith": {"sounds": ["hihat-open.mp3"], "pattern": [1, 4], "offset": 2, "color": "#223322"},
+    "#hope": {"sounds": ["floor-tom.mp3"], "pattern": [5, 11], "color": "#222122"},
+    "#happiness": {"sounds": ["tom1.mp3"], "pattern": [7, 11], "offset": 2, "color": "#212121"},
+    "#healing": {"sounds": ["tom2.mp3"], "pattern": [3, 11], "color": "#121212"},
+    "#justice": {"sounds": ["ride.mp3"], "pattern": [1, 2], "color": "#343434"},
+    "#gratitude": {"sounds": ["cowbell.mp3"], "pattern": [12, 64], "color": "#424242"},
+    "#freedom": {"sounds": ["cowbell.mp3"], "pattern": [6, 16], "color": "#414141"},
+    "#respect": {"sounds": ["crash.mp3"], "pattern": [4, 256], "color": "#353535"},
+    "#love": {"sounds": ["low.mp3", "medium.mp3"], "pattern": [5, 11], "color": "#353535"},
+    "default": {"sounds": ["bass.mp3"], "pattern": [1, 4], "offset": 0, "color": "#334455"}
+  }
+}

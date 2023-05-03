@@ -138,7 +138,8 @@ export const Contribute = () => {
     },
     "#faith": {
       "sounds": [
-        "cowbell.mp3"
+        "floor-tom.mp3",
+        "tom1.mp3"
       ],
       "pattern": [6, 8]
     },
@@ -156,17 +157,31 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">By default it just plays the <code className="bg-gray-200 text-blue-800">low.mp3</code> sound every other beat, but if <code className="bg-gray-200 text-blue-800">#peace</code> is present, it plays the <code className="bg-gray-200 text-blue-800">high.mp3</code> sound every eight beats. For <code className="bg-gray-200 text-blue-800">#respect</code> it selects arbitrarily from the set of <code className="bg-gray-200 text-blue-800">long.mp3, long2.mp3</code> sounds at a more infrequent (and uneven) rate. Finally, for <code className="bg-gray-200 text-blue-800">#faith</code> it generates a more complex short pattern for the <code className="bg-gray-200 text-blue-800">medium.mp3</code> sound.</p>
 
-          <p className="my-4 max-w-prose">You can use <a href="https://dbkaplun.github.io/euclidean-rhythm/">this handy tool</a> to visualize some Euclidean rhythms.</p>
+          <p className="my-4 max-w-prose">You can use <a  className="text-yellow-300" href="https://dbkaplun.github.io/euclidean-rhythm/">this handy tool</a> to visualize some Euclidean rhythms.</p>
 
           <p className="my-4 max-w-prose">If you look at the <a href="https://thinkpeace.app/themes/prototype/theme.json" className="text-yellow-300" target="_blank" rel="noreferrer">builtin (prototype) theme</a>, you'll see that it utilizes some very large numbers for step totals which, along with the "stroke count", are derived from the fibbinaci series.</p>
 
+          <p className="my-4 max-w-prose">These are the wish types that are currently supported:</p>
+
+          <ul className="my-4 max-w-prose mx-4">
+            {
+              // @ts-ignore
+              window.wishHashtags.map((tag: any) => (
+                <li>{tag}</li>
+              ))
+          }
+          </ul>
+
           <h3 className="font-bold text-l">Colors</h3>
-          <p className="my-4 max-w-prose"></p>
+          <p className="my-4 max-w-prose">Artists may define a background color and/or colors for wish types. In the rock101 theme, noted above, you'll see that a single default color has been set for all wish types. If no color is specified for any wish type, the built in theme color will be displayed.</p>
+
           <p className="my-4 max-w-prose">Here's a <a href="https://hslpicker.com/" className="text-yellow-300" target="_blank" rel="noreferrer">color picker</a> we like.</p>
 
           <h3 className="font-bold text-l">Getting us your theme</h3>
           <p className="my-4 max-w-prose">Use a text editor or <a href="
           https://jsoneditoronline.org/#left=cloud.1ccd1dd8e02d452ea458ccd9d1264437" className="text-yellow-300" target="_blank" rel="noreferrer">this handy tool</a> to make your theme file.</p>
+
+          <p className="my-4 max-w-prose">Once you have your theme file, you can <a href="mailto:scott@storybooksound.com" className="text-yellow-300" target="_blank" rel="noreferrer">email us</a>. If you are not including audio files, simply attach or paste in your theme info. If there are audio files, you'll likely want to use Dropbox, WeTransfer or similar.</p>
 
         </div>
 
