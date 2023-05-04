@@ -10,22 +10,22 @@ export const ThemeListing = (props: any) => {
     ['rock101','v2'],
     ['ultraminimal']
   ];
-  const allThemes:any = {};
   const [themes, setThemes] = useState(false);
   console.log("Themes", themes);
 
   if (!themes) {
-    themeListing.forEach((t) => {
-      const theme = t[0];
-      const version = t[1] ? t[1] : 'theme';
-        fetch(`/themes/${theme}/${version}.json`).then(res => res.json()).then(customTheme => {
-          console.log("customTheme", customTheme);
-          allThemes[theme] = customTheme;
-        });
-      });
-
-    setThemes(allThemes);
-    console.log("allThemes", allThemes);
+    (async () => {
+      const allThemes: any = {};
+      for (let t of themeListing) {
+        const theme = t[0];
+        const version = t[1] ? t[1] : 'theme';
+        let customTheme = await (await fetch(`/themes/${theme}/${version}.json`)).json();
+        console.log("customTheme", customTheme);
+        allThemes[theme + version] = customTheme;
+      };
+      setThemes(allThemes);
+      console.log("allThemes", allThemes);
+    })();
     return (
       <h1>Nothing at all</h1>
     );
@@ -35,10 +35,9 @@ export const ThemeListing = (props: any) => {
     <ul className="grid grid-cols-4 gap-4">
               {
         Object.values(themes).map((theme: any, index: number) => {
-          const t = theme;
-          console.log("t", t);
+          console.log("theme in display loop", theme);
           const version = themeListing[index][1] ? `,version:${themeListing[index][1]}` : '';
-          if (!t)
+          if (!theme)
             return;
                   return (
                     <li className="border-2 border-yellow-300 my-4 p-6 pb-8 rounded-md bg-slate-800" key={index}>

@@ -4,8 +4,6 @@ import {ThemeListing} from "components/partials/ThemeListing";
 
 export const Artists = () => {
 
-
-
     return (
       <Container overflow={true}>
         <Title title="Artists" />
