@@ -11,17 +11,13 @@ export const Contribute = () => {
       >
         <div className="text-white max-w-screen-2xl">
 
-          <h2 className="font-bold mb-2 text-xl">Think Peace is a community project.</h2>
-
           <p className="my-4 max-w-prose">We have <a className="text-yellow-300" href="/artists">themes created by guest artists</a>.</p>
-
-          <h2 className="font-bold mb-2 text-xl">Here's how to create and contribute your own theme:</h2>
 
           <p className="my-4 max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
 
-          <p className="my-4 max-w-prose">Here's an example of a theme:</p>
+          <p className="my-4 max-w-prose">Here's an example of a theme file, <code className="text-xs bg-gray-200 text-blue-800">theme.json</code>:</p>
 
-          <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono max-w-screen-2xl">
+          <pre className="my-4 bg-gray-200 text-blue-800 p-4 text-em rounded-lg font-mono max-w-screen-2xl">
             <code>
 {`{
   "name": "Prototype",
@@ -65,18 +61,18 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2 className="font-bold max-w-prose text-xl">JSON File</h2>
+          <h2 className="font-bold max-w-prose text-2xl">JSON File</h2>
 
           <p className="my-4 max-w-prose">Here's a breakdown of the JSON file:</p>
 
           <p><strong>name</strong> - The name of your theme. (required)</p>
           <p><strong>slug</strong> - The unique slug for your theme. (required)</p>
-          <p><strong>description</strong> - A description. (required)</p>
-          <p><strong>author</strong> - The author(s). (required)</p>
+          <p><strong>description</strong> - Some information about what your theme aims for, what it does, how it looks, etc.... (required)</p>
+          <p><strong>author</strong> - Contributing artist(s). (required)</p>
 
-          <p className="my-4 max-w-prose">Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for `#peace`, your JSON file will look like this:</p>
+          <p className="my-4 max-w-prose">Beyond that, you can customize to the exact degree that you are comfortable. Anything else will be left unchanged. For example, if you only want to change the background color, you can leave the rest of the file empty. If you only want to change the color for <code className="text-xs bg-gray-200 text-blue-800">#peace</code>, your JSON file will look like this:</p>
 
-          <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono">
+          <pre className="my-4 bg-gray-200 text-blue-800 p-4 text-sm rounded-lg font-mono">
             <code>
 {`{
   "name": "Peace Alert",
@@ -92,10 +88,9 @@ export const Contribute = () => {
               </code>
           </pre>
 
-          <h2 className="font-bold text-xl">Guidelines</h2>
           <p className="my-4 max-w-prose"></p>
 
-          <h3 className="font-bold text-l">Sounds</h3>
+          <h3 className="font-bold text-2xl">Sounds</h3>
           <p className="my-4 max-w-prose">Your theme may include sound files. </p>
 
           <p className="my-4 max-w-prose">Each wish type (peace, hope, faith, etc...) gets its own sound or set of sounds, with a default set in case new wish types are added, or in case a theme only defines a subset of wish types.</p>
@@ -190,8 +185,10 @@ export const Contribute = () => {
           }
           </ul>
 
-          <h3 className="font-bold text-l">Colors</h3>
-          <p className="my-4 max-w-prose">Artists may define a background color and/or colors for wish types. In the rock101 theme, noted above, you'll see that a single default color has been set for all wish types. If no color is specified for any wish type, the built in theme color will be displayed.</p>
+          <h3 className="my-4 font-bold text-2xl">Colors</h3>
+          <p className="my-4 max-w-prose">Artists may define a background color and/or colors for wish types. In the rock101 theme, noted above, you'll see that a single default color has been set for all wish types. If no color is specified for any wish type, the built-in theme color will be displayed.</p>
+
+          <p className="my-4 max-w-prose">The colors of the Wish Bars are exactly one half of the hexidecimal colors defined in the theme for the floating "firefly" wishes. So, for example pure white, at <code className="bg-gray-200 text-blue-800 text-sm">#ffffff</code> gets re-calculated to <code className="bg-gray-200 text-blue-800 text-sm">#888888</code>, so that when the "firefly" floats over the bar it is visible.</p>
 
           <p className="my-4 max-w-prose">Here's a <a href="https://hslpicker.com/" className="text-yellow-300" target="_blank" rel="noreferrer">color picker</a> we like.</p>
 
