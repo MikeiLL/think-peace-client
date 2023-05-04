@@ -131,7 +131,6 @@ export const Theme = (props: any) => {
       setTheme(mergedTheme);
       document.body.style.background = mergedTheme['background-color'];
     });
-    console.log("Hmmm. Error loading wishes. Please try again.");
     return (<>Hmmm. Error loading wishes. Please try again.</>);
   }
 
