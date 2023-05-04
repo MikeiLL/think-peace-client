@@ -1,9 +1,9 @@
 {
   "name": "Ultra Minimal",
   "slug": "ultraminimal",
-  "description": "Super minimal theme utilizing Indian shruti scale tuning.",
+  "description": "Super minimal theme utilizing sounds from prototype.",
   "author": "Rosuav, Mike iLL",
-  "sponsors": ["Center of Wow", "Storybook Sound"],
+  "sponsors": "Center of Wow, Storybook Sound",
   "background-sounds": ["drone.mp3"],
   "bg-transition-time": 0.5,
   "bpm": 80,

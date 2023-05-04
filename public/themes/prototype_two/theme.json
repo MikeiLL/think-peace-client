@@ -1,9 +1,8 @@
 {
   "name": "Prototype Two",
   "slug": "prototype_two",
-  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
-  "author": "Rebecca, Scott, Rosuav, Mike iLL",
-  "sponsors": ["Center of Wow", "Storybook Sound"],
+  "description": "Second prototype theme variation with only percussive sounds.",
+  "author": "Rosuav, Mike iLL",
   "background-sounds": ["drone.mp3"],
   "bg-transition-time": 0.5,
   "background-color": "#226239",

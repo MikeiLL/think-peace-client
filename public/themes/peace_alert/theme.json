@@ -1,9 +1,9 @@
 {
   "name": "Peace Alert",
   "slug": "peace_alert",
-  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
-  "author": "My Name",
-  "background-color": "#000000",
+  "description": "No sounds. Just change background color to black and make Peace wishes yellow. Otherwise everything is the default.",
+  "author": "Anonymous",
+  "background-color": "#221101",
   "hashtags": {
     "#peace": {
       "color": "#ffe033"
