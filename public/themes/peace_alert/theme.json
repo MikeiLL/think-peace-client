@@ -3,10 +3,10 @@
   "slug": "peace_alert",
   "description": "No sounds. Just change background color to black and make Peace wishes yellow. Otherwise everything is the default.",
   "author": "Anonymous",
-  "background-color": "#221101",
   "hashtags": {
     "#peace": {
       "color": "#ffe033"
-    }
+    },
+    "default": {}
   }
 }

@@ -24,11 +24,11 @@ export const Contribute = () => {
           <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono max-w-screen-2xl">
             <code>
 {`{
-  "name": "My Theme",
-  "slug": "my_theme",
-  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
+  "name": "Prototype",
+  "slug": "prototype",
+  "description": "Prototype theme utilizing Indian shruti scale tuning.",
   "author": "Rebecca, Scott, Rosuav, Mike iLL",
-  "sponsors": ["Center of Wow", "Storybook Sound"],
+  "sponsors": "Center of Wow, Storybook Sound",
   "background-color": "#666666",
   "bpm": 120,
   "steps_per_beat": 1,
@@ -81,8 +81,8 @@ export const Contribute = () => {
 {`{
   "name": "Peace Alert",
   "slug": "peace_alert",
-  "description": "Second prototype theme utilizing Indian shruti scale tuning.",
-  "author": "My Name",
+  "description": "Just change the color for peace.",
+  "author": "Anonymous",
   "hashtags": {
     "#peace": {
       "color": "#ffe033"

@@ -47,6 +47,13 @@ export const Music = (props: any) => {
     wishTotal++;
   });
 
+  const tryRequire = (path:string) => {
+    try {
+     return require(`${path}`);
+    } catch (err) {
+     return null;
+    }
+  };
 
   const getFile = async (filepath: string) => {
 
@@ -58,7 +65,7 @@ export const Music = (props: any) => {
 
   // Function to call each file and return an array of decoded files
   const loadFile = async (fileName: string) => {
-    const filePath = `/themes/${props.theme.slug}/${fileName}`;
+    const filePath = tryRequire(`/themes/${props.theme.slug}/${fileName}`) ? `/themes/${props.theme.slug}/${fileName}` : `/themes/prototype/${fileName}`;
     const track = await getFile(filePath);
     return track;
   }
