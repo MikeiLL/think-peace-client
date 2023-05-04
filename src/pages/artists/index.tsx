@@ -1,7 +1,6 @@
 import {Container} from "components/partials/Container";
 import {Title} from "components/partials/Title";
 import {ThemeListing} from "components/partials/ThemeListing";
-import {useState, useCallback, useEffect} from "react";
 
 export const Artists = () => {
 
@@ -15,6 +14,8 @@ export const Artists = () => {
         >
           <div className="text-white max-w-prose">
             <h2 className="text-xl">Artists and Themes</h2>
+
+            <p className="my-4">Below is a listing of artist-contributed themes:</p>
 
             <ThemeListing />
           </div>
