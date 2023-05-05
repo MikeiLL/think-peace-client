@@ -36,6 +36,7 @@ export const Contribute = () => {
         "peace3.mp3",
       ],
       "pattern": [2, 4],
+      "offset": 2, // optional
       "color": "#FF0000"
     },
     "#love": {
@@ -45,6 +46,7 @@ export const Contribute = () => {
         "love3.mp3",
       ],
       "pattern": [3, 12],
+      "offset": 1,
       "color": "#00FF00"
     },
     "default": {
@@ -116,7 +118,7 @@ export const Contribute = () => {
 
           <p>Rhythmic patterns are calculated utilizing <a className="text-yellow-300" href="https://en.wikipedia.org/wiki/Euclidean_rhythm">Euclidean rhythms</a>.</p>
 
-          <p className="my-4 max-w-prose">Our <em>pattern</em> has two parts, each being a number. The <em>second</em> number is the total number of steps in the pattern, the <em>first</em> number indicates how many time to play the sound within the total number of steps, as calculated based on Euclid's prime numbers.</p>
+          <p className="my-4 max-w-prose">Our <em>pattern</em> has two parts, each being a number. The <em>second</em> number is the total number of steps in the pattern, the <em>first</em> number indicates how many time to play the sound within the total number of steps, as calculated based on Euclid's prime numbers. Separately, for each wish type sound you may define an <em>offset</em>, which delays the start of the pattern by the defined number of steps.</p>
 
           <p className="my-4 max-w-prose">What is ultimately produced might look something like this:</p>
           <p className="my-4 max-w-prose"><code className="bg-gray-200 text-blue-800 text-sm">[ x . . x . . ]</code>, which would be the result of <em>pattern</em> <code className="bg-gray-200 text-blue-800">[2, 6]</code>.</p>
@@ -138,6 +140,7 @@ export const Contribute = () => {
         "high.mp3"
       ],
       "pattern": [1,8]
+      "offset": 2,
     },
     "#respect": {
       "sounds": [
