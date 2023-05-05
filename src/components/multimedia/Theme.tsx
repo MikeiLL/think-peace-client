@@ -34,7 +34,11 @@ export const Theme = (props: any) => {
   // Data is the wishes array.
   const {data, error, mutate, isLoading} = useSWR(endpoints.wish.GET_ALL, fetcher);
 
-  const darkenByHalf = (color:string) => {
+  const darkenByHalf = (color: string) => {
+    console.log({"color": color});
+    console.log({"parseint": parseInt(color.slice(1), 16) / 2});
+    console.log("/2", ((parseInt(color.slice(1), 16) / 2) & 0x7f7f7f));
+    console.log("to String", ((parseInt(color.slice(1), 16) / 2) & 0x7f7f7f).toString(16));
     const newColor = ("000000" + ((parseInt(color.slice(1), 16) / 2) & 0x7f7f7f).toString(16)).slice(-6);
     return "#" + newColor;
   }

@@ -188,11 +188,32 @@ export const Contribute = () => {
           <h3 className="my-4 font-bold text-2xl">Colors</h3>
           <p className="my-4 max-w-prose">Artists may define a background color and/or colors for wish types. In the rock101 theme, noted above, you'll see that a single default color has been set for all wish types. If no color is specified for any wish type, the built-in theme color will be displayed.</p>
 
-          <p className="my-4 max-w-prose">The colors of the Wish Bars are exactly one half of the hexidecimal colors defined in the theme for the floating "firefly" wishes. So, for example pure white, at <code className="bg-gray-200 text-blue-800 text-sm">#ffffff</code> gets re-calculated to <code className="bg-gray-200 text-blue-800 text-sm">#888888</code>, so that when the "firefly" floats over the bar it is visible.</p>
+          <p className="my-4 max-w-prose">The colors of the Wish Bars are darkened by one half of the hexidecimal colors defined in the theme for the floating "firefly" wishes. So, for example pure white, at <code className="bg-gray-200 text-blue-800 text-sm">#b8f57f</code> gets re-calculated to <code className="bg-gray-200 text-blue-800 text-sm">#5c7a3f</code>, so that when the "firefly" floats over the bar it is visible.</p>
 
-          <p className="my-4 max-w-prose">Here's a <a href="https://hslpicker.com/" className="text-yellow-300" target="_blank" rel="noreferrer">color picker</a> we like.</p>
+          <p className="my-4 max-w-prose">Below are some examples of how the colors are darkened:</p>
 
-          <h3 className="font-bold text-l">Getting us your theme</h3>
+          <div className="">
+            <div className="flex flex-row text-black-800">
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-800" style={{ background: '#b8f57f' }}>#b8f57f</div>
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-100" style={{ background: '#5c7a3f' }}>#5c7a3f</div>
+              </div>
+            <div className="flex flex-row">
+                <div className="w-full h-12 p-3 w-44 text-center text-blue-900" style={{ background: '#cc8800' }}>#cc8800</div>
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-100" style={{ background: '#664400' }}>#664400</div>
+              </div>
+            <div className="flex flex-row">
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-800" style={{ background: '#ffffff' }}>#ffffff</div>
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-800" style={{ background: '#7fffff' }}>#7fffff</div>
+              </div>
+            <div className="flex flex-row">
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-100" style={{ background: '#222222' }}>#222222</div>
+                <div className="w-full h-12 p-3 w-44 text-center text-slate-100" style={{ background: '#111111' }}>#111111</div>
+              </div>
+          </div>
+
+          <p className="my-4 max-w-prose">Here's a <a href="https://hslpicker.com/" className="text-yellow-300" target="_blank" rel="noreferrer">color picker</a> we like, and also a <a href="https://www.calculator.net/hex-calculator.html?number1=ffffff&c2op=%2F&number2=2&calctype=op&x=112&y=27" className="text-yellow-300" target="_blank" rel="noreferrer">hex calculator</a> to play with.</p>
+
+          <h3 className="font-bold text-2xl">Getting us your theme</h3>
           <p className="my-4 max-w-prose">Use a text editor or <a href="
           https://jsoneditoronline.org/#left=cloud.1ccd1dd8e02d452ea458ccd9d1264437" className="text-yellow-300" target="_blank" rel="noreferrer">this handy tool</a> to make your theme file.</p>
 
