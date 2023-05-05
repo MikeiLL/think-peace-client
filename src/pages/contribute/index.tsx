@@ -11,7 +11,7 @@ export const Contribute = () => {
       >
         <div className="text-white max-w-screen-2xl">
 
-          <p className="my-4 max-w-prose">We have <a className="text-yellow-300" href="/artists">themes created by guest artists</a>.</p>
+          <p className="my-4 max-w-prose">There  are <a className="text-yellow-300" href="/artists">themes created by guest artists</a>.</p>
 
           <p className="my-4 max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
 
@@ -93,9 +93,12 @@ export const Contribute = () => {
           <p className="my-4 max-w-prose"></p>
 
           <h3 className="font-bold text-2xl">Sounds</h3>
-          <p className="my-4 max-w-prose">Your theme may include sound files. </p>
+          <p className="my-4 max-w-prose">Your theme may include sound files.</p>
 
           <p className="my-4 max-w-prose">Each wish type (peace, hope, faith, etc...) gets its own sound or set of sounds, with a default set in case new wish types are added, or in case a theme only defines a subset of wish types.</p>
+
+          <p className="my-4 max-w-prose">The presence and volume of each sound responds to the activity of its corresponding wish type.</p>
+
           <ul className="list-disc list-inside">
           <li className="my-1 max-w-prose">Sounds should be in the <a href="https://en.wikipedia.org/wiki/MP3" className="text-yellow-300" target="_blank" rel="noreferrer">MP3 format</a>.</li>
 

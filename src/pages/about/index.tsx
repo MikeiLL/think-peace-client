@@ -15,7 +15,7 @@ export const About = () => {
 
           <p className="mb-2">The name is based on the art of Yoko Ono, and the concepts are inspired by George Harrison’s song “Within You Without You,” about the experience of human oneness.</p>
 
-          <h3 className="mt-6 mb-2 text-xl">Send a wish:</h3>
+          <h3 className="mt-6 mb-2 text-2xl">Send a wish:</h3>
 
           <ol className="pl-4 mb-2">
             <li>In the menu, click "Send a new wish".</li>
@@ -26,14 +26,15 @@ export const About = () => {
             <li>Click "Send".</li>
           </ol>
 
-          <h3 className="mt-6 mb-2 text-xl">To see today's wishes:</h3>
+          <h3 className="mt-6 mb-2 text-2xl">To see today's wishes:</h3>
 
           <ol className="pl-4 mb-2">
             <li>In the menu, choose "Today's wishes".</li>
-            <li>Use the top controls to see the wishes and maps, and choose visualizations and music.</li>
+            <li>Use the top controls to see the wishes and maps, and enable visualizations and music which respond to wish activity.</li>
+            <li>There  are <a className="text-yellow-300" href="/artists">themes created by guest artists</a> as well.</li>
           </ol>
 
-          <h2 className="mt-6 mb-2 text-xl">Why a peace app?</h2>
+          <h2 className="mt-6 mb-2 text-3xl">Why a peace app?</h2>
 
           <p className="mb-2">In the range of human expression and experiences, peace is an advanced concept. It is also less durable, so it helps to find ways to activate peace inside and outside every day. Ringo Starr is a great example: he’s been sending reminders for so long that now his peace sign shoots into the air the second he sees a camera.</p>
 
@@ -45,9 +46,9 @@ export const About = () => {
 
           <hr className="my-6"/>
 
-          <h2 className="mt-6 mb-2 text-xl">Credits</h2>
+          <h2 className="mt-6 mb-2 text-2xl">Credits</h2>
 
-          <ul className="mb-2">
+          <ul className="mb-2 type-disc">
             <li>Scott Anthony - Founder</li>
             <li>Abby Strugger - Art director</li>
             <li>Mike iLL - Technical design</li>
