@@ -58,7 +58,7 @@ export const About = () => {
             <li>Rebecca Turner - Copywriter</li>
           </ul>
 
-          <hr className="my-6"/>
+          <hr id="support" className="my-6"/>
 
           <p className="mb-2">{"Help support our talented developers via Venmo: " + " "}
             <a className="text-yellow-300" href="https://account.venmo.com/u/storybooksound">@storybooksound</a>

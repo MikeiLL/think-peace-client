@@ -11,7 +11,9 @@ export const Contribute = () => {
       >
         <div className="text-white max-w-screen-2xl">
 
-          <p className="my-4 max-w-prose">There  are <a className="text-yellow-300" href="/artists">themes created by guest artists</a>.</p>
+          <p className="my-4 max-w-prose">This page is about <a className="text-yellow-300" href="/artists">artist-contributed themes</a>.</p>
+
+          <p className="my-4 max-w-prose">For information about <em>supporting</em> this endeavor <a className="text-yellow-300" href="/about#support">click here</a>.</p>
 
           <p className="my-4 max-w-prose">Think Peace loads sounds and colors from a JSON file.</p>
 

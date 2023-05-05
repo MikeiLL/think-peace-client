@@ -13,7 +13,7 @@ export const Artists = () => {
           <div className="text-white">
             <h2 className="text-xl">Artists and Themes</h2>
 
-            <p className="my-4">Below is a listing of artist-contributed themes. Click on a theme's title to see and hear it.</p>
+            <p className="my-4">Below is a listing of artist-contributed themes. Click on a theme's title to see and hear it. Contact us if you're interested in <a className="text-yellow-300" href="/contribute">contributing</a>.</p>
 
             <ThemeListing />
           </div>
