@@ -105,12 +105,13 @@ export const Contribute = () => {
 
           <li className="my-1">It might be useful to name sounds in the following format: <code className="bg-gray-200 text-blue-800 text-sm">peace1.mp3, peace2.mp3, peace3.mp3, etc...</code></li>
           </ul>
-          <p className="my-4 max-w-prose">The sounds will be triggered in time based on one of four values: </p>
+          <p className="my-4 max-w-prose">The sounds will be triggered in time based on one of four values, considering the built-in default or theme's defined <code className="bg-gray-200 text-blue-800 text-sm">bpm</code> and <code className="bg-gray-200 text-blue-800 text-sm">steps_per_beat</code>: </p>
+
           <ol className="list-decimal list-inside my-4">
             <li className="my-1">The <em>pattern</em> specified in the theme for a specific wish type</li>
-            <li className="my-1">The default wish type <em>pattern</em> specified in the theme</li>
-            <li className="my-1">The builtin pattern for the wish type</li>
-            <li className="my-1">The final fallback, the default pattern for any with types not configured in the builtin theme.</li>
+            <li className="my-1">The <em>default</em> wish type pattern specified in the theme</li>
+            <li className="my-1">The <em>builtin</em> pattern for the wish type triggering the sound</li>
+            <li className="my-1">The <em>final fallback</em>, the <em>built-in default pattern</em> for any with types not configured in the builtin theme.</li>
           </ol>
 
           <p>Rhythmic patterns are calculated utilizing <a className="text-yellow-300" href="https://en.wikipedia.org/wiki/Euclidean_rhythm">Euclidean rhythms</a>.</p>
