@@ -40,7 +40,7 @@ export const ThemeListing = (props: any) => {
                     <li className="border-2 border-yellow-300 my-4 p-6 pb-8 rounded-md bg-slate-800" key={index}>
 
                       <p className="mb-1">
-                        <a href={`/wishes#theme:${theme.slug}${version}`} className="text-yellow-300">
+                        <a href={`/wishes#theme:${theme.slug}${version_link}`} className="text-yellow-300">
                          <span className="text-lg">{theme.name}</span>
                         </a>
                       </p>
