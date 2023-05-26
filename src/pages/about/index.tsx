@@ -15,12 +15,12 @@ export const About = () => {
 
           <p className="mb-2">Think Peace lets you send wishes to a region or city, and everyone in the network can share the goodwill. You can also forward wishes to friends.</p>
 
-          <p className="mb-2"> Think Peace was developed from George Harrison’s song “Within You Without You.” Harrison wrote it after a dinner conversation with the visual artist and musician Klaus Voormann, about how our daily lives prevent us from connecting.</p>
+          <p className="mb-2"> Think Peace was developed from George Harrison's song “Within You Without You.” Harrison wrote it after a dinner conversation with the visual artist and musician Klaus Voormann, about how our daily lives prevent us from connecting.</p>
 
 
           <p className="mb-2">Harrison describes it as: </p>
 
-            <blockquote className="mb-2 ml-4 italic text-white dark:text-white">We were talking about the space between us all
+            <blockquote className="mb-2 ml-4 italic text-white dark:text-white">We were talking about the space between us all <br></br>
             And the people who hide themselves behind a wall of illusion <br></br>
             Never glimpse the truth<br></br>
             Then it's far too late<br></br>
