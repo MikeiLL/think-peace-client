@@ -11,44 +11,66 @@ export const About = () => {
       >
         <div className="text-white max-w-prose">
 
-          <p className="mb-2">Think Peace is a MMOPN (Massively Multiuser Online Peace Network)) that uses meditation, music and art for capturing and communicating peace.</p>
+          <p className="mb-2">Think Peace is a network that uses a wish meditation to communicate peace. The name is based on titles Yoko Ono has used in her work. Each wish you send ignites across the network dynamic displays of music, art, and vibration that fade away after 24 hours. The fireflies and music on the homepage reflect these wishes.</p>
 
-          <p className="mb-2">The name is based on the art of Yoko Ono, and the concepts are inspired by George Harrison’s song “Within You Without You,” about the experience of human oneness.</p>
+          <p className="mb-2">Think Peace lets you send wishes to a region or city, and everyone in the network can share the goodwill. You can also forward wishes to friends.</p>
 
-          <h3 className="mt-6 mb-2 text-2xl">Send a wish:</h3>
+          <p className="mb-2"> Think Peace was developed from George Harrison’s song “Within You Without You.” Harrison wrote it after a dinner conversation with the visual artist and musician Klaus Voormann, about how our daily lives prevent us from connecting.</p>
 
-          <ol className="pl-4 mb-2">
-            <li>In the menu, click "Send a new wish".</li>
-            <li>Click and hold the screen, while making the wish.</li>
-            <li>Release the screen to send the wish.</li>
-            <li>Select the locations for the source and destination of the wish.</li>
-            <li>Select the type of wish.</li>
-            <li>Click "Send".</li>
-          </ol>
 
-          <h3 className="mt-6 mb-2 text-2xl">To see today's wishes:</h3>
+          <p className="mb-2">Harrison describes it as: </p>
 
-          <ol className="pl-4 mb-2">
-            <li>In the menu, choose "Today's wishes".</li>
-            <li>Use the top controls to see the wishes and maps, and enable visualizations and music which respond to wish activity.</li>
-            <li>There  are <a className="text-yellow-300" href="/artists">themes created by guest artists</a> as well.</li>
-          </ol>
+            <blockquote className="mb-2 ml-4 italic text-white dark:text-white">We were talking about the space between us all
+            And the people who hide themselves behind a wall of illusion
+            Never glimpse the truth
+            Then it's far too late
+            When they pass away</blockquote>
 
-          <h2 className="mt-6 mb-2 text-3xl">Why a peace app?</h2>
+          <h3 className="mt-6 mb-2 text-2xl">Why a peace app?</h3>
 
-          <p className="mb-2">In the range of human expression and experiences, peace is an advanced concept. It is also less durable, so it helps to find ways to activate peace inside and outside every day. Ringo Starr is a great example: he’s been sending reminders for so long that now his peace sign shoots into the air the second he sees a camera.</p>
+          <p className="mb-2">Using the app to send and see wishes creates connections, fosters creativity, encourages positivity, and provides an antidote to negative information and conflict, thus contributing to peace in the world. Ringo Starr has habitually sent peace reminders for so long that he now flashes the peace sign the second he sees a camera. </p>
 
-          <p className="mb-2">We call them demonstrations for a reason.</p>
+          <h3 className="mt-6 mb-2 text-2xl">How to Think Peace</h3>
 
-          <p className="mb-2">Activate your own peace today, then give it away. Do it again tomorrow.</p>
+          <p className="mb-2">Activate your own peace today, then give it away. Do it again tomorrow.Think Peace is a network that uses a wish meditation to communicate peace. The name is based on titles Yoko Ono has used in her work. Each wish you send ignites across the network dynamic displays of music, art, and vibration that fade away after 24 hours. The fireflies and music on the homepage reflect these wishes.</p>
 
-          <p className="mb-2">A note: Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.</p>
+          <div className="ml-6">
+            <p className="mb-2">Send a wish:</p>
+            <ul className="mb-2 ml-4 list-disc list-inside">
+              <li>In the menu at the top right, touch and hold Send a new wish</li>
+              <li>Continue to hold the screen while making the wish</li>
+              <li>Release the screen to send the wish</li>
+              <li>When you see the Thank You window, select
+                <ul className="mb-2 ml-4 list-disc">
+                  <li>the location of the wish source</li>
+                  <li>the destination of the wish</li>
+                  <li>the kind of wish</li>
+                </ul>
+              </li>
+              <li>Click Send</li>
+              <li>Your wish will appear as a box on the homepage
+                <img src="images/wish_example_peace_nj_rome.png" alt="Think Peace Wish Example"/>
+              </li>
+              <li>You can use the social media options in the lower right to forward wishes to friends</li>
+            </ul>
+            <p className="mb-2 ml-4 ">See today's wishes:</p>
+            <ul className="mb-2 ml-4  list-disc">
+              <li>In the menu at the top right, select Today's wishes</li>
+              <li>Use the top controls to
+                <ul className="mb-2 type-disc">
+                  <li>see the wishes and maps</li>
+                  <li>enable visualizations and music that respond to wish activity</li>
+                </ul>
+              </li>
+            </ul>
+          </div>
 
-          <hr className="my-6"/>
+          <p className="mb-2">Think Peace does not collect your location or any of your personal data.</p>
+
 
           <h2 className="mt-6 mb-2 text-2xl">Credits</h2>
 
-          <ul className="mb-2 type-disc">
+          <ul className="mb-2 ml-4 list-disc">
             <li>Scott Anthony - Founder</li>
             <li>Abby Strugger - Art director</li>
             <li>Mike iLL - Technical design</li>
@@ -56,6 +78,7 @@ export const About = () => {
             <li>Faith Ekanem - Technical design</li>
             <li>Oreoluwa Muzzamil - Technical design</li>
             <li>Rebecca Turner - Copywriter</li>
+            <li>Catharine Alexander - Editor</li>
           </ul>
 
           <hr id="support" className="my-6"/>
