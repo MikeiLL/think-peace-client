@@ -41,7 +41,7 @@ export const About = () => {
               <li>Continue to hold the screen while making the wish</li>
               <li>Release the screen to send the wish</li>
               <li>When you see the Thank You window, select
-                <ul className="mb-2 ml-4 list-disc">
+                <ul className="mb-2 ml-8 list-disc">
                   <li>the location of the wish source</li>
                   <li>the destination of the wish</li>
                   <li>the kind of wish</li>
