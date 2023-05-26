@@ -57,7 +57,7 @@ export const About = () => {
             <ul className="mb-2 ml-4  list-disc">
               <li>In the menu at the top right, select Today's wishes</li>
               <li>Use the top controls to
-                <ul className="mb-2 ml-8 type-disc">
+                <ul className="mb-2 ml-8 list-disc">
                   <li>see the wishes and maps</li>
                   <li>enable visualizations and music that respond to wish activity</li>
                 </ul>
