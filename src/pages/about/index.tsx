@@ -21,9 +21,9 @@ export const About = () => {
           <p className="mb-2">Harrison describes it as: </p>
 
             <blockquote className="mb-2 ml-4 italic text-white dark:text-white">We were talking about the space between us all
-            And the people who hide themselves behind a wall of illusion
-            Never glimpse the truth
-            Then it's far too late
+            And the people who hide themselves behind a wall of illusion <br></br>
+            Never glimpse the truth<br></br>
+            Then it's far too late<br></br>
             When they pass away</blockquote>
 
           <h3 className="mt-6 mb-2 text-2xl">Why a peace app?</h3>
