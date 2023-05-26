@@ -53,7 +53,7 @@ export const About = () => {
               </li>
               <li>You can use the social media options in the lower right to forward wishes to friends</li>
             </ul>
-            <p className="mb-2 ml-4 ">See today's wishes:</p>
+            <p className="mb-2">See today's wishes:</p>
             <ul className="mb-2 ml-4  list-disc">
               <li>In the menu at the top right, select Today's wishes</li>
               <li>Use the top controls to
