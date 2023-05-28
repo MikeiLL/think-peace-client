@@ -265,7 +265,8 @@ export const Theme = (props: any) => {
 
                             <a className="opacity-50" href="" target="_blank" title="Copy Link to Clipboard"
                                 onClick={(e) => {
-                                e.preventDefault();
+                                  e.preventDefault();
+                                  e.stopPropagation();
                                 navigator.clipboard.writeText(`https://thinkpeace.app/wishes#pin:${wish._id}${themeparam}`);
                               }}
                             >
