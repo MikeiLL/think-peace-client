@@ -37,26 +37,33 @@ export const About = () => {
           <div className="ml-6">
             <p className="mb-2">Send a wish:</p>
             <ul className="mb-2 ml-4 list-disc list-inside">
-              <li>In the menu at the top right, touch and hold Send a new wish</li>
-              <li>Continue to hold the screen while making the wish</li>
-              <li>Release the screen to send the wish</li>
-              <li>When you see the Thank You window, select
+              <ul style="list-style: none;">
+                <li>–In the menu at the top right, touch and hold</li>
+                   <li>Send a new wish</li>
+              <li>–Continue to hold the screen while making the wish</li>
+              <li>–Release the screen to send the wish</li>
+              <li>–When you see the Thank You window, select
+                </ul>
                 <ul className="mb-2 ml-8 list-disc">
                   <li>the location of the wish source</li>
                   <li>the destination of the wish</li>
                   <li>the kind of wish</li>
                 </ul>
               </li>
-              <li>Click Send</li>
-              <li>Your wish will appear as a box on the homepage
+              <ul style="list-style: none;">
+              <li>–Click Send</li>
+              <li>–Your wish will appear as a box on the homepage
                 <img src="images/wish_example_peace_nj_rome.png" alt="Think Peace Wish Example"/>
               </li>
-              <li>You can use the social media options in the lower right to forward wishes to friends</li>
-            </ul>
+              <li>–You can use the social media options in the lower right to forward wishes to friends</li>
+              </ul></ul>
             <p className="mb-2">See today's wishes:</p>
             <ul className="mb-2 ml-4  list-disc">
-              <li>In the menu at the top right, select Today's wishes</li>
-              <li>Use the top controls to
+              <ul style="list-style: none;">
+                <li>–In the menu at the top right, select</li> 
+                   <li>Today's wishes</li>
+              <li>–Use the top controls to
+                </ul>
                 <ul className="mb-2 ml-8 list-disc">
                   <li>see the wishes and maps</li>
                   <li>enable visualizations and music that respond to wish activity</li>
