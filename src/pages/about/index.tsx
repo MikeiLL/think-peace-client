@@ -78,6 +78,7 @@ export const About = () => {
           <h2 className="mt-6 mb-2 text-2xl">Credits</h2>
 
           <ul className="mb-2 ml-4 list-disc">
+            <ul style="list-style: none;">
             <li>Scott Anthony - Founder</li>
             <li>Abby Strugger - Art director</li>
             <li>Mike iLL - Technical design</li>
@@ -86,6 +87,7 @@ export const About = () => {
             <li>Oreoluwa Muzzamil - Technical design</li>
             <li>Rebecca Turner - Copywriter</li>
             <li>Catharine Alexander - Editor</li>
+            </ul>
           </ul>
 
           <hr id="support" className="my-6"/>
