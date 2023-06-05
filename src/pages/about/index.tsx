@@ -37,10 +37,10 @@ export const About = () => {
           <div className="ml-6">
             <p className="mb-2">Send a wish:</p>
             <ul className="mb-2 ml-4 list-none">
-              <li> &nbsp;In the menu at the top right, touch and hold Send a new wish</li>
-              <li> &nbsp;Continue to hold the screen while making the wish</li>
-              <li> &nbsp;Release the screen to send the wish</li>
-              <li> &nbsp;When you see the Thank You window, select
+              <li> In the menu at the top right, touch and hold Send a new wish</li>
+              <li> Continue to hold the screen while making the wish</li>
+              <li> Release the screen to send the wish</li>
+              <li> When you see the Thank You window, select
                 <ul className="mb-2 ml-8 list-none">
                   <li>the location of the wish source</li>
                   <li>the destination of the wish</li>
@@ -55,8 +55,8 @@ export const About = () => {
             </ul>
             <p className="mb-2">See today's wishes:</p>
             <ul className="mb-2 ml-4  list-none">
-              <li> &nbsp;In the menu at the top right, select Today's wishes</li>
-              <li> &nbsp;Use the top controls to
+              <li> In the menu at the top right, select Today's wishes</li>
+              <li> Use the top controls to
                 <ul className="mb-2 ml-8 list-none">
                   <li>see the wishes and maps</li>
                   <li>enable visualizations and music that respond to wish activity</li>
@@ -71,14 +71,14 @@ export const About = () => {
           <h2 className="mt-6 mb-2 text-2xl">Credits</h2>
 
           <ul className="mb-2 ml-4 list-none">
-            <li> &nbsp;Scott Anthony - Founder</li>
-            <li> &nbsp;Abby Strugger - Art director</li>
-            <li> &nbsp;Mike iLL - Technical design</li>
-            <li> &nbsp;Chris Angelico - Technical design</li>
-            <li> &nbsp;Faith Ekanem - Technical design</li>
-            <li> &nbsp;Oreoluwa Muzzamil - Technical design</li>
-            <li> &nbsp;Rebecca Turner - Copywriter</li>
-            <li> &nbsp;Catharine Alexander - Editor</li>
+            <li> Scott Anthony - Founder</li>
+            <li> Abby Strugger - Art director</li>
+            <li> Mike iLL - Technical design</li>
+            <li> Chris Angelico - Technical design</li>
+            <li> Faith Ekanem - Technical design</li>
+            <li> Oreoluwa Muzzamil - Technical design</li>
+            <li> Rebecca Turner - Copywriter</li>
+            <li> Catharine Alexander - Editor</li>
           </ul>
 
           <hr id="support" className="my-6"/>
