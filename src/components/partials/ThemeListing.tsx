@@ -33,7 +33,7 @@ export const ThemeListing = (props: any) => {
               {
         Object.values(themes).map((theme: any, index: number) => {
           const version = themeListing[index][1] ? 'v' + themeListing[index][1] : 'theme';
-          const version_link = themeListing[index][1] ? `,version:${themeListing[index][1]}` : '';
+          const version_link = themeListing[index][1] ? `&version=${themeListing[index][1]}` : '';
           if (!theme)
             return;
                   return (
@@ -49,7 +49,7 @@ export const ThemeListing = (props: any) => {
                       <p className="mb-2">{theme.sponsors && `Sponsored by ${theme.sponsors}`}</p>
                       <p className="mb-2">{theme.hashtags && `Wish Types: ${Object.keys(theme.hashtags).join(', ')}`}</p>
                       <p className="mb-4">
-                      <a href={`/wishes#theme:${theme.slug}${version_link}`} className="text-yellow-300">
+                      <a href={`/wishes?theme=${theme.slug}${version_link}`} className="text-yellow-300">
                          open
                       </a>
                         &nbsp;|&nbsp;

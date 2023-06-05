@@ -132,7 +132,7 @@ export const Contribute = () => {
 
           <p className="my-4 max-w-prose">Here's a <a className="text-yellow-300" href="https://dbkaplun.github.io/euclidean-rhythm/">handy tool</a> to visualize Euclidean rhythms.</p>
 
-          <p className="my-4 max-w-prose">Here's the relevant parts from a <a href="/wishes#theme:rock101" className="text-yellow-300" target="_blank" rel="noreferrer">live example</a> of a theme with a couple of simple custom patterns:</p>
+          <p className="my-4 max-w-prose">Here's the relevant parts from a <a href="/wishes?theme=rock101" className="text-yellow-300" target="_blank" rel="noreferrer">live example</a> of a theme with a couple of simple custom patterns:</p>
 
           <pre className="my-4 bg-gray-200 text-blue-800 p-4 rounded-lg font-mono">
             <code>
