@@ -60,9 +60,9 @@ export const Theme = (props: any) => {
     );
 
   // @ts-ignore
-  const hashparams = window.hash_params;
-  const themeName = hashparams.theme ? hashparams.theme : 'prototype';
-  const themeVersion = hashparams.version ? 'v' + hashparams.version : 'theme';
+  const searchparams = window.searchParams;
+  const themeName = searchparams.get('theme') || 'prototype';
+  const themeVersion = searchparams.get('version') ? 'v' + searchparams.get('version') : 'theme';
   const builtInTheme:any = {
     "name": "Prototype",
     "slug": "prototype",
@@ -221,8 +221,8 @@ export const Theme = (props: any) => {
                       /* Incredibly ineffecient, but it works. Sorting above in the fetcher wasn't working. */
                       .sort((a: WishSchema, b: WishSchema) => {
                         // if one of these is the pinned wish, move it to the top. If a is pinned return -1, if b is pinned return 1, else coninue.
-                        if (hashparams.pin === a._id) return -1;
-                        if (hashparams.pin === b._id) return 1;
+                        if (searchparams.get('pin') === a._id) return -1;
+                        if (searchparams.get('pin') === b._id) return 1;
                         // if neither are pinned, sort by date.
                         return a.createdAt < b.createdAt ? 1 : a.createdAt > b.createdAt ? -1 : 0
                       })
@@ -236,11 +236,11 @@ export const Theme = (props: any) => {
                         // lower the hex amount by x percent
                         const darker = darkenByHalf(color);
                         let class_name = "px-1 rounded-md mb-3 text-lg notification-card text-white items-between";
-                        if (hashparams.pin === wish._id) {
+                        if (searchparams.get('pin') === wish._id) {
                           class_name += " pinned_wish";
                         }
 
-                        const themeparam = hashparams.theme ? `,theme:${hashparams.theme}` : "";
+                        const themeparam = searchparams.get('theme') ? `&theme=${searchparams.get('theme')}` : "";
 
                         return <div
                           data-createdat={wish?.createdAt}
@@ -263,7 +263,7 @@ export const Theme = (props: any) => {
                                 onClick={(e) => {
                                   e.preventDefault();
                                   e.stopPropagation();
-                                navigator.clipboard.writeText(`https://thinkpeace.app/wishes#pin:${wish._id}${themeparam}`);
+                                navigator.clipboard.writeText(`https://thinkpeace.app/wishes?pin=${wish._id}${themeparam}`);
                               }}
                             >
                               <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -275,7 +275,7 @@ export const Theme = (props: any) => {
                               <a className="opacity-50" href={urlBuilder("https://www.facebook.com/dialog/share", {
                                 'text': `Sent a wish for ${wish.hashTag} on Think Peace.`,
                                 'app_id': '191916623657356',
-                                'href': `https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`
+                                'href': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`
                               })} target="_blank" title="Copy Link to Clipboard">
                                 <svg fill="#ffffff" width="30px" height="30px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M12 2.03998C6.5 2.03998 2 6.52998 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.84998C10.44 7.33998 11.93 5.95998 14.22 5.95998C15.31 5.95998 16.45 6.14998 16.45 6.14998V8.61998H15.19C13.95 8.61998 13.56 9.38998 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96C15.9164 21.5878 18.0622 20.3855 19.6099 18.57C21.1576 16.7546 22.0054 14.4456 22 12.06C22 6.52998 17.5 2.03998 12 2.03998Z"/>
@@ -283,7 +283,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://twitter.com/intent/tweet", {
-                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`,
+                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                               })} target="_blank" title="Share with Twitter">
                                 <svg width="25px" height="25px" viewBox="0 -2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
@@ -300,7 +300,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://api.whatsapp.com/send", {
-                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`,
+                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                                 'type': 'custom_url',
                                 'app_absent': '0',
                               })} target="_blank" title="Share with What's App">
@@ -317,7 +317,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://www.reddit.com/submit", {
-                                'url': `https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`,
+                                'url': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                                 'title': `Sent a wish for ${wish.hashTag} on Think Peace.`,
                               })} target="_blank" title="Share on ReddIt">
                                 <svg width="25px" height="25px" viewBox="0 -1.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -334,7 +334,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://www.linkedin.com/shareArticle", {
-                                'url': `https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`,
+                                'url': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                                 'title': `Sent a wish for ${wish.hashTag} on Think Peace `,
                               })} target="_blank" title="Share on Linked In">
                                 <svg width="21px" height="21px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -351,7 +351,7 @@ export const Theme = (props: any) => {
                                 </svg>
                               </a>
 
-                              <a className="opacity-50" href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%23pin%3a${wish._id}${themeparam}`} target="_blank" title="Share with email">
+                              <a className="opacity-50" href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`} target="_blank" title="Share with email">
                                 <svg fill="#ffffff" width="22px" height="22px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z" fillRule="evenodd"/>
                               </svg>

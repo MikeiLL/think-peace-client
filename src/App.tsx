@@ -12,7 +12,7 @@ import Screen from "pages/wishes/screen";
 /**
  * Globals
  */
-// URL parameters
+// URL parameters Deprecated
 const urlparams:any = {};
 window.location.hash.slice(1).split(",").forEach(tok => {
   const [kw, val] = tok.split(":");
@@ -20,6 +20,10 @@ window.location.hash.slice(1).split(",").forEach(tok => {
 });
 // @ts-ignore
 window.hash_params = urlparams;
+
+// @ts-ignore
+window.searchParams = new URLSearchParams(window.location.search);
+// considering: pin, theme, version as of June 2023
 
 // @ts-ignore
 window.wishHashtags = [
