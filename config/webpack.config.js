@@ -419,7 +419,7 @@ module.exports = function (webpackEnv) {
                     },
                   ],
                 ],
-                
+
                 plugins: [
                   isEnvDevelopment &&
                     shouldUseReactRefresh &&
@@ -453,7 +453,7 @@ module.exports = function (webpackEnv) {
                 cacheDirectory: true,
                 // See #6846 for context on why cacheCompression is disabled
                 cacheCompression: false,
-                
+
                 // Babel sourcemaps are needed for debugging into node_modules
                 // code.  Without the options below, debuggers like VSCode
                 // show incorrect code and set breakpoints on the wrong lines.
@@ -569,7 +569,46 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
+            chunks: ['index'],
             template: paths.appHtml,
+            /* templateParameters: {
+              PUBLIC_URL: paths.publicUrlOrPath.endsWith('/')
+                ? paths.publicUrlOrPath
+                : paths.publicUrlOrPath + '/',
+            }, */
+            filename: 'index.html',
+          },
+          isEnvProduction
+            ? {
+                minify: {
+                  removeComments: true,
+                  collapseWhitespace: true,
+                  removeRedundantAttributes: true,
+                  useShortDoctype: true,
+                  removeEmptyAttributes: true,
+                  removeStyleLinkTypeAttributes: true,
+                  keepClosingSlash: true,
+                  minifyJS: true,
+                  minifyCSS: true,
+                  minifyURLs: true,
+                },
+              }
+            : undefined
+        )
+      ),
+      new HtmlWebpackPlugin(
+        Object.assign(
+          {},
+          {
+            inject: true,
+            chunks: ['main'],
+            template: paths.appTemplate,
+            /* templateParameters: {
+              PUBLIC_URL: paths.publicUrlOrPath.endsWith('/')
+                ? paths.publicUrlOrPath
+                : paths.publicUrlOrPath + '/',
+            }, */
+            filename: 'templates/main.html',
           },
           isEnvProduction
             ? {
