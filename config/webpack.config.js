@@ -569,7 +569,6 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
-            chunks: ['index'],
             template: paths.appHtml,
             /* templateParameters: {
               PUBLIC_URL: paths.publicUrlOrPath.endsWith('/')
@@ -601,7 +600,6 @@ module.exports = function (webpackEnv) {
           {},
           {
             inject: true,
-            chunks: ['main'],
             template: paths.appTemplate,
             /* templateParameters: {
               PUBLIC_URL: paths.publicUrlOrPath.endsWith('/')
