@@ -2,21 +2,25 @@
 <html lang="en">
 
 <head>
+
+  {% block head %}
   <meta charset="utf-8" />
   <link rel="icon" href="favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Imagine, show and know peace" />
+
+  {% block opengraph %}
   <meta property="og:title" content="Think Peace | Imagine, show, and know peace">
   <meta property="og:site_name" content="Think Peace">
-  <meta property="og:url" content="https://www.thinkpeace.app">
+  <meta property="og:url" content="https://thinkpeace.app">
   <meta property="og:description"
     content="A MMOPN (Massively Multiuser Online Peace Network) that uses meditation, music and art for capturing and communicating peace. Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://www.thinkpeace.app/thinkpeacebanner1200x630.png">
+  <meta property="og:image" content="thinkpeacebanner1200x630.png">
   <meta property="og:image:alt"
     content="In the range of human expression and experiences, peace is an advanced concept. It is also less durable; folks in the know understand this and find ways to activate peace inside and outside every day.">
-
+  {% endblock %}
   <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -31,7 +35,7 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>Think Peace</title>
+  <title>{{ page_title }}</title>
 
   <script>
     window.onload = function () {
@@ -44,8 +48,9 @@
     setInterval(() => window.refreshWishes(), 60000);
   </script>
   <script
-    src="https://maps.googleapis.com/maps/api/js?key=%REACT_APP_GOOGLE_API_KEY%&libraries=places&callback=function_null">
+    src="https://maps.googleapis.com/maps/api/js?key={{REACT_APP_GOOGLE_API_KEY}}&libraries=places&callback=function_null">
     </script>
+  {% endblock %}
 </head>
 
 <body style="background:#10114C">
