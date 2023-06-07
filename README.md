@@ -38,3 +38,11 @@ Server running on Heroku:
 
 ### scale dyno quantity up or down
 `heroku ps:scale web=1:Basic`
+
+These commands will tell heroku to use two build steps:
+`heroku buildpacks:set heroku/python`
+`heroku buildpacks:add --index 1 heroku/nodejs`
+
+See also https://devcenter.heroku.com/articles/nodejs-support#heroku-specific-build-steps
+
+May also want `git push heroku main` if automatic deploys aren't working.
