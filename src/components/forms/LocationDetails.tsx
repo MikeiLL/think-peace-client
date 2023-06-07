@@ -19,6 +19,7 @@ export const LocationDetails = () => {
   const [errorMessage, setErrorMessage] = useState();
 
   const submitHandler = async (e: React.ChangeEvent<any>) => {
+    // Not sure why this is an async function.
     e.preventDefault();
 
     const payload = {
@@ -35,12 +36,14 @@ export const LocationDetails = () => {
         console.log(response);
         //@ts-ignore
         window.refreshWishes();
-        navigate("/wishes#pin:" + response.data._id);
+        //@ts-ignore
+        window.searchParams.set("pin", response.data._id);
+        //@ts-ignore
+        navigate("/wishes?" + window.searchParams);
       })
       .catch((error) => {
         console.log("Err", error);
         if (error.response.status === 400) {
-          // navigate("/login");
           setErrorMessage(error.response.data.error);
         }
       });
