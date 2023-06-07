@@ -30,6 +30,8 @@ window.wishHashtags = [
 
 ## Deployment
 
+For local development, `yarn start` and/or `python3 server.py`.
+
 Server running on Heroku:
 
 `heroku git:remote -a APP` (where `APP` might be `thinkpeace`)

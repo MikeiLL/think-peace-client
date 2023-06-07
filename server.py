@@ -16,19 +16,20 @@ def wishes():
     og_url="wishes"
     og_image="thinkpeacebanner1200x630.png"
     pin = request.args.get('pin')
-    theme = request.args.get('theme')
+    theme = request.args.get('theme') or 'prototype'
+    hashTag = None
     if (pin is not None):
       wish = requests.get('http://think-peace.herokuapp.com/wishes?pin=' + pin).json()
       hashTag = wish.get('hashTag')[1:]
 
-    # if (hashTag is not None):
-    if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
-      # maybe eventually we can dynamically build share files
-      # for now, allow artist to upload their own share files
-      # per theme.
-      og_image="themes/" + theme + "/images/og/" + hashTag.lower() + ".png"
-    elif (os.path.exists('build/themes/prototype/images/og/' + hashTag.lower() + '.png')):
-      og_image="themes/prototype/images/og/" + hashTag.lower() + ".png"
+    if (hashTag is not None):
+      if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
+        # maybe eventually we can dynamically build share files
+        # for now, allow artist to upload their own share files
+        # per theme.
+        og_image="themes/" + theme + "/images/og/" + hashTag.lower() + ".png"
+      elif (os.path.exists('build/themes/prototype/images/og/' + hashTag.lower() + '.png')):
+        og_image="themes/prototype/images/og/" + hashTag.lower() + ".png"
 
     return render_template("wishes.html",
       REACT_APP_GOOGLE_API_KEY = os.getenv('REACT_APP_GOOGLE_API_KEY'),
