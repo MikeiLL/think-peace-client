@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, Response, render_template
+from flask import Flask, request, jsonify, Response, render_template, send_from_directory, send_file
 from dotenv import load_dotenv
 import os
 import requests
@@ -30,8 +30,11 @@ def wishes():
 @app.route("/contribute")
 @app.route("/about")
 @app.route("/wish")
-def index(path=None):
-    print("path", path)
+def index():
     return app.send_static_file('index.html')
+
+@app.route("/themes/<path:path>")
+def themes(path=None):
+    return send_from_directory('public/themes', path)
 
 app.run(port=3000)
