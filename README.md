@@ -26,3 +26,13 @@ window.wishHashtags = [
   "#faith",
   etc...
 ]
+
+
+## Deployment
+
+Server running on Heroku:
+
+`heroku git:remote -a APP` (where `APP` might be `thinkpeace`)
+
+### scale dyno quantity up or down
+`heroku ps:scale web=1:eco`
