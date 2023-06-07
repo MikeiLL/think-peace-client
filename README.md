@@ -27,7 +27,6 @@ window.wishHashtags = [
   etc...
 ]
 
-
 ## Deployment
 
 For local development, `yarn start` and/or `python3 server.py`.
@@ -35,6 +34,11 @@ For local development, `yarn start` and/or `python3 server.py`.
 Server running on Heroku:
 
 `heroku git:remote -a APP` (where `APP` might be `thinkpeace`)
+
+### Configs
+
+`heroku config:set REACT_APP_GOOGLE_API_KEY=dbuIQY4wpPVbB8DO_p2-0blablabla`
+`heroku config:set REACT_APP_ENDPOINT=http://think-peace.herokuapp.com`
 
 ### scale dyno quantity up or down
 `heroku ps:scale web=1:Basic`
