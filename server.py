@@ -46,4 +46,5 @@ def index():
 def themes(path=None):
     return send_from_directory('public/themes', path)
 
-app.run(port=3000)
+if (__name__ == "__main__"):
+    app.run(port=3000)
