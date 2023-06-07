@@ -37,11 +37,11 @@ export const About = () => {
           <div className="ml-6">
             <p className="mb-2">Send a wish:</p>
             <ul className="mb-2 ml-4 list-none">
-              <li> In the menu at the top right, touch and hold <span className="block ml-4">Send a new wish</span></li>
-              <li> Continue to hold the screen while making the wish</li>
-              <li> Release the screen to send the wish</li>
-              <li> When you see the Thank You window, select
-                <ul className="mb-2 ml-8 list-none">
+              <li className="before:content-['–']"> &nbsp;In the menu at the top right, touch and hold <span className="block ml-8">Send a new wish</span></li>
+              <li className="before:content-['–']"> &nbsp;Continue to hold the screen while making the wish</li>
+              <li className="before:content-['–']"> &nbsp;Release the screen to send the wish</li>
+              <li className="before:content-['–']"> &nbsp;When you see the Thank You window, select
+                <ul className="mb-2 ml-8 list-disc">
                   <li>the location of the wish source</li>
                   <li>the destination of the wish</li>
                   <li>the kind of wish</li>
@@ -54,10 +54,10 @@ export const About = () => {
               <li>You can use the social media options in the lower right to forward wishes to friends</li>
             </ul>
             <p className="mb-2">See today's wishes:</p>
-            <ul className="mb-2 ml-4 list-none">
-              <li> In the menu at the top right, select <span className="block ml-4">Today's wishes</span></li>
-              <li> Use the top controls to
-                <ul className="mb-2 ml-8 list-none">
+            <ul className="mb-2 ml-4  list-none">
+              <li className="before:content-['–']"> &nbsp;In the menu at the top right, select <span className="block ml-8">Today's wishes</span></li>
+              <li className="before:content-['–']"> &nbsp;Use the top controls to
+                <ul className="mb-2 ml-8 list-disc">
                   <li>see the wishes and maps</li>
                   <li>enable visualizations and music that respond to wish activity</li>
                 </ul>
