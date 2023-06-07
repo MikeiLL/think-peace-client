@@ -13,14 +13,25 @@ def wishes():
     og_description="Coming soon."
     page_title="Wishes!!!!!!!"
     meta_description="The Wishes page."
-    og_url="https://thinkpeace.app/wishes"
-    og_image="https://www.thinkpeace.app/comingsoon.gif"
+    og_url="wishes"
+    og_image="thinkpeacebanner1200x630.png"
     pin = request.args.get('pin')
     theme = request.args.get('theme')
-    r = requests.get('http://think-peace.herokuapp.com/wishes')
-    wishes = r.json()
-    wishes[0].get('_id')
+    if (pin is not None):
+      print(pin)
+      wish = requests.get('http://think-peace.herokuapp.com/wishes?pin=' + pin).json()
+      print(pin)
+      hashTag = wish.get('hashTag')[1:]
+      print(hashTag)
 
+    # if (hashTag is not None):
+    if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
+      # maybe eventually we can dynamically build share files
+      # for now, allow artist to upload their own share files
+      # per theme.
+      print("found image")
+      print(hashTag)
+      og_image="themes/" + theme + "/images/og/" + hashTag.lower() + ".png"
     return render_template("wishes.html",
       REACT_APP_GOOGLE_API_KEY = os.getenv('REACT_APP_GOOGLE_API_KEY'),
       pin=pin, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=meta_description, og_url=og_url)
