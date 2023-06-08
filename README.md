@@ -55,3 +55,4 @@ May also want `git push heroku main` if automatic deploys aren't working.
 
 `heroku certs:auto:enable`
 see: https://devcenter.heroku.com/articles/automated-certificate-management
+Also `openssl s_client -connect thinkpeace.app:443`
