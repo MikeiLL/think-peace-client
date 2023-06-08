@@ -249,14 +249,15 @@ export const Theme = (props: any) => {
                           className={class_name}
                           style={{background: darker }}
                         >
-                          <h4>{`${wish?.hashTag} at ${moment(
+                          <h4 className="text-lg">{`${wish?.hashTag}`} <em className="text-sm">from</em> {`${wish.from?.fullAdress}`} <em className="text-sm">to</em>  {`${wish.to?.fullAdress}`}</h4>
+
+
+                          <div className="flex justify-between">
+                            <div className="text-sm opacity-50 leading-loose gap-x-2 pl-1">
+                              {moment(
                             wish.createdAt
-                          ).format("LT")} ${"from " + wish.from?.fullAdress +
-                            " to " + wish.to?.fullAdress
-                            }`}</h4>
-
-
-                          <div className="flex justify-end">
+                              ).format("LT")}
+                            </div>
                             <div className="social-share flex items-center gap-x-2 pr-1">
 
                             <a className="opacity-50" href="" target="_blank" title="Copy Link to Clipboard"
