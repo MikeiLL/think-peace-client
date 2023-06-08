@@ -50,3 +50,8 @@ These commands will tell heroku to use two build steps:
 See also https://devcenter.heroku.com/articles/nodejs-support#heroku-specific-build-steps
 
 May also want `git push heroku main` if automatic deploys aren't working.
+
+### For SSL
+
+`heroku certs:auto:enable`
+see: https://devcenter.heroku.com/articles/automated-certificate-management
