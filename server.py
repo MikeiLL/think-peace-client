@@ -34,7 +34,7 @@ def wishes():
 
     return render_template("wishes.html",
       REACT_APP_GOOGLE_API_KEY = os.getenv('REACT_APP_GOOGLE_API_KEY'),
-      pin=pin, og_title=og_title, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=meta_description, og_url=og_url)
+      pin=pin, og_title=og_title, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=og_description, og_url=og_url)
 
 @app.route("/")
 @app.route("/artists")

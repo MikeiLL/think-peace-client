@@ -274,7 +274,7 @@ export const Theme = (props: any) => {
                             </a>
 
                               <a className="opacity-50" href={urlBuilder("https://www.facebook.com/dialog/share", {
-                                'text': `Sent a wish for ${wish.hashTag} on Think Peace.`,
+                                'text': `Here is a wish for ${wish.hashTag} Activate your own peace today, then give it away.`,
                                 'app_id': '191916623657356',
                                 'href': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`
                               })} target="_blank" title="Copy Link to Clipboard">
@@ -284,7 +284,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://twitter.com/intent/tweet", {
-                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
+                                'text': `Herer is a wish for ${wish.hashTag} Activate your own peace today, then give it away. https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                               })} target="_blank" title="Share with Twitter">
                                 <svg width="25px" height="25px" viewBox="0 -2 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
@@ -301,7 +301,7 @@ export const Theme = (props: any) => {
                               </a>
 
                               <a className="opacity-50" href={urlBuilder("https://api.whatsapp.com/send", {
-                                'text': `Sent a wish for ${wish.hashTag} on Think Peace https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
+                                'text': `Here is a wish for ${wish.hashTag}. Activate your own peace today, then give it away. https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
                                 'type': 'custom_url',
                                 'app_absent': '0',
                               })} target="_blank" title="Share with What's App">
@@ -319,7 +319,7 @@ export const Theme = (props: any) => {
 
                               <a className="opacity-50" href={urlBuilder("https://www.reddit.com/submit", {
                                 'url': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
-                                'title': `Sent a wish for ${wish.hashTag} on Think Peace.`,
+                                'title': `Here is a wish for ${wish.hashTag}. Activate your own peace today, then give it away.`,
                               })} target="_blank" title="Share on ReddIt">
                                 <svg width="25px" height="25px" viewBox="0 -1.5 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
                                     <g id="Page-1" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -336,7 +336,7 @@ export const Theme = (props: any) => {
 
                               <a className="opacity-50" href={urlBuilder("https://www.linkedin.com/shareArticle", {
                                 'url': `https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`,
-                                'title': `Sent a wish for ${wish.hashTag} on Think Peace `,
+                                'title': `Here is a wish for ${wish.hashTag}. Activate your own peace today, then give it away.`,
                               })} target="_blank" title="Share on Linked In">
                                 <svg width="21px" height="21px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg">
 
@@ -352,7 +352,7 @@ export const Theme = (props: any) => {
                                 </svg>
                               </a>
 
-                              <a className="opacity-50" href={`mailto:?subject=Sent%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=You%20can%20check%20it%20out%20here: https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`} target="_blank" title="Share with email">
+                              <a className="opacity-50" href={`mailto:?subject=Here%20is%20a%20wish%20for%20${wish.hashTag.replace('#', '%23')}%20on%20Think%20Peace&body=Activate%20your%20own%20peace%20today,%20then%20give%20it%20away.: https://thinkpeace.app/wishes%26pin%3d${wish._id}${themeparam}`} target="_blank" title="Share with email">
                                 <svg fill="#ffffff" width="22px" height="22px" viewBox="0 0 1920 1920" xmlns="http://www.w3.org/2000/svg">
                                   <path d="M1920 428.266v1189.54l-464.16-580.146-88.203 70.585 468.679 585.904H83.684l468.679-585.904-88.202-70.585L0 1617.805V428.265l959.944 832.441L1920 428.266ZM1919.932 226v52.627l-959.943 832.44L.045 278.628V226h1919.887Z" fillRule="evenodd"/>
                               </svg>
