@@ -34,6 +34,7 @@ For local development, `yarn start` and/or `python3 server.py`.
 Server running on Heroku:
 
 `heroku git:remote -a APP` (where `APP` might be `thinkpeace`)
+`heroku domain:add thinkpeace.app` and `heroku domain:add www.thinkpeace.app`
 
 ### Configs
 
