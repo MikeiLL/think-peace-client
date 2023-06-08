@@ -1,10 +1,9 @@
 {% extends "main.html" %}
 {% block opengraph %}
-<meta property="og:title" content="Think Peace | Imagine, show, and know peace">
+<meta property="og:title" content="{{ og_title }}">
 <meta property="og:site_name" content="Think Peace">
 <meta property="og:url" content="https://thinkpeace.app">
-<meta property="og:description"
-  content="A MMOPN (Massively Multiuser Online Peace Network) that uses meditation, music and art for capturing and communicating peace. Each wish in Think Peace ignites dynamic displays of music, art, and vibration, and then fades away after 24 hours.">
+<meta property="og:description" content="{{ og_description }}">
 <meta property="og:type" content="website">
 <meta property="og:image" content="{{og_image}}">
 <meta property="og:image:alt"
