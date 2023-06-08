@@ -15,15 +15,19 @@ def wishes():
     og_url="wishes"
     og_image="thinkpeacebanner1200x630.png"
     og_title="Here is a wish for you!"
+    og_image_alt="Think Peace wishes screen"
     pin = request.args.get('pin')
     theme = request.args.get('theme') or 'prototype'
+    og_url = og_url + '?theme=' + theme
     hashTag = None
     if (pin is not None):
       wish = requests.get('http://think-peace.herokuapp.com/wishes?pin=' + pin).json()
       hashTag = wish.get('hashTag')[1:]
+      og_url = og_url + '?pin=' + pin + '&theme=' + theme
 
     if (hashTag is not None):
       og_title="Here is a wish for #" + hashTag + ' on Think Peace.'
+      og_image_alt="Think Peace wishes screen featuring a wish for #" + hashTag
       if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
         # maybe eventually we can dynamically build share files
         # for now, allow artist to upload their own share files
@@ -34,7 +38,7 @@ def wishes():
 
     return render_template("wishes.html",
       REACT_APP_GOOGLE_API_KEY = os.getenv('REACT_APP_GOOGLE_API_KEY'),
-      pin=pin, og_title=og_title, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=og_description, og_url=og_url)
+      pin=pin, og_title=og_title, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=og_description, og_url=og_url, og_image_alt=og_image_alt)
 
 @app.route("/")
 @app.route("/artists")
