@@ -5,6 +5,8 @@ import requests
 
 load_dotenv()
 
+REACT_APP_ENDPOINT = os.getenv('REACT_APP_ENDPOINT')
+
 app = Flask(__name__, static_url_path='', static_folder='build', template_folder="build/templates")
 app.config['DEBUG'] = True
 
@@ -21,10 +23,13 @@ def wishes():
     og_url = og_url + '?theme=' + theme
     hashTag = None
     if (pin is not None):
-      wish = requests.get('http://think-peace.herokuapp.com/wishes?pin=' + pin).json()
-      hashTag = wish.get('hashTag')[1:]
-      og_url = og_url + '?pin=' + pin + '&theme=' + theme
-
+      try:
+        # In case the pin isn't a valid wish, let's not crash the app.
+        wish = requests.get(REACT_APP_ENDPOINT+'/wishes?pin=' + pin).json()
+        hashTag = wish.get('hashTag')
+        og_url = og_url + '?pin=' + pin + '&theme=' + theme
+      except AttributeError:
+        pass
     if (hashTag is not None):
       og_title="Here is a wish for #" + hashTag + ' on Think Peace.'
       og_image_alt="Think Peace wishes screen featuring a wish for #" + hashTag
