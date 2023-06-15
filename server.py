@@ -27,11 +27,15 @@ def wishes():
         # In case the pin isn't a valid wish, let's not crash the app.
         wish = requests.get(REACT_APP_ENDPOINT+'/wishes?pin=' + pin).json()
         hashTag = wish.get('hashTag')
+        pinnedTo = wish.get('to')
+        pinnedFrom = wish.get('from')
+        toAddress = pinnedTo.get('fullAdress')
+        fromAddress = pinnedFrom.get('fullAdress')
         og_url = og_url + '?pin=' + pin + '&theme=' + theme
       except AttributeError:
         pass
-    if (hashTag is not None):
-      og_title="Here is a wish for " + hashTag + ' on Think Peace.'
+    if (hashTag is not None and toAddress is not None and fromAddress is not None):
+      og_title='Here is a wish for ' + hashTag + ' from  ' + fromAddress + ' to ' + toAddress + ' on Think Peace.'
       og_image_alt="Think Peace wishes screen featuring a wish for #" + hashTag
       if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
         # maybe eventually we can dynamically build share files
