@@ -26,7 +26,7 @@ def wishes():
       try:
         # In case the pin isn't a valid wish, let's not crash the app.
         wish = requests.get(REACT_APP_ENDPOINT+'/wishes?pin=' + pin).json()
-        hashTag = wish.get('hashTag')
+        hashTag = wish.get('hashTag')[1:]
         pinnedTo = wish.get('to')
         pinnedFrom = wish.get('from')
         toAddress = pinnedTo.get('fullAdress')
