@@ -35,7 +35,7 @@ def wishes():
       except AttributeError:
         pass
     if (hashTag is not None and toAddress is not None and fromAddress is not None):
-      og_title='Here is a wish for ' + hashTag + ' from  ' + fromAddress + ' to ' + toAddress + ' on Think Peace.'
+      og_title='Here is a wish for #' + hashTag + ' from  ' + fromAddress + ' to ' + toAddress + ' on Think Peace.'
       og_image_alt="Think Peace wishes screen featuring a wish for #" + hashTag
       if (os.path.exists('build/themes/' + theme + '/images/og/' + hashTag.lower() + '.png')):
         # maybe eventually we can dynamically build share files
