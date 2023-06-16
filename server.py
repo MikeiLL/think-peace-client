@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify, Response, render_template, send_from_
 from dotenv import load_dotenv
 import os
 import requests
+from json import JSONDecodeError
 
 load_dotenv()
 
@@ -22,6 +23,7 @@ def wishes():
     theme = request.args.get('theme') or 'prototype'
     og_url = og_url + '?theme=' + theme
     hashTag = None
+    expiredWish = None
     if (pin is not None):
       try:
         # In case the pin isn't a valid wish, let's not crash the app.
@@ -32,8 +34,8 @@ def wishes():
         toAddress = pinnedTo.get('fullAdress')
         fromAddress = pinnedFrom.get('fullAdress')
         og_url = og_url + '?pin=' + pin + '&theme=' + theme
-      except AttributeError:
-        pass
+      except (TypeError, AttributeError, JSONDecodeError) as e:
+        expiredWish = True
     if (hashTag is not None and toAddress is not None and fromAddress is not None):
       og_title='Here is a wish for #' + hashTag + ' from  ' + fromAddress + ' to ' + toAddress + ' on Think Peace.'
       og_image_alt="Think Peace wishes screen featuring a wish for #" + hashTag
@@ -47,7 +49,12 @@ def wishes():
 
     return render_template("wishes.html",
       REACT_APP_GOOGLE_API_KEY = os.getenv('REACT_APP_GOOGLE_API_KEY'),
-      pin=pin, og_title=og_title, theme=theme, og_description=og_description, page_title=page_title, og_image=og_image, meta_description=og_description, og_url=og_url, og_image_alt=og_image_alt)
+        pin=pin, og_title=og_title, theme=theme,
+        og_description=og_description, page_title=page_title,
+        og_image=og_image, meta_description=og_description,
+        og_url=og_url, og_image_alt=og_image_alt,
+        expiredWish=expiredWish
+      )
 
 @app.route("/")
 @app.route("/artists")

@@ -8,3 +8,12 @@
 <meta property="og:image" content="{{og_image}}">
 <meta property="og:image:alt" content="{{ og_image_alt }}">
 {% endblock %}
+{% block extras %}
+{{expiredWish}}
+{% if expiredWish is not none %}
+
+<script>
+  console.log("that wish is expired");
+</script>
+{% endif %}
+{% endblock %}
