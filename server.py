@@ -12,7 +12,7 @@ app.config['DEBUG'] = True
 
 @app.route("/wishes")
 def wishes():
-    og_description="Activate your own peace today, then give it away. Do it again tomorrow. Peace is fragile; we need to find ways to activate it every day. "
+    og_description="Activate your own peace today, then give it away. Do it again tomorrow."
     page_title="Think Peace | Activate your own peace today. Then give it away."
     og_url="wishes"
     og_image="thinkpeacebanner1200x630.png"
