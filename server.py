@@ -14,7 +14,7 @@ app.config['DEBUG'] = True
 @app.route("/wishes")
 def wishes():
     og_description="Activate your own peace today, then give it away. Do it again tomorrow."
-    page_title="Think Peace | Activate your own peace today. Then give it away."
+    page_title="Think Peace | Today's Wishes"
     og_url="wishes"
     og_image="thinkpeacebanner1200x630.png"
     og_title="Here is a wish for you!"
@@ -34,6 +34,7 @@ def wishes():
         toAddress = pinnedTo.get('fullAdress')
         fromAddress = pinnedFrom.get('fullAdress')
         og_url = og_url + '?pin=' + pin + '&theme=' + theme
+        page_title="Think Peace | Today's Wishes - one from " + fromAddress + " to " + toAddress
       except (TypeError, AttributeError, JSONDecodeError) as e:
         expiredWish = True
     if (hashTag is not None and toAddress is not None and fromAddress is not None):
