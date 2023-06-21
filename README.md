@@ -33,6 +33,8 @@ For local development, `yarn start` and/or `python3 server.py`.
 
 Server running on Heroku:
 
+May have to run `git push heroku main` if automatic deploys not occurring.
+
 `heroku git:remote -a APP` (where `APP` might be `thinkpeace`)
 `heroku domain:add thinkpeace.app` and `heroku domain:add www.thinkpeace.app`
 
