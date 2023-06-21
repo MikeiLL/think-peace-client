@@ -17,7 +17,7 @@ def wishes():
     page_title="Think Peace | Today's Wishes"
     og_url="wishes"
     og_image="thinkpeacebanner1200x630.png"
-    og_title="Think Peace | Today's Wishes"
+    og_title="Think Peace | Today's wishes"
     og_image_alt="Think Peace wishes screen"
     pin = request.args.get('pin')
     theme = request.args.get('theme') or 'prototype'
