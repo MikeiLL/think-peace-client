@@ -317,6 +317,18 @@ Note: Beware of modifying this element as it can break the animations - you shou
 @tailwind components;
 @tailwind utilities;
 
+/* Override Tailwind background opacity */
+.btn-disabled,
+.btn-disabled:hover,
+.btn[disabled],
+.btn[disabled]:hover {
+  --tw-border-opacity: 1;
+  --tw-bg-opacity: 0.8;
+  --tw-text-opacity: 0.8;
+  background-color: hsl(219 88.085% 88.843%/var(--tw-bg-opacity));
+  color: hsl(215 88.907% 88.863%/var(--tw-text-opacity));
+}
+
 .pinned_wish {
   box-shadow: 0 0 30px 9px rgb(233, 187, 233, 0.7), inset 0 0 10px 5px rgb(233, 220, 233, 0.3);
 }

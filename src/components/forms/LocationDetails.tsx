@@ -6,11 +6,13 @@ import {useNavigate} from "react-router-dom";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 export const LocationDetails = () => {
+  console.log("LocationDetails");
 
   const [hashTag, setHashTag] = useState("#peace");
 
   const [sendToState, setSendToState]: any = useState(null);
   const [sendToCity, setSendToCity] = useState("");
+  const [isSubmitting, setSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -21,6 +23,8 @@ export const LocationDetails = () => {
   const submitHandler = async (e: React.ChangeEvent<any>) => {
     // Not sure why this is an async function.
     e.preventDefault();
+    setSubmitting(true);
+
 
     const payload = {
       from: comingFromAddress,
@@ -33,7 +37,6 @@ export const LocationDetails = () => {
     axios
       .post(endpoints.wish.CREATE, payload)
       .then((response) => {
-        console.log(response);
         //@ts-ignore
         window.refreshWishes();
         //@ts-ignore
@@ -120,8 +123,11 @@ export const LocationDetails = () => {
         </section>
 
         <div className="flex justify-center">
-          <button className="btn bg-white hover:bg-white focus:bg-white text-gray-700 mt-3 mx-auto rounded-full px-8">
-            Send
+          <button
+            disabled={isSubmitting}
+            id="sendWish"
+            className="btn bg-white hover:bg-white focus:bg-white text-gray-700 mt-3 mx-auto rounded-full px-8">
+            {isSubmitting ? "Sending..." : "Send"}
           </button>
         </div>
       </form>
