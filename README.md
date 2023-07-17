@@ -43,6 +43,9 @@ May have to run `git push heroku main` if automatic deploys not occurring.
 `heroku config:set REACT_APP_GOOGLE_API_KEY=dbuIQY4wpPVbB8DO_p2-0blablabla`
 `heroku config:set REACT_APP_ENDPOINT=http://think-peace.herokuapp.com`
 
+### Switch organization/team:
+`export HEROKU_ORGANIZATION=storybook`
+
 ### scale dyno quantity up or down
 `heroku ps:scale web=1:Basic`
 
