@@ -1,1 +1,2 @@
-source env/bin activate
+pyenv activate thinkpeaceclient
+nvm use 16
