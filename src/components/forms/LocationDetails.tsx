@@ -6,7 +6,6 @@ import {useNavigate} from "react-router-dom";
 import GooglePlacesAutocomplete from 'react-google-places-autocomplete';
 
 export const LocationDetails = () => {
-  console.log("LocationDetails");
 
   const [hashTag, setHashTag] = useState("#peace");
 
@@ -20,15 +19,19 @@ export const LocationDetails = () => {
   const [sendingToAddress, setSendingToAddress] = useState();
   const [errorMessage, setErrorMessage] = useState();
 
+  const defaultOptions = {
+    from: "Someone",
+    to: "Earth",
+  };
+
   const submitHandler = async (e: React.ChangeEvent<any>) => {
     // Not sure why this is an async function.
     e.preventDefault();
     setSubmitting(true);
 
-
     const payload = {
-      from: comingFromAddress,
-      to: sendingToAddress,
+      from: comingFromAddress || {label: defaultOptions.from},
+      to: sendingToAddress || {label: defaultOptions.to},
       hashTag,
     };
 
@@ -97,6 +100,7 @@ export const LocationDetails = () => {
               onChange: setComingFromAddress,
               className: "mt-1 w-full max-w-xs text-gray-700",
               noOptionsMessage: () => "No results found. Is that a place?",
+              placeholder: defaultOptions.from,
             }}
           />
         </section>
@@ -116,6 +120,7 @@ export const LocationDetails = () => {
               onChange: setSendingToAddress,
               className: "mt-1 w-full max-w-xs bg-white text-gray-700",
               noOptionsMessage: () => "No results found. Is that a place?",
+              placeholder: defaultOptions.to,
             }}
           />
         </section>
