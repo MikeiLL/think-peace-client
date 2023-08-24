@@ -59,6 +59,29 @@ export const LocationDetails = () => {
 
       <form onSubmit={submitHandler}>
 
+      <section className="my-2 flex flex-col items-center">
+          <label
+            className="text-white text-lg pl-2 sm:pl-4 md:pl-10 w-full"
+          >
+            What did you wish for?
+          </label>
+          <select
+            className="select mt-1 w-full max-w-xs bg-white text-gray-700"
+            value={hashTag}
+            onChange={(e) => setHashTag(e.target.value)}
+          >
+            {
+            // @ts-ignore
+            window.wishHashtags.map(
+              (tag:any) => (
+                <option value={tag} key={tag}>
+                  {tag}
+                </option>
+              )
+            )}
+          </select>
+        </section>
+
         <section className="my-2 flex flex-col items-center">
           <label
             className="text-white text-lg pl-2 sm:pl-4 md:pl-10 w-full"
@@ -98,29 +121,6 @@ export const LocationDetails = () => {
         </section>
 
         {errorMessage && <p className="m-auto text-red-500 text-lg text-center mt-1 w-full max-w-xs bg-white border-red-500 rounded">{errorMessage}</p>}
-
-        <section className="my-2 flex flex-col items-center">
-          <label
-            className="text-white text-lg pl-2 sm:pl-4 md:pl-10 w-full"
-          >
-            What did you wish for?
-          </label>
-          <select
-            className="select mt-1 w-full max-w-xs bg-white text-gray-700"
-            value={hashTag}
-            onChange={(e) => setHashTag(e.target.value)}
-          >
-            {
-            // @ts-ignore
-            window.wishHashtags.map(
-              (tag:any) => (
-                <option value={tag} key={tag}>
-                  {tag}
-                </option>
-              )
-            )}
-          </select>
-        </section>
 
         <div className="flex justify-center">
           <button
