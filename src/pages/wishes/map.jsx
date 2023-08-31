@@ -227,7 +227,7 @@ function Map({ markers }) {
     setActiveMarker(marker);
   };
 
-  //   console.log(activeMarker);
+  console.log(activeMarker);
   const handleOnLoad = (map) => {
     const bounds = new window.google.maps.LatLngBounds();
     markers.forEach((wish) => {
@@ -240,9 +240,8 @@ function Map({ markers }) {
     <GoogleMap
       options={{
         styles: mapStyles,
+        streetViewControl: false,
       }}
-      defaultZoom={8}
-      defaultCenter={{ lat: -34.397, lng: 150.644 }}
       onLoad={handleOnLoad}
       onClick={() => setActiveMarker(null)}
       mapContainerStyle={{
