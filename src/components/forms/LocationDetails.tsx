@@ -20,7 +20,7 @@ export const LocationDetails = () => {
   const [errorMessage, setErrorMessage] = useState();
 
   const defaultOptions = {
-    from: "somewhere",
+    from: "Somewhere",
     to: "Earth",
   };
 
