@@ -249,7 +249,7 @@ export const Theme = (props: any) => {
                           className={class_name}
                           style={{background: darker }}
                         >
-                          <h4 className="text-lg">{`${wish?.hashTag}`} <span className="text-sm">from</span> {`${wish.from?.fullAdress}`} <span className="text-sm">to</span>  {`${wish.to?.fullAdress}`}</h4>
+                          <h4 className="text-lg">{`${wish?.hashTag}`} <span className="text-sm">from</span> {`${wish.from?.fullAddress}`} <span className="text-sm">to</span>  {`${wish.to?.fullAddress}`}</h4>
 
 
                           <div className="flex justify-between">

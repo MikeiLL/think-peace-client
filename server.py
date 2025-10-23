@@ -31,8 +31,8 @@ def wishes():
         hashTag = wish.get('hashTag')[1:]
         pinnedTo = wish.get('to')
         pinnedFrom = wish.get('from')
-        toAddress = pinnedTo.get('fullAdress')
-        fromAddress = pinnedFrom.get('fullAdress')
+        toAddress = pinnedTo.get('fullAddress')
+        fromAddress = pinnedFrom.get('fullAddress')
         og_url = og_url + '?pin=' + pin + '&theme=' + theme
         page_title="Think Peace | Today's Wishes - one from " + fromAddress + " to " + toAddress
       except (TypeError, AttributeError, JSONDecodeError) as e:

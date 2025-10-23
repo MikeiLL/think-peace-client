@@ -2,7 +2,7 @@ interface BaseSchema {
   name: string;
   country: string;
   position: {lat: number; lng: number};
-  fullAdress: string;
+  fullAddress: string;
 }
 
 export interface WishSchema {
